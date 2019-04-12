@@ -15,7 +15,7 @@ E ainda, com a produção e consumação deste, poderemos obter uma nota na aval
 
 
 Inicialmente, um modelo esboçal de diretrizes para o projeto nos foi apresentado:
-	Diretrizes Para Planejamento e Criação do Aplicativo
+	"Diretrizes Para Planejamento e Criação do Aplicativo
 
 Utilização: Para fins de fiscalização e atividades de campo
 
@@ -35,10 +35,11 @@ Acesso ao Google Maps (parceria do Município com a Google)
 Sincronização ao SIAT em tempo real (modo online) e possibilidade de armazenamento (offline) para sincronização posterior
 Envio de notificação em tempo real para e-mail
 
-Produzido por: Djailton Gomes
+Produzido por: Djailton Gomes"
 
 Depois de uma reunião em março de 2019, alguns acordos foram estabelecidos, e então, com base neles, 
 inicialmente devemos lhes servir com as funcionalidades descritas abaixo:
+
 1.
 
 
