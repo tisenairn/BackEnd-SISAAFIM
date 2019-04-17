@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import br.sga.rn.gov.smtsis.models.AuditedEntity;
 import br.sga.rn.gov.smtsis.services.GenericService;
 
+
 public abstract class AbstractController<T extends AuditedEntity> {
 	@Autowired
 	private GenericService<T> service;
