@@ -1,9 +1,10 @@
 
 
 
-	SMTSIS Preâmbulo
+	SMTSIS
 
-Introdução
+										SENAI, São Gonçalo do Amarante, RN.
+Preâmbulo
 
 	Em março de 2019 a Secretaria Municipal de Tributação e a turma de TI do SENAI estabeleceram uma parceria para a modelagem e desenvolvimento de um software integrado a um aplicativo mobile 
 com finalidades Tributárias, para melhorias nos serviços prestados ao município de São Gonçalo do Amarante, RN, para uso na Secretaria supracitada.
@@ -22,29 +23,32 @@ Público-Alvo: Agentes e Auditores Fiscais da Fazenda Municipal
 Coordenadores Responsáveis: Setores de Cadastro Imobiliário, Mobiliário e Mercantil
 
 Características operacionais:
-Funcionamento em tablets e smartphones
-Emissão de relatórios de fiscalização, com dados individuais de usuários e gerais
-Inserção e gerenciamento de atividades individuais e coletivas de fiscalização
-Função para anexar fotos (faixadas de imóveis, estabelecimentos ou qualquer imagem necessária...)
-Formulário de cadastro com sincronização ao SIAT (sistema interno da Secretaria de Tributação)
-Acesso aos dados cadastrados na Receita Federal por meio do CPF/CNPJ
-Acesso aos dados cadastrados no Simples Nacional por meio do CNPJ
-Acesso ao Google Maps (parceria do Município com a Google)
-Sincronização ao SIAT em tempo real (modo online) e possibilidade de armazenamento (offline) para sincronização posterior
-Envio de notificação em tempo real para e-mail
+- Funcionamento em tablets e smartphones;
+- Emissão de relatórios de fiscalização, com dados individuais de usuários e gerais;
+- Inserção e gerenciamento de atividades individuais e coletivas de fiscalização;
+- Função para anexar fotos (faixadas de imóveis, estabelecimentos ou qualquer imagem necessária...);
+- Formulário de cadastro com sincronização ao SIAT (sistema interno da Secretaria de Tributação);
+- Acesso aos dados cadastrados na Receita Federal por meio do CPF/CNPJ;
+- Acesso aos dados cadastrados no Simples Nacional por meio do CNPJ;
+- Acesso ao Google Maps (parceria do Município com a Google);
+- Sincronização ao SIAT em tempo real (modo online) e possibilidade de armazenamento (offline) para sincronização posterior;
+- Envio de notificação em tempo real para e-mail.
 
 Produzido por: Djailton Gomes, Coordenador de Atenção ao Contribuinte".
 
 Descritivo de requisições
 
-Após uma reunião em março de 2019, alguns acordos foram estabelecidos, e então, com base neles, 
-inicialmente, deveremos lhes apresentar um protótipo. Uma interface funcional do sistema baseada no modelo do Boletim de Inscrição Cadastral (BIC).
-Este modelo atualmente, é usado por técnicos auditores da Secretaria Municipal de Tributação (SMT), ele é utilizado manualmente com fichas impressas,
-para que sejam posteriormente cadastrados em um banco de dados do sistema que utilizam atualmente. O fiscal recebe uma demanda de processo, com nome do requerente e número do processo.
-Com o processo em mãos, o fiscal se dirige ao local para obter os dados relacionado ao Imóvel, após a obtenção dos dados que são preenchidos em uma ficha impressa em papel, os dados são cadastrados ou atualizados no sistema SIAT.
-O intuíto dos usuários deste sistema atual, é substituir seus formulários físicos por formulários digitais, onde os auditores possam usar seus aparelhos 'mobile' (móveis),
-para inserir dados no sistema principal, o SIAT.
-Primariamente, devemos lhes servir com as funcionalidades descritas abaixo
+	Após uma reunião em março de 2019, alguns acordos foram estabelecidos, e então, com base neles, inicialmente, deveremos lhes apresentar um protótipo. 
+Uma interface funcional do sistema baseada no modelo do Boletim de Inscrição Cadastral (BIC).
+Este modelo é, atualmente, usado por técnicos auditores da Secretaria Municipal de Tributação (SMT), seu procedimento cadastral é baseado em fichas impressas,
+para que sejam posteriormente cadastrados em um banco de dados do sistema que utilizam.
+Nas palavras de um dos usuários:
+"O fiscal recebe uma demanda de processo, com nome do requerente e número do processo, com o processo em mãos, o fiscal se dirige ao local para obter os dados relacionado ao imóvel,
+após a obtenção dos dados que são preenchidos em uma ficha impressa em papel, os dados são cadastrados ou atualizados no sistema SIAT". Assim descrito por Djailton.
+
+
+	O intuíto dos usuários do sistema atual, é substituir seus formulários físicos por formulários digitais, onde os auditores possam usar seus aparelhos 'mobile' (móveis),
+para de forma ágil e otimizada, inserir dados no sistema principal, o SIAT. A princípio, devemos lhes servir com as funcionalidades descritas abaixo:
 
 1. Produção de uma página web com o formulário do BCI, as quais dispõe das funcionalidades:
 - Inclusão
