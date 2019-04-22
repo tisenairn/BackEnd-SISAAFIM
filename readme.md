@@ -5,8 +5,7 @@
 
 Introdução
 
-	Em março de 2019 a Secretaria Municipal de Tributação e a turma de TI do SENAI
-estabeleceram uma parceria para a modelagem e desenvolvimento de um software integrado a um aplicativo mobile 
+	Em março de 2019 a Secretaria Municipal de Tributação e a turma de TI do SENAI estabeleceram uma parceria para a modelagem e desenvolvimento de um software integrado a um aplicativo mobile 
 com finalidades Tributárias, para melhorias nos serviços prestados ao município de São Gonçalo do Amarante, RN, para uso na Secretaria supracitada.
 O software deverá auxilia-los diariamente no uso de um sistema de terceiros chamado SIAT, 
 o qual não abrange todos as necessidades dos usuários deste. Com base nisto, a Secretaria Municipal de Tributação,
@@ -34,14 +33,16 @@ Acesso ao Google Maps (parceria do Município com a Google)
 Sincronização ao SIAT em tempo real (modo online) e possibilidade de armazenamento (offline) para sincronização posterior
 Envio de notificação em tempo real para e-mail
 
-Produzido por: Djailton Gomes".
+Produzido por: Djailton Gomes, Coordenador de Atenção ao Contribuinte".
 
 Descritivo de requisições
 
 Após uma reunião em março de 2019, alguns acordos foram estabelecidos, e então, com base neles, 
-inicialmente, deveremos lhe apresentar uma interface funcional do sistema baseada no modelo do Boletim de Inscrição Cadastral (BIC).
-Este modelo atualmente, é usado por técnicos auditores da Secretaria Municipal de Tributação (SMT), no qual são usados para coleta de dados 'in loco'.  
-O intuíto dos usuários deste sistema atual, é substituir seus formulários físicos em formulários digitais, onde os auditores possam usar seus aparelhos 'mobile' (móveis),
+inicialmente, deveremos lhes apresentar um protótipo. Uma interface funcional do sistema baseada no modelo do Boletim de Inscrição Cadastral (BIC).
+Este modelo atualmente, é usado por técnicos auditores da Secretaria Municipal de Tributação (SMT), ele é utilizado manualmente com fichas impressas,
+para que sejam posteriormente cadastrados em um banco de dados do sistema que utilizam atualmente. O fiscal recebe uma demanda de processo, com nome do requerente e número do processo.
+Com o processo em mãos, o fiscal se dirige ao local para obter os dados relacionado ao Imóvel, após a obtenção dos dados que são preenchidos em uma ficha impressa em papel, os dados são cadastrados ou atualizados no sistema SIAT.
+O intuíto dos usuários deste sistema atual, é substituir seus formulários físicos por formulários digitais, onde os auditores possam usar seus aparelhos 'mobile' (móveis),
 para inserir dados no sistema principal, o SIAT.
 Primariamente, devemos lhes servir com as funcionalidades descritas abaixo
 
