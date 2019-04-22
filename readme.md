@@ -1,8 +1,9 @@
 
 
 
-	Modelo descritivo
+	SMTSIS Preâmbulo
 
+Introdução
 
 	Em março de 2019 a Secretaria Municipal de Tributação e a turma de TI do SENAI
 estabeleceram uma parceria para a modelagem e desenvolvimento de um software integrado a um aplicativo mobile 
@@ -12,9 +13,7 @@ o qual não abrange todos as necessidades dos usuários deste. Com base nisto, a
 através do aluno Railson Andrade, que faz parte desta turma de TI, nos propôs esta parceria, 
 para que desenvolvêssemos um sistema pensado com exclusividade que supra suas específicas deficiências.
 E ainda, com a produção e consumação deste, poderemos obter uma nota na avaliação final de curso (TCC), assim acordado com o SENAI.
-
-
-Inicialmente, um modelo esboçal de diretrizes para o projeto nos foi apresentado:
+Inicialmente, um modelo esboço de diretrizes para o projeto nos foi apresentado:
 	"Diretrizes Para Planejamento e Criação do Aplicativo
 
 Utilização: Para fins de fiscalização e atividades de campo
@@ -35,12 +34,21 @@ Acesso ao Google Maps (parceria do Município com a Google)
 Sincronização ao SIAT em tempo real (modo online) e possibilidade de armazenamento (offline) para sincronização posterior
 Envio de notificação em tempo real para e-mail
 
-Produzido por: Djailton Gomes"
+Produzido por: Djailton Gomes".
 
-Depois de uma reunião em março de 2019, alguns acordos foram estabelecidos, e então, com base neles, 
-inicialmente devemos lhes servir com as funcionalidades descritas abaixo:
+Descritivo de requisições
 
-1.
+Após uma reunião em março de 2019, alguns acordos foram estabelecidos, e então, com base neles, 
+inicialmente, deveremos lhe apresentar uma interface funcional do sistema baseada no modelo do Boletim de Inscrição Cadastral (BIC).
+Este modelo atualmente, é usado por técnicos auditores da Secretaria Municipal de Tributação (SMT), no qual são usados para coleta de dados 'in loco'.  
+O intuíto dos usuários deste sistema atual, é substituir seus formulários físicos em formulários digitais, onde os auditores possam usar seus aparelhos 'mobile' (móveis),
+para inserir dados no sistema principal, o SIAT.
+Primariamente, devemos lhes servir com as funcionalidades descritas abaixo
+
+1. Produção de uma página web com o formulário do BCI, as quais dispõe das funcionalidades:
+- Inclusão
+- Alteração
+- Exclusão 
 
 
 
@@ -50,4 +58,5 @@ inicialmente devemos lhes servir com as funcionalidades descritas abaixo:
 
 
 
-Versão 1.0	
+Versão 1.0
+	
