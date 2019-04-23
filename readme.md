@@ -1,9 +1,9 @@
 
 
 
-	## SMTSIS
+	## `SMTSIS`
 
-										SENAI, São Gonçalo do Amarante, RN.
+										`2019 - SENAI, São Gonçalo do Amarante, RN.`
 ### Preâmbulo
 
 	No início de 2019, a Secretaria Municipal de Tributação e a turma de TI do SENAI estabeleceram uma parceria para a modelagem e desenvolvimento de um software integrado a um aplicativo mobile 
@@ -17,25 +17,25 @@ Inicialmente, um modelo esboço de diretrizes para o projeto nos foi apresentado
 
 ### Diretrizes Para Planejamento e Criação do Aplicativo
 
-`Utilização: Para fins de fiscalização e atividades de campo
+> Utilização: Para fins de fiscalização e atividades de campo
+> 
+> Público-Alvo: Agentes e Auditores Fiscais da Fazenda Municipal
+> 
+> Coordenadores Responsáveis: Setores de Cadastro Imobiliário, Mobiliário e Mercantil
 
-Público-Alvo: Agentes e Auditores Fiscais da Fazenda Municipal
+> Características operacionais:
+> - Funcionamento em tablets e smartphones;
+> - Emissão de relatórios de fiscalização, com dados individuais de usuários e gerais;
+> - Inserção e gerenciamento de atividades individuais e coletivas de fiscalização;
+> - Função para anexar fotos (faixadas de imóveis, estabelecimentos ou qualquer imagem necessária...);
+> - Formulário de cadastro com sincronização ao SIAT (sistema interno da Secretaria de Tributação);
+> - Acesso aos dados cadastrados na Receita Federal por meio do CPF/CNPJ;
+> - Acesso aos dados cadastrados no Simples Nacional por meio do CNPJ;
+> - Acesso ao Google Maps (parceria do Município com a Google);
+> - Sincronização ao SIAT em tempo real (modo online) e possibilidade de armazenamento (offline) para sincronização posterior;
+> - Envio de notificação em tempo real para e-mail.
 
-Coordenadores Responsáveis: Setores de Cadastro Imobiliário, Mobiliário e Mercantil
-
-Características operacionais:
-- Funcionamento em tablets e smartphones;
-- Emissão de relatórios de fiscalização, com dados individuais de usuários e gerais;
-- Inserção e gerenciamento de atividades individuais e coletivas de fiscalização;
-- Função para anexar fotos (faixadas de imóveis, estabelecimentos ou qualquer imagem necessária...);
-- Formulário de cadastro com sincronização ao SIAT (sistema interno da Secretaria de Tributação);
-- Acesso aos dados cadastrados na Receita Federal por meio do CPF/CNPJ;
-- Acesso aos dados cadastrados no Simples Nacional por meio do CNPJ;
-- Acesso ao Google Maps (parceria do Município com a Google);
-- Sincronização ao SIAT em tempo real (modo online) e possibilidade de armazenamento (offline) para sincronização posterior;
-- Envio de notificação em tempo real para e-mail.`
-
-#### Produzido por: Djailton Gomes, Coordenador de Atenção ao Contribuinte.
+##### Produzido por: Djailton Gomes, Coordenador de Atenção ao Contribuinte.
 
 ### Descritivo de requisições
 
@@ -48,13 +48,13 @@ Nas palavras de um dos usuários:
 após a obtenção dos dados que são preenchidos em uma ficha impressa em papel, os dados são cadastrados ou atualizados no sistema SIAT". Assim descrito por Djailton.
 
 
-	`O intuíto dos usuários do sistema atual, é substituir seus formulários físicos por formulários digitais, onde os auditores possam usar seus aparelhos 'mobile' (móveis),
-para de forma ágil e otimizada, inserir dados no sistema principal, o SIAT. A princípio, devemos lhes servir com as funcionalidades descritas abaixo:`
+	O intuíto dos usuários do sistema atual, é substituir seus formulários físicos por formulários digitais, onde os auditores possam usar seus aparelhos 'mobile' (móveis),
+para de forma ágil e otimizada, inserir dados no sistema principal, o SIAT. A princípio, devemos lhes servir com as funcionalidades descritas abaixo:
 
-> 1. Produção de uma página web com o formulário do BCI, as quais dispõe das funcionalidades:
-> - Inclusão
-> - Alteração
-> - Exclusão 
+1. Produção de uma página web com o formulário do BCI, as quais dispõe das funcionalidades:
+- Inclusão
+- Alteração
+- Exclusão 
 
 
 
