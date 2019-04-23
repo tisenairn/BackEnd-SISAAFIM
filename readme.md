@@ -7,12 +7,12 @@
 >										2019 - SENAI, São Gonçalo do Amarante, RN.
 ### Preâmbulo
 
-	No início de 2019, a Secretaria Municipal de Tributação e a turma de TI do SENAI estabeleceram uma parceria para a 
-modelagem e desenvolvimento de um software integrado a um aplicativo mobile com finalidades Tributárias, 
+	No início de 2019, a Secretaria Municipal de Tributação e a turma de TI do SENAI estabeleceram uma parceria para
+a modelagem e desenvolvimento de um software integrado a um aplicativo mobile com finalidades Tributárias,
 para melhorias nos serviços prestados ao município de São Gonçalo do Amarante, RN, para uso na Secretaria supracitada.
-O software deverá auxilia-los diariamente no uso de um sistema de terceiros chamado SIAT, 
+O software deverá auxilia-los diariamente no uso de um sistema de terceiros chamado SIAT,
 o qual não abrange todos as necessidades dos usuários deste. Com base nisto, a Secretaria Municipal de Tributação,
-através do aluno Railson Andrade, que faz parte desta turma de TI, nos propôs esta parceria, 
+através do aluno Railson Andrade, que faz parte desta turma de TI, nos propôs esta parceria,
 para que desenvolvêssemos um sistema pensado com exclusividade que supra suas específicas deficiências.
 E ainda, com a produção e consumação deste, poderemos obter uma nota na avaliação final de curso (TCC), assim acordado com o SENAI.
 
@@ -21,9 +21,9 @@ Inicialmente, um modelo esboço das diretrizes para o projeto nos foi apresentad
 > ### Diretrizes Para Planejamento e Criação do Aplicativo
 
 > Utilização: Para fins de fiscalização e atividades de campo
-> 
+>
 > Público-Alvo: Agentes e Auditores Fiscais da Fazenda Municipal
-> 
+>
 > Coordenadores Responsáveis: Setores de Cadastro Imobiliário, Mobiliário e Mercantil
 
 > Características operacionais:
@@ -42,7 +42,7 @@ Inicialmente, um modelo esboço das diretrizes para o projeto nos foi apresentad
 
 ### Descritivo de requisições
 
-	Após uma reunião em março de 2019, alguns acordos foram estabelecidos, e então, com base neles, inicialmente, deveremos lhes apresentar um protótipo. 
+	Após uma reunião em março de 2019, alguns acordos foram estabelecidos, e então, com base neles, inicialmente, deveremos lhes apresentar um protótipo.
 Uma interface funcional do sistema baseada no modelo do Boletim de Inscrição Cadastral (BIC).
 Este modelo é, atualmente, usado por técnicos auditores da Secretaria Municipal de Tributação (SMT), seu procedimento cadastral é baseado em fichas impressas,
 para que sejam posteriormente cadastrados em um banco de dados do sistema que utilizam.
@@ -54,10 +54,10 @@ após a obtenção dos dados que são preenchidos em uma ficha impressa em papel
 	O intuíto dos usuários do sistema atual, é substituir seus formulários físicos por formulários digitais, onde os auditores possam usar seus aparelhos 'mobile' (móveis),
 para de forma ágil e otimizada, inserir dados no sistema principal, o SIAT. A princípio, devemos lhes servir com as funcionalidades descritas abaixo:
 
-1. Produção de uma página web com o formulário do BCI, as quais dispõe das funcionalidades:
+1. Produção de uma página web com o formulário do BIC, as quais dispõe das funcionalidades:
 - Inclusão
 - Alteração
-- Exclusão 
+- Exclusão
 
 
 
@@ -68,4 +68,3 @@ para de forma ágil e otimizada, inserir dados no sistema principal, o SIAT. A p
 
 
 Versão 1.0
-	
