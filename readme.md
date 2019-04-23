@@ -1,7 +1,11 @@
 
 
 
+<<<<<<< HEAD
 	## `SMTSIS`
+=======
+## SMTSIS
+>>>>>>> 262cecdbb1d4f323d7e08335387bb658e996f939
 
 										`2019 - SENAI, São Gonçalo do Amarante, RN.`
 ### Preâmbulo
