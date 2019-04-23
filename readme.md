@@ -1,7 +1,7 @@
 
 
 
-	## SMTSIS
+## SMTSIS
 
 										SENAI, São Gonçalo do Amarante, RN.
 ### Preâmbulo
