@@ -16,7 +16,8 @@ o qual não abrange todos as necessidades dos usuários deste. Com base nisto, a
 através do aluno Railson Andrade, que faz parte desta turma de TI, nos propôs esta parceria, 
 para que desenvolvêssemos um sistema pensado com exclusividade que supra suas específicas deficiências.
 E ainda, com a produção e consumação deste, poderemos obter uma nota na avaliação final de curso (TCC), assim acordado com o SENAI.
-Inicialmente, um modelo esboço de diretrizes para o projeto nos foi apresentado:
+
+Inicialmente, um modelo esboço das diretrizes para o projeto nos foi apresentado:
 
 > ### Diretrizes Para Planejamento e Criação do Aplicativo
 
