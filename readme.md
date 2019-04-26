@@ -9,6 +9,8 @@
 
 	No início de 2019, a Secretaria Municipal de Tributação e a turma de TI do SENAI estabeleceram uma parceria para
 a modelagem e desenvolvimento de um software integrado a um aplicativo mobile com finalidades Tributárias,
+
+a modelagem e desenvolvimento de um software integrado a um aplicativo mobile com finalidades Tributárias,
 para melhorias nos serviços prestados ao município de São Gonçalo do Amarante, RN, para uso na Secretaria supracitada.
 O software deverá auxilia-los diariamente no uso de um sistema de terceiros chamado SIAT,
 o qual não abrange todos as necessidades dos usuários deste. Com base nisto, a Secretaria Municipal de Tributação,
