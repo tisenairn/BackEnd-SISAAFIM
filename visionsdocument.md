@@ -1,11 +1,11 @@
-	
-	
-	
+
+
+
 	Documento de Visão
-										2019 - SENAI, São Gonçalo do Amarante, RN.	
+										2019 - SENAI, São Gonçalo do Amarante, RN.
 Introdução
 
-BCI (BOLETIM DE INSCRIÇÃO CADASTRAL):
+BIC (BOLETIM DE INSCRIÇÃO CADASTRAL):
 O programa só tem um objetivo que é otimizar o cadastro e atualização dos imóveis.
 Um imovel tem: Uma metragem, uma área construída um proprietário.
 A parte do proprietário, é uma informação do imóvel. O proprietário não será cadastrado. Ele será como uma característica do imóvel.
@@ -14,7 +14,7 @@ Tudo isto é, uma otimização do serviço dos auditores, Embasado nas informaç
 Precisaremos obter do SIAT, estas informações, e então, ferramentas e funcionalidades para:
 Edição, exclusão, ou cadastro de uma nova informação em um imóvel já existente.
 Caso o imóvel não seja cadastrado, então faremos um pré-cadastro onde deve conter:
-número de inscrição do imóvel. 
+número de inscrição do imóvel.
 Que será um rascunho temporário, para que o auditor, importe as informações para o SIAT.
 
 
@@ -31,7 +31,7 @@ Que será um rascunho temporário, para que o auditor, importe as informações 
 - //
 - //
 	Requisitos Não Funcionais
-- Ser desenvolvido e distribuído para aparelhos mobiles, como celulares ou tablets, 
+- Ser desenvolvido e distribuído para aparelhos mobiles, como celulares ou tablets,
 visando os auditores que deverão usá-lo em campo, ou seja, em lugares distantes da secretaria.
 - Ser acessível em qualquer computador que tenha acesso a internet (uma vez que
 o sistema será desenvolvido para web) e qualquer browser instalado em seu
