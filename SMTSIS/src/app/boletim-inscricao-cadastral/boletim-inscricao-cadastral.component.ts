@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class BoletimInscricaoCadastralComponent implements OnInit {
 
   options = {};
+
   constructor() { }
 
 
