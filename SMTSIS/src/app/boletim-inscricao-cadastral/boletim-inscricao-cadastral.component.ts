@@ -11,11 +11,11 @@ export class BoletimInscricaoCadastralComponent implements OnInit {
   options = {};
   constructor() { }
 
-  
+
 
   ngOnInit() {
-    // var elems = document.querySelectorAll('.collapsible');
-    // var instances = M.Collapsible.init(elems, {accordion: false});
+    var elems = document.querySelectorAll('.collapsible');
+    var instances = M.Collapsible.init(elems, {accordion: false});
   }
 
 }
