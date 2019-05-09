@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./boletim-inscricao-cadastral.component.css']
 })
 export class BoletimInscricaoCadastralComponent implements OnInit {
+  declare const M;
 
   options = {};
 
@@ -15,8 +16,8 @@ export class BoletimInscricaoCadastralComponent implements OnInit {
 
 
   ngOnInit() {
-    var elems = document.querySelectorAll('.collapsible');
-    var instances = M.Collapsible.init(elems, {accordion: false});
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems, this.options);
   }
 
 }
