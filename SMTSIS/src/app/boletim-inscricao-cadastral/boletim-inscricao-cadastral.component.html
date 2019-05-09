@@ -1,54 +1,238 @@
-<blockquote>
+<blockquote align="center">
   <h4>IPTU</h4>
   <h5>Boletim de Inscrição Cadastral</h5>
 </blockquote>
-
 <div class="row">
-  <div class="col s12">
-    <div class="row">
-      <div class="input-field col s6">
-        <i class="material-icons prefix">account_circle</i>
-        <input autocomplete="off" type="text" name="nome" id="nome" class="autocomplete">
-        <label for="nome">Insira um nome</label>
-        <span class="helper-text" data-error="wrong" data-success="right">Nome do contribuinte/proprietário</span>
-      </div>
-      <div class="input-field col s6">
-        <i class="material-icons prefix">phone</i>
-        <input autocomplete="off" type="text" name="nome" id="phone" class="autocomplete">
-        <label for="phone">Insira um telefone</label>
-        <span class="helper-text" data-error="wrong" data-success="right">Telefone do contribuinte/proprietário</span>
-      </div>
-    </div>
 
-    <div class="row">
-      <div class="input-field col s12">
-        <i class="material-icons prefix">home</i>
-        <input autocomplete="off" type="text" name="nome" id="endereco" class="autocomplete">
-        <label for="endereco">Insira um endereço</label>
-        <span class="helper-text" data-error="wrong" data-success="right">Endereço do contribuinte</span>
+  <blockquote>
+    <h5>Identificação do imóvel</h5>
+  </blockquote>
+
+  <div class="row">
+    <div class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <i class="material-icons prefix">account_circle</i>
+          <input autocomplete="off" type="text" name="nome" id="nome" class="autocomplete">
+          <label for="nome">Insira um nome</label>
+          <span class="helper-text" data-error="wrong" data-success="right">Nome do contribuinte/proprietário</span>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s6">
+            <i class="material-icons prefix">home</i>
+            <input autocomplete="off" type="text" name="nome" id="inscricao" class="autocomplete">
+            <label for="inscricao">Insira a inscrição</label>
+            <span class="helper-text" data-error="wrong" data-success="right">Inscrição do imóvel</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
+  <div class="row">
+    <div class="input-field col s4">
+      <i class="material-icons prefix">phone</i>
+      <input autocomplete="off" type="text" name="nome" disabled id="sequencial" class="autocomplete">
+      <label for="sequencial">O sequencial será inserido aqui</label>
+      <span class="helper-text" data-error="wrong" data-success="right">Número sequencial do imóvel</span>
+    </div>
 
 
-<!-- Materialize collapsible doesnt works-->
-<div class="row">
-<div class="col s8">
+    <div class="input-field col s4">
+      <i class="material-icons prefix">home</i>
+      <input autocomplete="off" type="text" name="nome" id="loteamento" class="autocomplete">
+      <label for="loteamento">Insira o loteamento</label>
+      <span class="helper-text" data-error="wrong" data-success="right">Loteamento do imóvel</span>
+    </div>
 
-  <ul class="collapsible popout">
-    <li>
-      <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
-      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-    </li>
-    <li>
-      <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
-      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-    </li>
-    <li>
-      <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
-      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-    </li>
-  </ul>
-</div>
+
+    <div class="input-field col s2">
+      <form action="#">
+        <label for="natureza">Natureza do imóvel:</label>
+        <p>
+          <label>
+            <input name="natureza" id="natureza" type="radio" />
+            <span>Predial</span>
+          </label>
+        </p>
+        <p>
+          <label>
+            <input name="natureza" id="natureza" type="radio" />
+            <span>Territorial</span>
+          </label>
+        </p>
+        <!-- <span class="helper-text" data-error="wrong" data-success="right">Natureza do imóvel</span> -->
+      </form>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="input-field col s12">
+      <i class="material-icons prefix">home</i>
+      <input autocomplete="off" type="text" name="nome" id="endereco" class="autocomplete">
+      <label for="endereco">Insira um endereço</label>
+      <span class="helper-text" data-error="wrong" data-success="right">Endereço do contribuinte</span>
+    </div>
+  </div>
+
+  <blockquote>
+    <h5>Dimensões da unidade</h5>
+  </blockquote>
+
+
+  <div class="row">
+
+    <div class="input-field col s3">
+      <i class="material-icons prefix">home</i>
+      <input autocomplete="off" type="number" name="nome" id="areaterreno" class="autocomplete">
+      <label for="areaterreno">Área do terreno</label>
+      <span class="helper-text" data-error="wrong" data-success="right">Insira a área do terreno em m²</span>
+    </div>
+
+    <div class="input-field col s3">
+      <i class="material-icons prefix">home</i>
+      <input autocomplete="off" type="number" name="nome" id="areaunidade" class="autocomplete">
+      <label for="areaunidade">Área da unidade</label>
+      <span class="helper-text" data-error="wrong" data-success="right">Insira a área da unidade em m²</span>
+    </div>
+
+    <div class="input-field col s3">
+      <i class="material-icons prefix">home</i>
+      <input autocomplete="off" type="number" name="nome" id="areaconstruida" class="autocomplete">
+      <label for="areaconstruida">Área construída</label>
+      <span class="helper-text" data-error="wrong" data-success="right">Insira a área total construída em m²</span>
+    </div>
+
+    <div class="input-field col s3">
+      <i class="material-icons prefix">home</i>
+      <input autocomplete="off" type="number" name="nome" id="testadaprincipal" class="autocomplete">
+      <label for="testadaprincipal">Testada principal</label>
+      <span class="helper-text" data-error="wrong" data-success="right">Insira a testada principal</span>
+    </div>
+
+    <div class="input-field col s3">
+      <i class="material-icons prefix">home</i>
+      <input autocomplete="off" type="number" name="nome" id="profundidadeprincipal" class="autocomplete">
+      <label for="profundidadeprincipal">Profundidade principal</label>
+      <span class="helper-text" data-error="wrong" data-success="right">Insira a profundidade principal</span>
+    </div>
+  </div>
+
+  <blockquote>
+    <h5>Benfeitorias da unidade</h5>
+  </blockquote>
+
+  <div class="row">
+    <form class="" action="index.html" method="post">
+
+
+      <div class="input-field col s3 offset-s1">
+        <p><label>
+          <input type="checkbox" class="filled-in" />
+          <span>Água</span>
+        </label></p>
+
+        <p><label>
+          <input type="checkbox" class="filled-in" />
+          <span>Energia</span>
+        </label></p>
+        <p>  <label>
+          <input type="checkbox" class="filled-in" />
+          <span>Limpeza Urbana</span>
+        </label></p>
+      </div>
+      <div class="input-field col s3">
+        <p>  <label>
+
+          <input type="checkbox" class="filled-in" />
+          <span>Esgoto</span>
+        </label></p>
+        <p><label>
+          <input type="checkbox" class="filled-in" />
+          <span>Coleta De Lixo</span>
+        </label></p>
+        <p><label>
+          <input type="checkbox" class="filled-in" />
+          <span>Pavimentação</span>
+        </label></p>
+      </div>
+      <div class="input-field col s3">
+        <p><label>
+          <input type="checkbox" class="filled-in" />
+          <span>Telefone</span>
+        </label></p>
+        <p><label>
+          <input type="checkbox" class="filled-in" />
+          <span>Guias/Sargetas</span>
+        </label></p>
+
+        <p>  <label>
+          <input type="checkbox" class="filled-in" />
+          <span>Aguas Pluviais</span>
+        </label></p>
+      </div>
+    </form>
+  </div>
+
+
+  <blockquote >
+    <h5>Informações da edificação</h5>
+  </blockquote>
+
+  <div class="row">
+    <div class="col s4">
+      <blockquote>
+        <h6>Tipo de imóvel</h6>
+      </blockquote>
+    </div>
+
+    <div class="col s4">
+      <blockquote>
+        <h6>Tipo de imóvel</h6>
+      </blockquote>
+    </div>
+
+    <div class="col s4">
+      <blockquote>
+        <h6>Tipo de imóvel</h6>
+      </blockquote>
+    </div>
+  </div>
+
+  <div class="row">
+
+
+    <div class="col s4">
+      <blockquote>
+        <h6>Tipo de imóvel</h6>
+      </blockquote>
+    </div>
+
+    <div class="col s4">
+      <blockquote>
+        <h6>Tipo de imóvel</h6>
+      </blockquote>
+    </div>
+
+    <div class="input-field col s4">
+      <blockquote>
+        <h6>Tipo de imóvel</h6>
+      </blockquote>
+
+
+ <select class="">
+   <option value="" disabled selected>Choose your option</option>
+   <option value="1">Option 1</option>
+   <option value="2">Option 2</option>
+   <option value="3">Option 3</option>
+   <label>Browser Select</label>
+ </select>
+
+    </div>
+
+  </div>
+
+
 </div>
