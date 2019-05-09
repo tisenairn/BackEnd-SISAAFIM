@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { } from 'materialize-css';
 
 @Component({
   selector: 'app-boletim-inscricao-cadastral',
@@ -7,9 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./boletim-inscricao-cadastral.component.css']
 })
 export class BoletimInscricaoCadastralComponent implements OnInit {
-  declare const M;
 
   options = {};
+  // declare const M;
 
   constructor() { }
 
