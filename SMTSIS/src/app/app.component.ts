@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+declare const M;
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
