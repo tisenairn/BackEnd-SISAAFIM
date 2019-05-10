@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {  } from 'materialize-css';
+
 
 
 @Component({
