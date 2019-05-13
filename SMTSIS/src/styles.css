@@ -1,10 +1,8 @@
 .input-field {
-  top: 0;
-  bottom: 0;
-  padding: 0;
-  margin: 0;
-}
 
-.menu-principal {
-  
+}
+@media only screen and (min-width: 992px) {
+  .navbar-child {
+    padding-top: 50px;
+  }
 }

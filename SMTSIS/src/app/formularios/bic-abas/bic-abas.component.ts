@@ -25,7 +25,9 @@ export class BicAbasComponent implements OnInit {
 
     colapsaveis(){
       var elems = document.querySelectorAll('.collapsible');
-      var instances = M.Collapsible.init(elems, this.options);
+      var instances = M.Collapsible.init(elems, {
+        accordion: false
+      });
     }
 
   }
