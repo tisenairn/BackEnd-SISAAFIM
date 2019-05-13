@@ -1,25 +1,27 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { } from 'materialize-css';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+// Importações internas
+import { FormulariosModule } from './formularios/formularios.module';
+import { CoreModule } from './core/core.module';
+
+// primeng
 import {AccordionModule} from 'primeng/components/accordion/accordion';
-import { BoletimInscricaoCadastralComponent } from './boletim-inscricao-cadastral/boletim-inscricao-cadastral.component';
-import { BicAbasComponent } from './bic-abas/bic-abas.component';
-import { NavbarPrincipalComponent } from './navbar-principal/navbar-principal.component';
+
+
 
 @NgModule({
   declarations: [
-    AppComponent,
-    BoletimInscricaoCadastralComponent,
-    BicAbasComponent,
-    NavbarPrincipalComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AccordionModule
+    AccordionModule,
+    FormulariosModule,
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
