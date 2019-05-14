@@ -1,5 +1,46 @@
 {
   "bic": [
-
+    {
+      "loteamento": "",
+      "nomecontribuinte": "",
+      "natureza": "",
+      "inscricaoimovel": "",
+      "id": 1
+    },
+    {
+      "loteamento": "",
+      "nomecontribuinte": "",
+      "natureza": "",
+      "inscricaoimovel": "",
+      "id": 2
+    },
+    {
+      "loteamento": "",
+      "nomecontribuinte": "",
+      "natureza": "",
+      "inscricaoimovel": "",
+      "id": 3
+    },
+    {
+      "loteamento": "",
+      "nomecontribuinte": "",
+      "natureza": "",
+      "inscricaoimovel": "",
+      "id": 4
+    },
+    {
+      "loteamento": "",
+      "nomecontribuinte": "",
+      "natureza": "",
+      "inscricaoimovel": "",
+      "id": 5
+    },
+    {
+      "loteamento": "",
+      "nomecontribuinte": "",
+      "natureza": "",
+      "inscricaoimovel": "",
+      "id": 6
+    }
   ]
 }

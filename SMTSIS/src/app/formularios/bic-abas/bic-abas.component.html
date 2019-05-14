@@ -1,7 +1,23 @@
+<div class="navbar-fixed">
+  <nav>
+    <div class="nav-wrapper">
+      <div class="col s12">
+        <a href="#1" class="breadcrumb tab">1</a>
+        <a href="#2" class="breadcrumb tab ">2</a>
+        <a href="#3" class="breadcrumb tab">3</a>
+        <a href="#4" class="breadcrumb tab">4</a>
+      </div>
+    </div>
+  </nav>
+</div>
+
+
+
+
 <ul class="collapsible popout">
 
   <li class="active">
-    <div class="collapsible-header"><i class="material-icons md-24">home</i>Identificação do imóvel</div>
+    <div id="1" class="collapsible-header"><i class="material-icons md-24">home</i>Identificação do imóvel</div>
     <div class="collapsible-body">
 
       <blockquote><h5>Identificação do imóvel</h5></blockquote>
@@ -56,25 +72,6 @@
           <span class="helper-text" data-error="wrong" data-success="right">Insira o nome do contribuinte/proprietário</span>
         </div>
 
-          <!--  Botão de Identificação do imóvel aqui-->
-          <!--  Rever natureza.value -->
-          <button
-          type="button"
-          class="btn btn-primary"
-          (click)="adicionar(
-          loteamento.value,
-          nomecontribuinte.value,
-          natureza.value,
-          inscricaoimovel.value
-
-          );
-          loteamento.value = '';
-          natureza.checked = '';
-          nomecontribuinte.value = '';
-          inscricaoimovel.value = ''
-          ">
-          Adicionar</button>
-
         <div class="input-field col s6">
           <i class="material-icons prefix">format_list_numbered</i>
           <input autocomplete="off" #inscricaoimovel type="text" name="nome" id="inscricao" class="autocomplete">
@@ -83,13 +80,35 @@
         </div>
 
       </div>
+      <!--  Botão de Identificação do imóvel aqui-->
+      <!--  Rever natureza.value -->
+      <button
+      type="button"
+      class="waves-effect waves-light btn-flat red lighten-3"
+      (click)="adicionar(
+      loteamento.value,
+      nomecontribuinte.value,
+      natureza.value,
+      inscricaoimovel.value
+      );
+      loteamento.value = '';
+      natureza.checked = '';
+      nomecontribuinte.value = '';
+      inscricaoimovel.value = ''
+      ">
+      <i class="material-icons right">send</i>
+      Salvar</button>
+
 
     </div>
+
+
+
   </li>
 
 
   <li>
-    <div class="collapsible-header"><i class="material-icons md-24">zoom_out_map</i>Dimensões da unidade</div>
+    <div id="2" class="collapsible-header"><i class="material-icons md-24">zoom_out_map</i>Dimensões da unidade</div>
     <div class="collapsible-body">
 
 
@@ -139,8 +158,8 @@
   </li>
 
 
-  <li>
-    <div class="collapsible-header"><i class="material-icons">info</i>Informações da edificação</div>
+  <li >
+    <div id="3" class="collapsible-header"><i class="material-icons">info</i>Informações da edificação</div>
     <div class="collapsible-body">
 
       <blockquote >
@@ -259,8 +278,8 @@
   </li>
 
 
-  <li>
-    <div class="collapsible-header"><i class="material-icons">assignment_turned_in</i>Benfeitorias da unidade</div>
+  <li >
+    <div id="4" class="collapsible-header"><i class="material-icons">assignment_turned_in</i>Benfeitorias da unidade</div>
     <div class="collapsible-body">
 
       <blockquote>
