@@ -1,26 +1,5 @@
 {
   "bic": [
-    {
-      "loteamento": "",
-      "id": 1
-    },
-    {
-      "loteamento": "asdasdasd",
-      "id": 2
-    },
-    {
-      "loteamento": "asdasda",
-      "id": 3
-    },
-    {
-      "loteamento": "asdasdasdasd",
-      "nomecontribuinte": "asdasdasdasd",
-      "id": 4
-    },
-    {
-      "loteamento": "lindson",
-      "nomecontribuinte": "cagao",
-      "id": 5
-    }
+
   ]
 }

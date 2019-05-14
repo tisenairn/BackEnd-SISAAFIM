@@ -31,10 +31,10 @@ export class BicAbasComponent implements OnInit {
     })
   }
 
-  adicionar(loteamento: string, nomecontribuinte: string) {
-    this.bicService.adicionar({ loteamento, nomecontribuinte })
+  adicionar(loteamento: string, nomecontribuinte: string, natureza: string, inscricaoimovel: string ) {
+    this.bicService.adicionar({ loteamento, nomecontribuinte, natureza, inscricaoimovel })
     .then(bic => {
-      alert(`Cidade "${bic.loteamento}" adicionada com código ${bic.id}!`);
+      alert(`Cidade adicionada com código ${bic.id}!`);
       this.consultar();
     });
   }
