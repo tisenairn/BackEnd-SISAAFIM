@@ -28,14 +28,14 @@
             <label for="natureza">Natureza do imóvel:</label>
             <p>
               <label>
-                <input name="natureza" #predial value="predial" id="natureza" type="radio" />
+                <input type="radio" name="natureza" id="nat-predial" required #natureza [value]="natureza.checked == 'checked' ? 'predial' : ''"/>
                 <span>
                   <i class="material-icons ">home</i>
                   Predial
                 </span>
               </label>
               <label style="margin-left: 10px">
-                <input name="natureza" #territorial value="territorial" id="natureza" type="radio" />
+                <input type="radio" name="natureza" id="nat-territorial"  #natureza required [value]="natureza.checked == 'checked' ? 'territorial' : ''" />
                 <span>
                   <i class="material-icons">terrain</i>
                   Territorial
@@ -54,21 +54,30 @@
           <input autocomplete="off" #nomecontribuinte type="text" name="nome" id="nome" class="autocomplete">
           <label for="nome">Nome</label>
           <span class="helper-text" data-error="wrong" data-success="right">Insira o nome do contribuinte/proprietário</span>
+        </div>
 
-          <!--  Botão inserção aqui-->
-          <button type="button" class="btn btn-primary"
+          <!--  Botão de Identificação do imóvel aqui-->
+          <!--  Rever natureza.value -->
+          <button
+          type="button"
+          class="btn btn-primary"
           (click)="adicionar(
           loteamento.value,
-          nomecontribuinte.value
+          nomecontribuinte.value,
+          natureza.value,
+          inscricaoimovel.value
+
           );
           loteamento.value = '';
-          nomecontribuinte.value = ''">
+          natureza.checked = '';
+          nomecontribuinte.value = '';
+          inscricaoimovel.value = ''
+          ">
           Adicionar</button>
-        </div>
 
         <div class="input-field col s6">
           <i class="material-icons prefix">format_list_numbered</i>
-          <input autocomplete="off" type="text" name="nome" id="inscricao" class="autocomplete">
+          <input autocomplete="off" #inscricaoimovel type="text" name="nome" id="inscricao" class="autocomplete">
           <label for="inscricao">Inscrição</label>
           <span class="helper-text" data-error="wrong" data-success="right">Insira a inscrição do imóvel</span>
         </div>
