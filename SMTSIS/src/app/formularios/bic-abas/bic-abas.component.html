@@ -9,7 +9,7 @@
       <div class="row">
         <div class="input-field col s3">
           <i class="material-icons prefix">code</i>
-          <input autocomplete="off" type="text" name="nome" disabled id="sequencial" class="autocomplete">
+          <input autocomplete="off" type="text" name="sequencial" disabled id="sequencial" class="autocomplete">
           <label for="sequencial">Sequencial</label>
           <span class="helper-text" data-error="wrong" data-success="right"> O número sequencial do imóvel será inserido aqui</span>
         </div>
@@ -17,9 +17,10 @@
 
         <div class="input-field col s3">
           <i class="material-icons prefix">home</i>
-          <input autocomplete="off" type="text" name="nome" id="loteamento" class="autocomplete">
+          <input autocomplete="off" type="text" name="loteamento" #loteamento id="loteamento" class="autocomplete">
           <label for="loteamento">Loteamento</label>
           <span class="helper-text" data-error="wrong" data-success="right">Insira o loteamento do imóvel</span>
+
         </div>
 
         <div class="input-field col s3 offset-s1">
@@ -27,14 +28,14 @@
             <label for="natureza">Natureza do imóvel:</label>
             <p>
               <label>
-                <input name="natureza" id="natureza" type="radio" />
+                <input name="natureza" #predial value="predial" id="natureza" type="radio" />
                 <span>
                   <i class="material-icons ">home</i>
                   Predial
                 </span>
               </label>
               <label style="margin-left: 10px">
-                <input name="natureza" id="natureza" type="radio" />
+                <input name="natureza" #territorial value="territorial" id="natureza" type="radio" />
                 <span>
                   <i class="material-icons">terrain</i>
                   Territorial
@@ -50,11 +51,20 @@
       <div class="row">
         <div class="input-field col s6">
           <i class="material-icons prefix">account_circle</i>
-          <input autocomplete="off" type="text" name="nome" id="nome" class="autocomplete">
+          <input autocomplete="off" #nomecontribuinte type="text" name="nome" id="nome" class="autocomplete">
           <label for="nome">Nome</label>
           <span class="helper-text" data-error="wrong" data-success="right">Insira o nome do contribuinte/proprietário</span>
-        </div>
 
+          <!--  Botão inserção aqui-->
+          <button type="button" class="btn btn-primary"
+          (click)="adicionar(
+          loteamento.value,
+          nomecontribuinte.value
+          );
+          loteamento.value = '';
+          nomecontribuinte.value = ''">
+          Adicionar</button>
+        </div>
 
         <div class="input-field col s6">
           <i class="material-icons prefix">format_list_numbered</i>
@@ -292,33 +302,33 @@
                           <i class="fas fa-road"></i>
                           Pavimentação</span>
 
-                      </label></p>
-                    </div>
-                    <div class="input-field col s3">
-                      <p><label>
-                        <input type="checkbox" name="benfeitorias" class="filled-in" />
-                        <span>
-                          <i class="material-icons">ring_volume</i>
-                          Telefone</span>
-                      </label></p>
-                      <p><label>
-                        <input type="checkbox" name="benfeitorias" class="filled-in" />
-                        <span><i class="fas fa-kaaba">
-                        </i>
-                          Guias/Sarjetas</span>
-                      </label></p>
-
-                      <p>  <label>
-                        <input type="checkbox" name="benfeitorias" class="filled-in" />
-                        <span>
-                          <i class="fas fa-cloud-showers-heavy"></i>
-                          Aguas pluviais</span>
                         </label></p>
                       </div>
-                    </form>
-                  </div>
+                      <div class="input-field col s3">
+                        <p><label>
+                          <input type="checkbox" name="benfeitorias" class="filled-in" />
+                          <span>
+                            <i class="material-icons">ring_volume</i>
+                            Telefone</span>
+                          </label></p>
+                          <p><label>
+                            <input type="checkbox" name="benfeitorias" class="filled-in" />
+                            <span><i class="fas fa-kaaba">
+                            </i>
+                            Guias/Sarjetas</span>
+                          </label></p>
 
-                </div>
-              </li>
+                          <p>  <label>
+                            <input type="checkbox" name="benfeitorias" class="filled-in" />
+                            <span>
+                              <i class="fas fa-cloud-showers-heavy"></i>
+                              Aguas pluviais</span>
+                            </label></p>
+                          </div>
+                        </form>
+                      </div>
 
-            </ul>
+                    </div>
+                  </li>
+
+                </ul>

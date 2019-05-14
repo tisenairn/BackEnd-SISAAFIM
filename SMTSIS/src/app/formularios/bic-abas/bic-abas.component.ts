@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BicService } from './bic.service';
 
 
 
@@ -9,25 +10,67 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BicAbasComponent implements OnInit {
   options = {};
+  cidades = [];
 
-    constructor() { }
 
-    ngOnInit() {
-      this.colapsaveis();
-      this.seletores();
 
-    }
+  constructor(private bicService: BicService) { }
 
-    seletores(){
-      var elems = document.querySelectorAll('select');
-      var instances = M.FormSelect.init(elems, this.options);
-    }
-
-    colapsaveis(){
-      var elems = document.querySelectorAll('.collapsible');
-      var instances = M.Collapsible.init(elems, {
-        accordion: false
-      });
-    }
+  ngOnInit() {
+    this.colapsaveis();
+    this.seletores();
+    this.consultar();
 
   }
+  // Serviço HTTP
+
+  consultar() {
+    this.bicService.consultar()
+    .then(dados => {
+      this.cidades = dados;
+    })
+  }
+
+  adicionar(loteamento: string, nomecontribuinte: string) {
+    this.bicService.adicionar({ loteamento, nomecontribuinte })
+    .then(bic => {
+      alert(`Cidade "${bic.loteamento}" adicionada com código ${bic.id}!`);
+      this.consultar();
+    });
+  }
+
+  excluir(id: number) {
+    this.bicService.excluir(id)
+    .then(() => {
+      alert('Cidade excluída com sucesso!');
+      this.consultar();
+    });
+  }
+
+  atualizar(bic: any) {
+    this.bicService.atualizar(bic)
+    .then(() => {
+      alert('Cidade alterada com sucesso!');
+    })
+    .catch(erro => {
+      alert(erro);
+    });
+  }
+
+
+  // Elementos gráficos
+  seletores(){
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems, this.options);
+  }
+
+  colapsaveis(){
+    var elems = document.querySelectorAll('.collapsible');
+    var instances = M.Collapsible.init(elems, {
+      accordion: false
+    });
+  }
+
+
+
+}
