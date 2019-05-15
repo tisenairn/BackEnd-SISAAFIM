@@ -4,6 +4,7 @@ import { } from 'materialize-css';
 import { HttpClientModule } from '@angular/common/http';
 
 // Componentes
+import { CoreModule } from '../core/core.module';
 import { BicAbasComponent } from './bic-abas/bic-abas.component';
 import { BoletimInscricaoCadastralComponent } from './boletim-inscricao-cadastral/boletim-inscricao-cadastral.component';
 
@@ -14,11 +15,12 @@ import { BoletimInscricaoCadastralComponent } from './boletim-inscricao-cadastra
     BoletimInscricaoCadastralComponent
   ],
   exports: [
-    BicAbasComponent
+    BoletimInscricaoCadastralComponent
   ],
   imports: [
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    CoreModule
   ]
 })
 export class FormulariosModule { }
