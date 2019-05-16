@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarPrincipalComponent } from './navbar-principal/navbar-principal.component';
 import { NavbarLateralComponent } from './navbar-lateral/navbar-lateral.component';
-
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -10,11 +10,11 @@ import { NavbarLateralComponent } from './navbar-lateral/navbar-lateral.componen
     NavbarLateralComponent
   ],
   exports: [
-    NavbarPrincipalComponent,
-    NavbarLateralComponent
+    NavbarPrincipalComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ]
 })
 export class CoreModule { }

@@ -1,20 +1,10 @@
 
-<div class="fixed-action-btn">
-  <a href="#" data-target="slide-out" class="sidenav-trigger">
-    <i class="material-icons medium">
-      input
-    </i>
-  </a>
-</div>
-<!-- /\ Este botão chama o side-navbar \/ -->
-<app-navbar-lateral></app-navbar-lateral>
-
 <div class="row navbar-fixed">
 
   <nav class="nav-extended red darken-1">
     <div class="col s12 nav-wrapper">
-      <a href="#!" class="brand-logo">SGA<i class="material-icons md-48">home</i></a>
-      <ul class="right hide-on-med-and-down">
+      <a routerLink="" class="brand-logo">SGA<i class="material-icons md-48">home</i></a>
+      <ul class="right">
         <li><a>A link</a></li>
         <li><a>A second link</a></li>
         <li><a>A third link</a></li>
@@ -22,9 +12,9 @@
 
       <div class="col s12 nav-content">
         <span class="nav-title">SMTSIS</span>
-
-
       </div>
+
+
 
 
       <!-- <div style="position: relative; height: 70px;"> -->
@@ -45,3 +35,15 @@
     </div>
   </nav>
 </div>
+
+
+<!-- /\ Este botão chama o side-navbar \/ -->
+<div class="fixed-action-btn">
+  <a href="#" data-target="slide-out" class="sidenav-trigger">
+    <i class="material-icons medium">
+      input
+    </i>
+  </a>
+</div>
+<!-- sidenav menu -->
+<app-navbar-lateral></app-navbar-lateral>

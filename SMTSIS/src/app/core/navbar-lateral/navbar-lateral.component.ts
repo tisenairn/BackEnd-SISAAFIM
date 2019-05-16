@@ -19,7 +19,12 @@ export class NavbarLateralComponent implements OnInit {
   navbars(){
 
     var elems = document.querySelectorAll('.sidenav');
-    var instances = M.Sidenav.init(elems, this.options);
+    var instances = M.Sidenav.init(elems, {
+      edge: 'right',
+      draggable: true,
+      inDuration: 180,
+      outDuration: 500
+    });
   }
 
 }

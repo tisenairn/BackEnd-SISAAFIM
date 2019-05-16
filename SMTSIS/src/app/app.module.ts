@@ -1,11 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AppRoutingModule } from './app-routing.module';
+import { routing } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 // Importações internas
-import { FormulariosModule } from './formularios/formularios.module';
 import { CoreModule } from './core/core.module';
+import { FormulariosModule } from './formularios/formularios.module';
+import { PaginasModule } from './paginas/paginas.module';
 
 // primeng
 import {AccordionModule} from 'primeng/components/accordion/accordion';
@@ -18,10 +19,12 @@ import {AccordionModule} from 'primeng/components/accordion/accordion';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    routing,
     AccordionModule,
+    CoreModule,
     FormulariosModule,
-    CoreModule
+    PaginasModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

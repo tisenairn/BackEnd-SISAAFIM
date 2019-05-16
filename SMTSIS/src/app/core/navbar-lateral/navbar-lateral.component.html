@@ -2,34 +2,39 @@
 
 <ul id="slide-out" class="sidenav">
 
-  <li><a class="sidenav-close" href="#!">Clique aqui para fechar</a></li>
+  <li><a class="sidenav-close" href="#!">Clique aqui para ocultar
+    <i class="material-icons red-text">
+      exit_to_app
+    </i>
+  </a></li>
 
   <a href="#" data-target="slide-out" class="sidenav-trigger"></a>
   <li><div class="user-view">
     <div class="background">
       <img src="assets/img/navlateralbg.png">
     </div>
-    <a href="#user"><img class="circle" src="assets/img/users/djailtongomes.jpg"></a>
-    <a href="#name"><span class="white-text name">Djailton Gomes</span></a>
-    <a href="#email"><span class="white-text email">djailtongomes@hotmail.com</span></a>
+    <img class="circle" src="assets/img/users/djailtongomes.jpg">
+    <span class="white-text name">Djailton Gomes</span>
+    <span class="white-text email">djailtongomes@hotmail.com</span>
   </div>
 </li>
 
 
-<li><a href="#!"><i class="material-icons">send</i>Cadastros</a></li>
-<li><a href="#!"><i class="material-icons">send</i>Consultas</a></li>
+<li><a [routerLink]="['/bic']"><i class="material-icons">edit</i>Cadastros</a></li>
+<li><a routerLink="bic"><i class="material-icons">search</i>Consultas</a></li>
 <li><div class="divider"></div></li>
-  <li>
-    <a class="subheader">Subheader</a>
-  </li>
+<li>
+  <a class="subheader">Subheader</a>
+</li>
 <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
 </ul>
+<!--  Botão trigger do sidenav -->
 <!-- <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons medium">menu</i></a> -->
 
 
 <!--
 <div class="user-view">
-  <div class="background">
-    <img src="assets/img/cropped-favicon-150x150.png">
-  </div>
+<div class="background">
+<img src="assets/img/cropped-favicon-150x150.png">
+</div>
 </div> -->

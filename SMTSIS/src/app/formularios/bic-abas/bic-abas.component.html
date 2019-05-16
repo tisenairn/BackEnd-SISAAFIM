@@ -1,11 +1,12 @@
+
 <div class="navbar-fixed">
   <nav>
     <div class="nav-wrapper">
       <div class="col s12">
-        <a href="#1" class="breadcrumb tab">1</a>
-        <a href="#2" class="breadcrumb tab ">2</a>
-        <a href="#3" class="breadcrumb tab">3</a>
-        <a href="#4" class="breadcrumb tab">4</a>
+        <a routerLink="#1" routerLinkActive="active" href="#1" class="breadcrumb tab">1</a>
+        <a routerLink="#2" routerLinkActive="active" class="breadcrumb tab ">2</a>
+        <a routerLink="#3" routerLinkActive="active" class="breadcrumb tab">3</a>
+        <a routerLink="#4" routerLinkActive="active" class="breadcrumb tab">4</a>
       </div>
     </div>
   </nav>
@@ -16,8 +17,8 @@
 
 <ul class="collapsible popout">
 
-  <li class="active">
-    <div id="1" class="collapsible-header"><i class="material-icons md-24">home</i>Identificação do imóvel</div>
+  <li routerLinkActive="active"  id="1">
+    <div   class="collapsible-header"><i class="material-icons md-24">home</i>Identificação do imóvel</div>
     <div class="collapsible-body">
 
       <blockquote><h5>Identificação do imóvel</h5></blockquote>
