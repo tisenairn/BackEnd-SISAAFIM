@@ -3,10 +3,10 @@
   <nav>
     <div class="nav-wrapper">
       <div class="col s12 m12 l12">
-        <a routerLink="#1" routerLinkActive="active" href="#1" class="breadcrumb tab">1</a>
-        <a routerLink="#2" routerLinkActive="active" class="breadcrumb tab ">2</a>
-        <a routerLink="#3" routerLinkActive="active" class="breadcrumb tab">3</a>
-        <a routerLink="#4" routerLinkActive="active" class="breadcrumb tab">4</a>
+        <a [routerLink]="['/bic']" fragment="1" routerLinkActive="active" href="#1" class="breadcrumb tab">1</a>
+        <a [routerLink]="['/bic']" fragment="2" routerLinkActive="active" class="breadcrumb tab ">2</a>
+        <a [routerLink]="['/bic']" fragment="3" routerLinkActive="active" class="breadcrumb tab">3</a>
+        <a [routerLink]="['/bic']" fragment="4" routerLinkActive="active" class="breadcrumb tab">4</a>
       </div>
     </div>
   </nav>

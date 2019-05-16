@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { } from 'materialize-css';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+
+import { } from 'materialize-css';
+
 // Componentes
 import { CoreModule } from '../core/core.module';
 import { BicAbasComponent } from './bic-abas/bic-abas.component';
