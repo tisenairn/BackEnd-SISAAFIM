@@ -2,7 +2,7 @@
 <div class="navbar-fixed">
   <nav>
     <div class="nav-wrapper">
-      <div class="col s12">
+      <div class="col s12 m12 l12">
         <a routerLink="#1" routerLinkActive="active" href="#1" class="breadcrumb tab">1</a>
         <a routerLink="#2" routerLinkActive="active" class="breadcrumb tab ">2</a>
         <a routerLink="#3" routerLinkActive="active" class="breadcrumb tab">3</a>
@@ -24,7 +24,7 @@
       <blockquote><h5>Identificação do imóvel</h5></blockquote>
 
       <div class="row">
-        <div class="input-field col s3">
+        <div class="input-field col s12 m3 l3">
           <i class="material-icons prefix">code</i>
           <input autocomplete="off" type="text" name="sequencial" disabled id="sequencial" class="autocomplete">
           <label for="sequencial">Sequencial</label>
@@ -32,7 +32,7 @@
         </div>
 
 
-        <div class="input-field col s3">
+        <div class="input-field col s12 m3 l3">
           <i class="material-icons prefix">home</i>
           <input autocomplete="off" type="text" name="loteamento" #loteamento id="loteamento" class="autocomplete">
           <label for="loteamento">Loteamento</label>
@@ -40,7 +40,7 @@
 
         </div>
 
-        <div class="input-field col s3 offset-s1">
+        <div class="input-field col s12 m3 l3 offset-s1 offset-m1 offset-l1">
           <form action="#">
             <label for="natureza">Natureza do imóvel:</label>
             <p>
@@ -66,14 +66,14 @@
       </div>
 
       <div class="row">
-        <div class="input-field col s6">
+        <div class="input-field col s12 m6 l6">
           <i class="material-icons prefix">account_circle</i>
           <input autocomplete="off" #nomecontribuinte type="text" name="nome" id="nome" class="autocomplete">
           <label for="nome">Nome</label>
           <span class="helper-text" data-error="wrong" data-success="right">Insira o nome do contribuinte/proprietário</span>
         </div>
 
-        <div class="input-field col s6">
+        <div class="input-field col s12 m6 l6">
           <i class="material-icons prefix">format_list_numbered</i>
           <input autocomplete="off" #inscricaoimovel type="text" name="nome" id="inscricao" class="autocomplete">
           <label for="inscricao">Inscrição</label>
@@ -119,35 +119,35 @@
 
       <div class="row">
 
-        <div class="input-field col s3">
+        <div class="input-field col s12 m3 l3">
           <i class="material-icons prefix">open_with</i>
           <input autocomplete="off" type="number" name="nome" id="areaterreno" class="autocomplete">
           <label for="areaterreno">Área do terreno</label>
           <span class="helper-text" data-error="wrong" data-success="right">Insira a área do terreno em m²</span>
         </div>
 
-        <div class="input-field col s3">
+        <div class="input-field col s12 m3 l3">
           <i class="material-icons prefix">open_with</i>
           <input autocomplete="off" type="number" name="nome" id="areaunidade" class="autocomplete">
           <label for="areaunidade">Área da unidade</label>
           <span class="helper-text" data-error="wrong" data-success="right">Insira a área da unidade em m²</span>
         </div>
 
-        <div class="input-field col s3">
+        <div class="input-field col s12 m3 l3">
           <i class="material-icons prefix">open_with</i>
           <input autocomplete="off" type="number" name="nome" id="areaconstruida" class="autocomplete">
           <label for="areaconstruida">Área construída</label>
           <span class="helper-text" data-error="wrong" data-success="right">Insira a área total construída em m²</span>
         </div>
 
-        <div class="input-field col s3">
+        <div class="input-field col s12 m3 l3">
           <i class="material-icons prefix">swap_horiz</i>
           <input autocomplete="off" type="number" name="nome" id="testadaprincipal" class="autocomplete">
           <label for="testadaprincipal">Testada principal</label>
           <span class="helper-text" data-error="wrong" data-success="right">Insira a testada principal</span>
         </div>
 
-        <div class="input-field col s3">
+        <div class="input-field col s12 m3 l3">
           <i class="material-icons prefix">import_export</i>
           <input autocomplete="off" type="number" name="nome" id="profundidadeprincipal" class="autocomplete">
           <label for="profundidadeprincipal">Profundidade principal</label>
@@ -168,7 +168,7 @@
       </blockquote>
 
       <div class="row">
-        <div class="col s4">
+        <div class="col s12 m4 l4">
           <blockquote>
             <h6>Tipo de imóvel</h6>
           </blockquote>
@@ -201,7 +201,7 @@
           </select>
         </div>
 
-        <div class="col s4">
+        <div class="col s12 m4 l4">
           <blockquote>
             <h6>Utilização de imóvel</h6>
           </blockquote>
@@ -220,7 +220,7 @@
           </select>
         </div>
 
-        <div class="col s4">
+        <div class="col s12 m4 l4">
           <blockquote>
             <h6>Estado de conservação</h6>
           </blockquote>
@@ -239,7 +239,7 @@
       <div class="row">
 
 
-        <div class="col s4">
+        <div class="col s12 m4 l4">
           <blockquote>
             <h6>Padrão de qualidade</h6>
           </blockquote>
@@ -254,7 +254,7 @@
           </select>
         </div>
 
-        <div class="col s4">
+        <div class="col s12 m4 l4">
           <blockquote>
             <h6>Estrutura</h6>
           </blockquote>
@@ -290,7 +290,7 @@
       <div class="row">
         <form class="input-field">
 
-          <div class="input-field col s3 offset-s1">
+          <div class="input-field col s12 m3 l3 offset-l1">
             <p><label>
               <input type="checkbox" name="benfeitorias" class="filled-in"/>
               <span>
@@ -311,7 +311,7 @@
                     Limpeza Urbana</span>
                   </label></p>
                 </div>
-                <div class="input-field col s3">
+                <div class="input-field col s12 m3 l3">
                   <p>  <label>
 
                     <input type="checkbox" name="benfeitorias" class="filled-in" />
@@ -333,7 +333,7 @@
 
                         </label></p>
                       </div>
-                      <div class="input-field col s3">
+                      <div class="input-field col s12 m3 l3">
                         <p><label>
                           <input type="checkbox" name="benfeitorias" class="filled-in" />
                           <span>
