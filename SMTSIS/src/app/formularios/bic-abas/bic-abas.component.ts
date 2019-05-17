@@ -31,10 +31,29 @@ export class BicAbasComponent implements OnInit {
     })
   }
 
-  adicionar(loteamento: string, nomecontribuinte: string, natureza: string, inscricaoimovel: string ) {
-    this.bicService.adicionar({ loteamento, nomecontribuinte, natureza, inscricaoimovel })
+  adicionar(loteamento: string,
+    nomecontribuinte: string,
+    natureza: string,
+    inscricaoimovel: string,
+    areaterreno: string,
+    areaunidade: string,
+    areaconstruida: string,
+    testadaprincipal: string,
+    profundidadeprincipal: string
+  ){
+    this.bicService.adicionar({
+      loteamento,
+      nomecontribuinte,
+      natureza,
+      inscricaoimovel,
+      areaterreno,
+      areaunidade,
+      areaconstruida,
+      testadaprincipal,
+      profundidadeprincipal
+    })
     .then(bic => {
-      alert(`Cidade adicionada com código ${bic.id}!`);
+      console.log(`Cidade adicionada com código ${bic.id}!`);
       this.consultar();
     });
   }
@@ -67,7 +86,7 @@ export class BicAbasComponent implements OnInit {
   colapsaveis(){
     var elems = document.querySelectorAll('.collapsible');
     var instances = M.Collapsible.init(elems, {
-      accordion: false
+      accordion: true
     });
   }
 

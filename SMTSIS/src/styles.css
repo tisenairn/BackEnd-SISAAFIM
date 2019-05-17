@@ -1,8 +1,12 @@
-.input-field {
 
-}
 @media only screen and (min-width: 992px) {
   .navbar-child {
-    padding-top: 50px;
+    padding-top: 16px;
   }
+}
+div.subposicao {
+  z-index: -1;
+}
+div.superposicao {
+  z-index: 1;
 }

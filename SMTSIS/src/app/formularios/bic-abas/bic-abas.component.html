@@ -1,5 +1,5 @@
 
-<div class="navbar-fixed">
+<div class="navbar-fixed subposicao">
   <nav>
     <div class="nav-wrapper">
       <div class="col s12 m12 l12">
@@ -12,15 +12,79 @@
   </nav>
 </div>
 
-
-
-
 <ul class="collapsible popout">
+
+
+  <li routerLinkActive="active"  id="0">
+    <div   class="collapsible-header"><i class="material-icons md-24">home</i>Identificação do contribuinte</div>
+    <div class="collapsible-body">
+      <blockquote><h5>Identificação do proprietário</h5></blockquote>
+
+      <div class="row">
+
+        <div class="input-field col s12 m3 l3 offset-s1 offset-m1 offset-l1">
+          <form action="#">
+            <label for="selectcpfcnpj">CPF ou CNPJ:</label>
+            <p>
+              <label>
+                <input type="radio" name="selectcnfcnpj" id="cpfselected" required #selectcnfcnpj [value]="selectcnfcnpj.checked == 'checked' ? 'predial' : ''"/>
+                <span>
+                  <i class="material-icons ">home</i>
+                  CPF
+                </span>
+              </label>
+              <label style="margin-left: 10px">
+                <input type="radio" name="selectcnfcnpj" id="cnpjselected"  #selectcnfcnpj required [value]="selectcnfcnpj.checked == 'checked' ? 'territorial' : ''" />
+                <span>
+                  <i class="material-icons">terrain</i>
+                  CNPJ
+                </span>
+              </label>
+            </p>
+          </form>
+        </div>
+
+        <div class="input-field col s12 m3 l3">
+          <i class="material-icons prefix">code</i>
+          <input autocomplete="off" type="text" name="cpfcnpj" #cpfcnpj id="cpfcnpj" class="autocomplete">
+          <label for="cpfcnpj">CPF/CNPJ</label>
+          <span class="helper-text" data-error="wrong" data-success="right"> Insira o CPF ou CNPJ do proprietário</span>
+        </div>
+
+
+        <div class="input-field col s12 m3 l3">
+          <i class="material-icons prefix">account_circle</i>
+          <input autocomplete="off" type="text" name="nomeproprietario" #nomeproprietario id="nomeproprietario" class="autocomplete">
+          <label for="nomeproprietario">Nome</label>
+          <span class="helper-text" data-error="wrong" data-success="right">Insira o nome do proprietário</span>
+
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12 m6 l6">
+          <i class="material-icons prefix">code</i>
+          <input autocomplete="off" #rgproprietario type="text" name="rg" id="rg" class="autocomplete">
+          <label for="rg">RG</label>
+          <span class="helper-text" data-error="wrong" data-success="right">Insira o RG do contribuinte/proprietário</span>
+        </div>
+
+        <div class="input-field col s12 m6 l6">
+          <i class="material-icons prefix">format_list_numbered</i>
+          <input autocomplete="off" #email type="email" name="email" id="email" validate="validate" class="autocomplete">
+          <label for="email">E-mail</label>
+          <span class="helper-text" data-error="wrong" data-success="right">Insira o e-mail do contribuinte</span>
+        </div>
+
+      </div>
+    </div>
+  </li>
+  <!-- Identificação do Imóvel -->
 
   <li routerLinkActive="active"  id="1">
     <div   class="collapsible-header"><i class="material-icons md-24">home</i>Identificação do imóvel</div>
     <div class="collapsible-body">
-
       <blockquote><h5>Identificação do imóvel</h5></blockquote>
 
       <div class="row">
@@ -121,39 +185,58 @@
 
         <div class="input-field col s12 m3 l3">
           <i class="material-icons prefix">open_with</i>
-          <input autocomplete="off" type="number" name="nome" id="areaterreno" class="autocomplete">
+          <input autocomplete="off" #areaterreno type="number" name="nome" id="areaterreno" class="autocomplete">
           <label for="areaterreno">Área do terreno</label>
           <span class="helper-text" data-error="wrong" data-success="right">Insira a área do terreno em m²</span>
         </div>
 
         <div class="input-field col s12 m3 l3">
           <i class="material-icons prefix">open_with</i>
-          <input autocomplete="off" type="number" name="nome" id="areaunidade" class="autocomplete">
+          <input autocomplete="off" #areaunidade type="number" name="nome" id="areaunidade" class="autocomplete">
           <label for="areaunidade">Área da unidade</label>
           <span class="helper-text" data-error="wrong" data-success="right">Insira a área da unidade em m²</span>
         </div>
 
         <div class="input-field col s12 m3 l3">
           <i class="material-icons prefix">open_with</i>
-          <input autocomplete="off" type="number" name="nome" id="areaconstruida" class="autocomplete">
+          <input autocomplete="off" #areaconstruida type="number" name="nome" id="areaconstruida" class="autocomplete">
           <label for="areaconstruida">Área construída</label>
           <span class="helper-text" data-error="wrong" data-success="right">Insira a área total construída em m²</span>
         </div>
 
         <div class="input-field col s12 m3 l3">
           <i class="material-icons prefix">swap_horiz</i>
-          <input autocomplete="off" type="number" name="nome" id="testadaprincipal" class="autocomplete">
+          <input autocomplete="off" #testadaprincipal type="number" name="nome" id="testadaprincipal" class="autocomplete">
           <label for="testadaprincipal">Testada principal</label>
           <span class="helper-text" data-error="wrong" data-success="right">Insira a testada principal</span>
         </div>
 
         <div class="input-field col s12 m3 l3">
           <i class="material-icons prefix">import_export</i>
-          <input autocomplete="off" type="number" name="nome" id="profundidadeprincipal" class="autocomplete">
-          <label for="profundidadeprincipal">Profundidade principal</label>
-          <span class="helper-text" data-error="wrong" data-success="right">Insira a profundidade principal</span>
+          <input autocomplete="off" #profundidadeprincipal type="number" name="nome" id="profundidadeprincipal" class="autocomplete">
+          <label for="profundidadeprincipal">Profundidade</label>
+          <span class="helper-text" data-error="wrong" data-success="right">Insira a profundidade do terreno</span>
         </div>
       </div>
+      <!--  Botão de Identificação do imóvel aqui-->
+      <button
+      type="button"
+      class="waves-effect waves-light btn-flat red lighten-3"
+      (click)="adicionar(
+      areaterreno.value,
+      areaunidade.value,
+      areaconstruida.value,
+      testadaprincipal.value,
+      profundidadeprincipal.value
+      );
+      areaterreno.value = '';
+      areaunidade.value = '';
+      areaconstruida.value = '';
+      testadaprincipal.value = '';
+      profundidadeprincipal.value = ''
+      ">
+      <i class="material-icons right">send</i>
+      Salvar</button>
 
     </div>
   </li>
