@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BicService } from './bic.service';
 
+declare var MStepper;
 
 
 @Component({
@@ -17,12 +18,16 @@ export class BicAbasComponent implements OnInit {
   constructor(private bicService: BicService) { }
 
   ngOnInit() {
-    this.colapsaveis();
-    this.seletores();
-    this.consultar();
+    // this.consultar();
+
+
+    this.cpfSelected();
+    this.cnpjSelected();
+    this.passoapasso();
+    this.selectInputs();
 
   }
-  // Serviço HTTP
+  // Serviços HTTP
 
   consultar() {
     this.bicService.consultar()
@@ -78,18 +83,35 @@ export class BicAbasComponent implements OnInit {
 
 
   // Elementos gráficos
-  seletores(){
-    var elems = document.querySelectorAll('select');
-    var instances = M.FormSelect.init(elems, this.options);
-  }
 
-  colapsaveis(){
-    var elems = document.querySelectorAll('.collapsible');
-    var instances = M.Collapsible.init(elems, {
-      accordion: true
+
+passoapasso(){
+  let stepper = document.querySelector('.stepper');
+  let stepperInstace = new MStepper(stepper, {
+    // this.options
+    firstActive: 0 // Função padrão para exibir o primeiro passo.
+  })
+}
+
+selectInputs(){
+  let elems = document.querySelectorAll('select');
+  let instances = M.FormSelect.init(elems, this.options);
+};
+
+cpfSelected(){
+  $('input#cpfselected').on('click', function(){
+    $('input#cpfcnpj').attr({
+      'title': 'A função JQuery funcionou!'
     });
-  }
+  });
+}
 
+cnpjSelected(){
+  $('input#cnpjselected').on('click', function(){
+    $('input#cpfcnpj').attr({
+      'title': 'A outra função JQuery assumiu!'
+    });
+  });
 
-
+}
 }

@@ -4,6 +4,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { } from 'materialize-css';
+import { } from 'materialize-stepper'
+import * as $ from 'jquery'
 
 // Componentes
 import { CoreModule } from '../core/core.module';

@@ -7,7 +7,7 @@ import { BoletimInscricaoCadastralComponent } from './formularios/boletim-inscri
 import { HomeComponent } from './paginas/home/home.component';
 
 const APP_ROUTES: Routes = [
-  // { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent },
   { path: 'dashboard', component: NavbarPrincipalComponent, children: [
     { path: 'bic', component: BoletimInscricaoCadastralComponent }
   ]},
