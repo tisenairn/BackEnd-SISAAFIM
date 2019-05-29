@@ -7,11 +7,10 @@ import { BoletimInscricaoCadastralComponent } from './formularios/boletim-inscri
 import { HomeComponent } from './paginas/home/home.component';
 
 const APP_ROUTES: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'dashboard', component: NavbarPrincipalComponent, children: [
-    { path: 'bic', component: BoletimInscricaoCadastralComponent }
-  ]},
-  { path: 'bic', component: BoletimInscricaoCadastralComponent }
+  // { path: '', component: HomeComponent },
+  // { path:'dashboard', component: NavbarPrincipalComponent},
+  { path:"bic", component: BoletimInscricaoCadastralComponent }
+
 
 ];
 export const routing: ModuleWithProviders = RouterModule.forRoot(APP_ROUTES);
