@@ -1,446 +1,960 @@
+<div class="row">
+  <div class="col xl12 l12 m12 s12">
+    <div class="card">
+      <div class="card-content">
+        <form method="GET" action="?">
+          <ul class="stepper">
+            <li class="step">
+              <div data-step-label="Insira aqui os dados do proprietário do imóvel"
+              class="step-title waves-effect waves-dark">
+              <i class="material-icons">assignment_ind</i>
+              PROPRIETÁRIO
+            </div>
+            <div class="step-content">
 
-<div class="navbar-fixed subposicao">
-  <nav>
-    <div class="nav-wrapper">
-      <div class="col s12 m12 l12">
-        <a [routerLink]="['/bic']" fragment="1" routerLinkActive="active" href="#1" class="breadcrumb tab">1</a>
-        <a [routerLink]="['/bic']" fragment="2" routerLinkActive="active" class="breadcrumb tab ">2</a>
-        <a [routerLink]="['/bic']" fragment="3" routerLinkActive="active" class="breadcrumb tab">3</a>
-        <a [routerLink]="['/bic']" fragment="4" routerLinkActive="active" class="breadcrumb tab">4</a>
+              <blockquote><h5>Identificação do proprietário</h5></blockquote>
+
+              <div class="row">
+                <div class="input-field col s12 m2 l2 offset-s1 offset-m1 offset-l1">
+                  <div class="row">
+                    <div class="col s12">
+                      <p>
+                        <label for="cpfselected">
+                          <input
+                          type="radio"
+                          name="selectcnfcnpj"
+                          id="cpfselected"
+                          #selectcnfcnpj
+                          [value]="selectcnfcnpj.checked == 'checked' ? 'predial' : ''"
+                          />
+                          <span>
+                            <i class="material-icons">person</i>
+                            CPF
+                          </span>
+                        </label>
+                      </p>
+                    </div>
+
+                    <div class="col s12">
+                      <p>
+                        <label style="margin-left: 10px">
+                          <input
+                          type="radio"
+                          name="selectcnfcnpj"
+                          id="cnpjselected"
+                          #selectcnfcnpj
+                          [value]="selectcnfcnpj.checked == 'checked' ? 'territorial' : ''"
+                          />
+                          <span>
+                            <i class="material-icons">people</i>
+                            CNPJ
+                          </span>
+                          <span
+                          class="helper-text"
+                          data-error="Especifique a natureza do documento"
+                          data-success="Selecionado!"> Selecione a natureza
+                        </span>
+                      </label>
+                    </p>
+                  </div>
+
+                </div>
+              </div>
+
+
+              <!-- maxlength para o CNPJ, alterar para eventos change do seletor  -->
+              <div class="input-field col s12 m3 l3">
+                <i class="far fa-address-card prefix"></i>
+                <input required=""
+                type="text"
+                name="cpfcnpj"
+                #cpfcnpj
+                id="cpfcnpj"
+                class="validate"
+                maxlength="18"
+                pattern="^(((\d{3}).(\d{3}).(\d{3})-(\d{2}))?((\d{3})(\d{3})(\d{3})(\d{2}))?((\d{2}).(\d{3}).(\d{3})/(\d{4})-(\d{2}))?((\d{3})(\d{3})(\d{3})(\d{2}))?((\d{2})(\d{3})(\d{3})(\d{4})(\d{2}))?)*$"
+                />
+                <label for="cpfcnpj">CPF/CNPJ</label>
+                <span class="helper-text"
+                data-error="Exemplos válidos CPF: 111.222.333-44, CNPJ: 11.222.333/0000-99"
+                data-success="O formato do CPF/CNPJ foi validado com sucesso">
+                Insira o CPF ou CNPJ do proprietário
+              </span>
+            </div>
+            <!--  Adicionar pattern regex para RG base de cálculo do RN -->
+            <div class="input-field col s12 m3 l3">
+              <i class="fas fa-id-card prefix"></i>
+              <input
+              required=""
+              #rgproprietario
+              type="text"
+              name="rg"
+              id="rg"
+              class="validate"
+              maxlength="11"
+              />
+              <label for="rg">RG</label>
+              <span class="helper-text"
+              data-error="insira um RG válido">
+              Insira o RG do proprietário
+            </span>
+          </div>
+
+          <div class="input-field col s12 m3 l3">
+            <i class="material-icons prefix">contact_phone</i>
+            <input
+            required=""
+            #foneproprietario
+            type="tel"
+            name="fone"
+            id="fone"
+            class="validate"
+            maxlength="10"
+            pattern="[0-9]{4,6}-[0-9]{3,4}$"
+            />
+            <label for="fone">Telefone</label>
+            <span class="helper-text"
+            data-error="Insira um telefone válido Ex.: 99999-1111">
+            Insira o telefone do proprietário
+          </span>
+        </div>
+
+        <div class="input-field col s12 m12 l12 xl12">
+          <i class="material-icons prefix">account_circle</i>
+          <input
+          required=""
+          type="text"
+          name="nomeproprietario"
+          #nomeproprietario
+          id="nomeproprietario"
+          class="validate"
+          pattern="[A-Za-z\u00C0-\u00FF]{3,}.*">
+          <label for="nomeproprietario">Nome</label>
+          <span class="helper-text"
+          data-error="Insira um nome válido">
+          Insira o nome do proprietário
+        </span>
       </div>
+
+      <div class="input-field col s12 m6 l6 xl6">
+        <i class="material-icons prefix">contact_mail</i>
+        <input
+        required=""
+        id="emailproprietario"
+        name="emailproprietario"
+        type="email"
+        class="validate"
+        pattern="[A-Za-z]{3,}.*"
+        >
+        <label for="emailproprietario">E-mail</label>
+        <span class="helper-text"
+        data-error="insira um e-mail válido"
+        data-success="right">
+        Insira o e-mail do proprietário
+      </span>
     </div>
-  </nav>
+  </div>
+
+  <div class="row">
+    <blockquote class="blockChild">
+      <h6>Endereço de correspondência</h6>
+    </blockquote>
+
+    <div class="input-field col s10 m3 l2 xl2">
+      <i class="material-icons prefix">local_convenience_store</i>
+      <input
+      required=""
+      id="cepcorrespondencia"
+      name="cepcorrespondencia"
+      type="text"
+      class="validate"
+      maxlength="9"
+      pattern="(\d{5}-?\d{3})"
+      />
+      <label for="cepcorrespondencia">CEP</label>
+      <span class="helper-text"
+      data-error="insira um CEP válido Ex.: '59290-000'"
+      data-success="O formato do CEP foi validado"
+      >
+      Preencha com o CEP
+    </span>
+  </div>
+
+  <div class="input-field col s12 m9 l5 xl5">
+    <i class="material-icons prefix">location_city</i>
+    <input
+    required=""
+    id="cidadecorrespondencia"
+    name="cidadecorrespondencia"
+    type="text"
+    class="validate"
+    pattern="[A-Za-z\u00C0-\u00FF]{3,}.*"
+    />
+    <label for="cidadecorrespondencia">Cidade</label>
+    <span
+    class="helper-text"
+    data-error="Preencha o campo com uma cidade"
+    >
+    Insira a cidade de correspondência do proprietário
+  </span>
 </div>
 
-<ul class="collapsible popout">
+<div class="input-field col s12 m9 l5 xl5">
+  <i class="material-icons prefix">home</i>
+  <input
+  required=""
+  id="bairrocorrespondencia"
+  name="bairrocorrespondencia"
+  type="text"
+  class="validate"
+  pattern="[A-Za-z\u00C0-\u00FF]{3,}.*"
+  />
+  <label for="bairrocorrespondencia">Bairro</label>
+  <span class="helper-text"
+  data-error="Preencha o campo com um bairro"
+  >
+  Insira o bairro de correspondência do proprietário
+</span>
+</div>
+
+<!-- <div class="input-field col s2 m2 l2 xl2">
+<select class="">
+<option value="" disabled selected>Selecione</option>
+<option value="Rua">Rua</option>
+<option value="Travessa">Travessa</option>
+<option value="Avenida">Avenida</option>
+</select>
+<span
+class="helper-text"
+data-error="Preencha o campo com uma"
+>
+Insira o bairro de correspondência do proprietário
+</span>
+</div> -->
 
 
-  <li routerLinkActive="active"  id="0">
-    <div   class="collapsible-header"><i class="material-icons md-24">home</i>Identificação do contribuinte</div>
-    <div class="collapsible-body">
-      <blockquote><h5>Identificação do proprietário</h5></blockquote>
+<div class="input-field col s10 m3 l2 xl2">
+  <i class="material-icons prefix">home</i>
+  <input
+  id="numerocorrespondencia"
+  name="numerocorrespondencia"
+  type="number"
+  class="validate"
+  />
+  <label for="numerocorrespondencia">Número</label>
+  <span
+  class="helper-text"
+  data-error="Preencha o campo com o logradouro. Ex.: Rua dos pardais"
+  >
+  Preencha com o número da localidade
+</span>
+</div>
 
-      <div class="row">
+<div class="input-field col s12 m5 l5 xl5">
+  <i class="material-icons prefix">home</i>
+  <input
+  required=""
+  id="ruacorrespondencia"
+  name="ruacorrespondencia"
+  type="text"
+  class="validate"
+  pattern="[A-Za-z\u00C0-\u00FF]{3,}.*"
+  />
+  <label for="ruacorrespondencia">Logradouro</label>
+  <span
+  class="helper-text"
+  data-error="Preencha o campo com o logradouro. Ex.: Rua dos pardais"
+  >
+  Insira o logradouro de correspondência do proprietário
+</span>
+</div>
 
-        <div class="input-field col s12 m3 l3 offset-s1 offset-m1 offset-l1">
-          <form action="#">
-            <label for="selectcpfcnpj">CPF ou CNPJ:</label>
-            <p>
-              <label>
-                <input type="radio" name="selectcnfcnpj" id="cpfselected" required #selectcnfcnpj [value]="selectcnfcnpj.checked == 'checked' ? 'predial' : ''"/>
-                <span>
-                  <i class="material-icons ">home</i>
-                  CPF
-                </span>
-              </label>
-              <label style="margin-left: 10px">
-                <input type="radio" name="selectcnfcnpj" id="cnpjselected"  #selectcnfcnpj required [value]="selectcnfcnpj.checked == 'checked' ? 'territorial' : ''" />
-                <span>
-                  <i class="material-icons">terrain</i>
-                  CNPJ
-                </span>
-              </label>
-            </p>
-          </form>
-        </div>
+<div class="input-field col s12 m5 l5 xl5">
+  <i class="material-icons prefix">home</i>
+  <input
+  id="complementocorrespondencia"
+  name="complementocorrespondencia"
+  type="text"
+  class="validate"
+  pattern="[A-Za-z\u00C0-\u00FF]{3,}.*"
+  />
+  <label for="complementocorrespondencia">Complemento</label>
+  <span
+  class="helper-text"
+  data-error="Preencha o campo com o logradouro. Ex.: Rua dos pardais"
+  >
+  Insira uma informação complementar
+</span>
+</div>
 
-        <div class="input-field col s12 m3 l3">
-          <i class="material-icons prefix">code</i>
-          <input autocomplete="off" type="text" name="cpfcnpj" #cpfcnpj id="cpfcnpj" class="autocomplete">
-          <label for="cpfcnpj">CPF/CNPJ</label>
-          <span class="helper-text" data-error="wrong" data-success="right"> Insira o CPF ou CNPJ do proprietário</span>
-        </div>
+<!-- Fim de endereço de correspondência -->
+</div>
 
+<div class="step-actions">
+  <button class="waves-effect waves-dark btn blue next-step">
+    PRÓXIMO
+  </button>
+</div>
 
-        <div class="input-field col s12 m3 l3">
-          <i class="material-icons prefix">account_circle</i>
-          <input autocomplete="off" type="text" name="nomeproprietario" #nomeproprietario id="nomeproprietario" class="autocomplete">
-          <label for="nomeproprietario">Nome</label>
-          <span class="helper-text" data-error="wrong" data-success="right">Insira o nome do proprietário</span>
+</div>
+<hr class="hrmin">
+</li>
+<!-- Fim do passo do proprietário -->
 
-        </div>
+<!--  Início do passo Imóvel-->
+<li class="step">
+  <div data-step-label="Insira aqui os dados de identificação do imóvel"
+  class="step-title waves-effect waves-dark">
+  <i class="material-icons">home</i>
+  IMÓVEL
+</div>
+<div class="step-content">
 
-      </div>
+  <blockquote>
+    <h5>Identificação do imóvel</h5>
+  </blockquote>
 
-      <div class="row">
-        <div class="input-field col s12 m6 l6">
-          <i class="material-icons prefix">code</i>
-          <input autocomplete="off" #rgproprietario type="text" name="rg" id="rg" class="autocomplete">
-          <label for="rg">RG</label>
-          <span class="helper-text" data-error="wrong" data-success="right">Insira o RG do contribuinte/proprietário</span>
-        </div>
+  <div class="row">
 
-        <div class="input-field col s12 m6 l6">
-          <i class="material-icons prefix">format_list_numbered</i>
-          <input autocomplete="off" #email type="email" name="email" id="email" validate="validate" class="autocomplete">
-          <label for="email">E-mail</label>
-          <span class="helper-text" data-error="wrong" data-success="right">Insira o e-mail do contribuinte</span>
-        </div>
-
-      </div>
-    </div>
-  </li>
-  <!-- Identificação do Imóvel -->
-
-  <li routerLinkActive="active"  id="1">
-    <div   class="collapsible-header"><i class="material-icons md-24">home</i>Identificação do imóvel</div>
-    <div class="collapsible-body">
-      <blockquote><h5>Identificação do imóvel</h5></blockquote>
-
-      <div class="row">
-        <div class="input-field col s12 m3 l3">
-          <i class="material-icons prefix">code</i>
-          <input autocomplete="off" type="text" name="sequencial" disabled id="sequencial" class="autocomplete">
-          <label for="sequencial">Sequencial</label>
-          <span class="helper-text" data-error="wrong" data-success="right"> O número sequencial do imóvel será inserido aqui</span>
-        </div>
-
-
-        <div class="input-field col s12 m3 l3">
-          <i class="material-icons prefix">home</i>
-          <input autocomplete="off" type="text" name="loteamento" #loteamento id="loteamento" class="autocomplete">
-          <label for="loteamento">Loteamento</label>
-          <span class="helper-text" data-error="wrong" data-success="right">Insira o loteamento do imóvel</span>
-
-        </div>
-
-        <div class="input-field col s12 m3 l3 offset-s1 offset-m1 offset-l1">
-          <form action="#">
-            <label for="natureza">Natureza do imóvel:</label>
-            <p>
-              <label>
-                <input type="radio" name="natureza" id="nat-predial" required #natureza [value]="natureza.checked == 'checked' ? 'predial' : ''"/>
-                <span>
-                  <i class="material-icons ">home</i>
-                  Predial
-                </span>
-              </label>
-              <label style="margin-left: 10px">
-                <input type="radio" name="natureza" id="nat-territorial"  #natureza required [value]="natureza.checked == 'checked' ? 'territorial' : ''" />
-                <span>
-                  <i class="material-icons">terrain</i>
-                  Territorial
-                </span>
-              </label>
-            </p>
-            <span class="helper-text" data-error="wrong" data-success="right">Selecione uma natureza para o tipo de cadastro</span>
-          </form>
-        </div>
-
-      </div>
-
-      <div class="row">
-        <div class="input-field col s12 m6 l6">
-          <i class="material-icons prefix">account_circle</i>
-          <input autocomplete="off" #nomecontribuinte type="text" name="nome" id="nome" class="autocomplete">
-          <label for="nome">Nome</label>
-          <span class="helper-text" data-error="wrong" data-success="right">Insira o nome do contribuinte/proprietário</span>
-        </div>
-
-        <div class="input-field col s12 m6 l6">
-          <i class="material-icons prefix">format_list_numbered</i>
-          <input autocomplete="off" #inscricaoimovel type="text" name="nome" id="inscricao" class="autocomplete">
-          <label for="inscricao">Inscrição</label>
-          <span class="helper-text" data-error="wrong" data-success="right">Insira a inscrição do imóvel</span>
-        </div>
-
-      </div>
-      <!--  Botão de Identificação do imóvel aqui-->
-      <!--  Rever natureza.value -->
-      <button
-      type="button"
-      class="waves-effect waves-light btn-flat red lighten-3"
-      (click)="adicionar(
-      loteamento.value,
-      nomecontribuinte.value,
-      natureza.value,
-      inscricaoimovel.value
-      );
-      loteamento.value = '';
-      natureza.checked = '';
-      nomecontribuinte.value = '';
-      inscricaoimovel.value = ''
-      ">
-      <i class="material-icons right">send</i>
-      Salvar</button>
-
-
+    <div class="input-field col s12 m12 l12 offset-s1 offset-m1 offset-l1">
+      <form action="#">
+        <p>
+          <label>
+            <input type="radio" name="natureza" id="nat-predial" required #natureza [value]="natureza.checked == 'checked' ? 'predial' : ''"/>
+            <span>
+              <i class="material-icons ">home</i>
+              Predial
+            </span>
+          </label>
+          <label style="margin-left: 10px">
+            <input type="radio" name="natureza" id="nat-territorial"  #natureza required [value]="natureza.checked == 'checked' ? 'territorial' : ''" />
+            <span>
+              <i class="material-icons">terrain</i>
+              Territorial
+            </span>
+          </label>
+        </p>
+        <span class="helper-text" data-error="Errado!" data-success="Correto!">Selecione uma natureza para o tipo de cadastro</span>
+      </form>
     </div>
 
+    <div class="input-field col s12 m6 l6">
+      <i class="material-icons prefix">format_list_numbered</i>
+      <input autocomplete="off" #inscricaoimovel type="text" name="nome" id="inscricao" class="autocomplete">
+      <label for="inscricao">Inscrição</label>
+      <span class="helper-text" data-error="wrong" data-success="right">Insira a inscrição do imóvel</span>
+    </div>
 
+    <div class="input-field col s12 m6 l6">
+      <i class="material-icons prefix">home</i>
+      <input autocomplete="off" type="text" name="loteamento" #loteamento id="loteamento" class="autocomplete">
+      <label for="loteamento">Loteamento</label>
+      <span class="helper-text" data-error="wrong" data-success="right">Insira o loteamento do imóvel</span>
 
-  </li>
+    </div>
+  </div>
 
+  <div class="row">
 
-  <li>
-    <div id="2" class="collapsible-header"><i class="material-icons md-24">zoom_out_map</i>Dimensões da unidade</div>
-    <div class="collapsible-body">
+    <blockquote class="blockChild">
+      <h6>Endereço do imóvel</h6>
+    </blockquote>
 
+    <div class="input-field col s10 m3 l2 xl2">
+      <i class="material-icons prefix">local_convenience_store</i>
+      <input
+      required=""
+      id="cepimovel"
+      name="cepimovel"
+      type="text"
+      class="validate"
+      maxlength="9"
+      pattern="(\d{5}-?\d{3})"
+      />
+      <label for="cepimovel">CEP</label>
+      <span class="helper-text"
+      data-error="insira um CEP válido Ex.: '59290-000'"
+      data-success="O formato do CEP foi validado"
+      >
+      Preencha com o CEP
+    </span>
+  </div>
 
-      <blockquote>
-        <h5>Dimensões da unidade</h5>
+  <div class="input-field col s12 m9 l5 xl5">
+    <i class="material-icons prefix">location_city</i>
+    <input
+    required=""
+    id="cidadeimovel"
+    name="cidadeimovel"
+    type="text"
+    class="validate"
+    pattern="[A-Za-z\u00C0-\u00FF]{3,}.*"
+    />
+    <label for="cidadeimovel">Cidade</label>
+    <span
+    class="helper-text"
+    data-error="Preencha o campo com uma cidade"
+    >
+    Insira a cidade do imóvel
+  </span>
+</div>
+
+<div class="input-field col s12 m9 l5 xl5">
+  <i class="material-icons prefix">home</i>
+  <input
+  required=""
+  id="bairroimovel"
+  name="bairroimovel"
+  type="text"
+  class="validate"
+  pattern="[A-Za-z\u00C0-\u00FF]{3,}.*"
+  />
+  <label for="bairroimovel">Bairro</label>
+  <span class="helper-text"
+  data-error="Preencha o campo com um bairro"
+  >
+  Insira o bairro do imóvel
+</span>
+</div>
+
+<div class="input-field col s10 m3 l2 xl2">
+  <i class="material-icons prefix">home</i>
+  <input
+  id="numeroimovel"
+  name="numeroimovel"
+  type="number"
+  class="validate"
+  />
+  <label for="numeroimovel">Número</label>
+  <span
+  class="helper-text"
+  data-error="Preencha o campo com o logradouro. Ex.: Rua dos pardais"
+  >
+  Preencha com o número da localidade
+</span>
+</div>
+
+<div class="input-field col s12 m5 l5 xl5">
+  <i class="material-icons prefix">home</i>
+  <input
+  required=""
+  id="ruaimovel"
+  name="ruaimovel"
+  type="text"
+  class="validate"
+  pattern="[A-Za-z\u00C0-\u00FF]{3,}.*"
+  />
+  <label for="ruaimovel">Logradouro</label>
+  <span
+  class="helper-text"
+  data-error="Preencha o campo com o logradouro. Ex.: Rua dos pardais"
+  >
+  Insira o logradouro do imóvel
+</span>
+</div>
+
+<div class="input-field col s12 m5 l5 xl5">
+  <i class="material-icons prefix">home</i>
+  <input
+  id="complementoimovel"
+  name="complementoimovel"
+  type="text"
+  class="validate"
+  pattern="[A-Za-z\u00C0-\u00FF]{3,}.*"
+  />
+  <label for="complementoimovel">Complemento</label>
+  <span
+  class="helper-text"
+  data-error="Preencha o campo com o logradouro. Ex.: Rua dos pardais"
+  >
+  Insira uma informação complementar
+</span>
+</div>
+
+</div>
+
+<div class="step-actions">
+  <button class="waves-effect waves-dark btn blue next-step">PRÓXIMO</button>
+  <button class="waves-effect waves-dark btn-flat previous-step">ANTERIOR</button>
+</div>
+</div>
+<hr class="hrmin">
+</li>
+<!-- Fim: Identificação do imóvel -->
+<!-- TODO: Revisar os inputs e erros do identificação do imóvel -->
+
+<li class="step">
+  <div data-step-label="Insira aqui as dimensões de unidade do imóvel"
+  class="step-title waves-effect waves-dark">
+  <i class="material-icons">zoom_out_map</i>
+  DIMENSÕES
+</div>
+<div class="step-content">
+
+  <blockquote>
+    <h5>Dimensões da unidade</h5>
+  </blockquote>
+
+  <div class="row">
+    <div class="input-field col s12 m4 l3">
+      <i class="material-icons prefix">open_with</i>
+      <input
+      min="0"
+      pattern="[0-9]"
+      class="validate"
+      required="required"
+      #areaterreno
+      type="number"
+      name="nome"
+      id="areaterreno"
+      >
+      <label for="areaterreno">Área do terreno</label>
+      <span class="helper-text"
+      data-error="👀 Por favor insira esta informação 👆"
+      data-success="Okay! 👌"
+      >
+      Insira a área do terreno em m²
+    </span>
+  </div>
+
+  <div class="input-field col s12 m4 l3">
+    <i class="material-icons prefix">open_with</i>
+    <input
+    min="0"
+    pattern="[0-9]"
+    class="validate"
+    required="required"
+    #areaunidade
+    type="number"
+    name="nome"
+    id="areaunidade"
+    >
+    <label for="areaunidade">Área da unidade</label>
+    <span class="helper-text"
+    data-error="👀 Por favor insira esta informação 👆"
+    data-success="Okay! 👌">Insira a área da unidade em m²
+  </span>
+</div>
+
+<div class="input-field col s12 m4 l3">
+  <i class="material-icons prefix">open_with</i>
+  <input
+  min="0"
+  pattern="[0-9]"
+  class="validate"
+  required="required"
+  #areaconstruida
+  type="number"
+  name="nome"
+  id="areaconstruida"
+  >
+  <label for="areaconstruida">Área construída</label>
+  <span class="helper-text"
+  data-error="👀 Por favor insira esta informação 👆"
+  data-success="Okay! 👌">Insira a área total construída em m²
+</span>
+</div>
+
+<div class="input-field col s12 m4 l3">
+  <i class="material-icons prefix">swap_horiz</i>
+  <input
+  min="0"
+  pattern="[0-9]"
+  class="validate"
+  required="required"
+  #testadaprincipal
+  type="number"
+  name="nome"
+  id="testadaprincipal"
+  >
+  <label for="testadaprincipal">Testada principal</label>
+  <span class="helper-text"
+  data-error="👀 Por favor insira esta informação 👆"
+  data-success="Okay! 👌">Insira a testada principal
+</span>
+</div>
+
+<div class="input-field col s12 m4 l3">
+  <i class="material-icons prefix">import_export</i>
+  <input
+  min="0"
+  pattern="[0-9]*"
+  class="validate"
+  required="required"
+  #profundidadeprincipal
+  type="number"
+  name="nome"
+  id="profundidadeprincipal"
+  >
+  <label for="profundidadeprincipal">Profundidade</label>
+  <span class="helper-text"
+  data-error="👀 Por favor insira esta informação 👆"
+  data-success="Okay! 👌">Insira a profundidade do terreno
+</span>
+</div>
+</div>
+
+<div class="step-actions">
+  <button class="waves-effect waves-dark btn blue next-step">PRÓXIMO</button>
+  <button class="waves-effect waves-dark btn-flat previous-step">ANTERIOR</button>
+</div>
+</div>
+<hr class="hrmin">
+</li>
+<!-- Fim: Dimensões da unidade -->
+
+<li class="step">
+  <div data-step-label="Especifique aqui informações sobre o terreno"
+  class="step-title waves-effect waves-dark">
+  <i class="material-icons">terrain</i>
+  TERRENO
+</div>
+<div class="step-content">
+
+  <blockquote>
+    <h5>Informações gerais sobre o terreno</h5>
+  </blockquote>
+
+  <div class="row">
+    <div class="col s12 m4 l4">
+
+      <blockquote class="blockChild">
+        <h6>Pedologia</h6>
       </blockquote>
 
-      <div class="row">
-
-        <div class="input-field col s12 m3 l3">
-          <i class="material-icons prefix">open_with</i>
-          <input autocomplete="off" #areaterreno type="number" name="nome" id="areaterreno" class="autocomplete">
-          <label for="areaterreno">Área do terreno</label>
-          <span class="helper-text" data-error="wrong" data-success="right">Insira a área do terreno em m²</span>
-        </div>
-
-        <div class="input-field col s12 m3 l3">
-          <i class="material-icons prefix">open_with</i>
-          <input autocomplete="off" #areaunidade type="number" name="nome" id="areaunidade" class="autocomplete">
-          <label for="areaunidade">Área da unidade</label>
-          <span class="helper-text" data-error="wrong" data-success="right">Insira a área da unidade em m²</span>
-        </div>
-
-        <div class="input-field col s12 m3 l3">
-          <i class="material-icons prefix">open_with</i>
-          <input autocomplete="off" #areaconstruida type="number" name="nome" id="areaconstruida" class="autocomplete">
-          <label for="areaconstruida">Área construída</label>
-          <span class="helper-text" data-error="wrong" data-success="right">Insira a área total construída em m²</span>
-        </div>
-
-        <div class="input-field col s12 m3 l3">
-          <i class="material-icons prefix">swap_horiz</i>
-          <input autocomplete="off" #testadaprincipal type="number" name="nome" id="testadaprincipal" class="autocomplete">
-          <label for="testadaprincipal">Testada principal</label>
-          <span class="helper-text" data-error="wrong" data-success="right">Insira a testada principal</span>
-        </div>
-
-        <div class="input-field col s12 m3 l3">
-          <i class="material-icons prefix">import_export</i>
-          <input autocomplete="off" #profundidadeprincipal type="number" name="nome" id="profundidadeprincipal" class="autocomplete">
-          <label for="profundidadeprincipal">Profundidade</label>
-          <span class="helper-text" data-error="wrong" data-success="right">Insira a profundidade do terreno</span>
-        </div>
-      </div>
-      <!--  Botão de Identificação do imóvel aqui-->
-      <button
-      type="button"
-      class="waves-effect waves-light btn-flat red lighten-3"
-      (click)="adicionar(
-      areaterreno.value,
-      areaunidade.value,
-      areaconstruida.value,
-      testadaprincipal.value,
-      profundidadeprincipal.value
-      );
-      areaterreno.value = '';
-      areaunidade.value = '';
-      areaconstruida.value = '';
-      testadaprincipal.value = '';
-      profundidadeprincipal.value = ''
-      ">
-      <i class="material-icons right">send</i>
-      Salvar</button>
-
+      <select class="">
+        <option value="" disabled selected>Selecione</option>
+        <option value="1">Normal</option>
+        <option value="2">Alagado</option>
+        <option value="3">Alagado +50%</option>
+        <option value="4">Alagado -50%</option>
+      </select>
     </div>
-  </li>
 
+    <div class="col s12 m4 l4">
 
-  <li >
-    <div id="3" class="collapsible-header"><i class="material-icons">info</i>Informações da edificação</div>
-    <div class="collapsible-body">
-
-      <blockquote >
-        <h5>Informações da edificação</h5>
+      <blockquote class="blockChild">
+        <h6>Topografia</h6>
       </blockquote>
 
-      <div class="row">
-        <div class="col s12 m4 l4">
-          <blockquote>
-            <h6>Tipo de imóvel</h6>
-          </blockquote>
-          <select class="">
-            <option value="" disabled selected>Selecione</option>
-            <option value="1">Apartamento</option>
-            <option value="2">Edifío Comercial</option>
-            <option value="3">Casa Isolada</option>
-            <option value="4">Casa Germinada 1-L</option>
-            <option value="5">Casa Germinada 2-L</option>
-            <option value="6">Loja/Galeria/Shopping</option>
-            <option value="7">Clube Cinema</option>
-            <option value="8">Ginásio</option>
-            <option value="9">edificação Especial</option>
-            <option value="10">Educação</option>
-            <option value="11">Templo</option>
-            <option value="12">Garagem Depósito</option>
-            <option value="13">Hotel/Pousada/Motel</option>
-            <option value="14">Galpão</option>
-            <option value="15">Indústrial/Fabrica</option>
-            <option value="16">Clínica/Hospital</option>
-            <option value="17">Substação</option>
-            <option value="18">Posto De Combustível</option>
-            <option value="19">Instituição Financeira</option>
-            <option value="20">Telheiro/Edificação Precária</option>
-            <option value="21">Construção</option>
-            <option value="22">Terreno</option>
-            <option value="23">Outros</option>
-
-          </select>
-        </div>
-
-        <div class="col s12 m4 l4">
-          <blockquote>
-            <h6>Utilização de imóvel</h6>
-          </blockquote>
-          <select class="">
-            <option value="" disabled selected>Selecione</option>
-            <option value="1">Residencial</option>
-            <option value="2">Industrial</option>
-            <option value="3">Mista</option>
-            <option value="4">Comercial</option>
-            <option value="5">Hospital</option>
-            <option value="6">Entrada Pública</option>
-            <option value="7">Prestação De Serviço</option>
-            <option value="8">Educação</option>
-            <option value="9">Outros</option>
-
-          </select>
-        </div>
-
-        <div class="col s12 m4 l4">
-          <blockquote>
-            <h6>Estado de conservação</h6>
-          </blockquote>
-
-          <select class="">
-            <option value="" disabled selected>Selecione</option>
-            <option value="1">Ótimo</option>
-            <option value="2">Bom</option>
-            <option value="3">Regular</option>
-            <option value="3">Outros</option>
-
-          </select>
-        </div>
-      </div>
-
-      <div class="row">
-
-
-        <div class="col s12 m4 l4">
-          <blockquote>
-            <h6>Padrão de qualidade</h6>
-          </blockquote>
-
-          <select class="">
-            <option value="" disabled selected>Selecione</option>
-            <option value="1">Ótimo</option>
-            <option value="2">Bom</option>
-            <option value="3">Regular</option>
-            <option value="4">Outros</option>
-
-          </select>
-        </div>
-
-        <div class="col s12 m4 l4">
-          <blockquote>
-            <h6>Estrutura</h6>
-          </blockquote>
-
-          <select class="">
-            <option value="" disabled selected>Selecione</option>
-            <option value="1">Concreto</option>
-            <option value="2">Madeira</option>
-            <option value="3">Mista</option>
-            <option value="4">Metálica</option>
-            <option value="5">Taipa</option>
-            <option value="6">Alvenaria</option>
-            <option value="7">Outros</option>
-
-          </select>
-
-        </div>
-
-      </div>
-
+      <select class="">
+        <option value="" disabled selected>Selecione</option>
+        <option value="1">Plano</option>
+        <option value="2">Aclive/Declive</option>
+        <option value="3">Redução de capacidade</option>
+        <option value="4">Formato que impede construção</option>
+      </select>
     </div>
-  </li>
 
+    <div class="col s12 m4 l4">
 
-  <li >
-    <div id="4" class="collapsible-header"><i class="material-icons">assignment_turned_in</i>Benfeitorias da unidade</div>
-    <div class="collapsible-body">
-
-      <blockquote>
-        <h5>Benfeitorias da unidade</h5>
+      <blockquote class="blockChild">
+        <h6>Estado de conservação</h6>
       </blockquote>
 
-      <div class="row">
-        <form class="input-field">
+      <select class="">
+        <option value="" disabled selected>Selecione</option>
+        <option value="1">Ótimo</option>
+        <option value="2">Bom</option>
+        <option value="3">Regular</option>
+        <option value="4">Ruim</option>
+      </select>
+    </div>
+  </div>
 
-          <div class="input-field col s12 m3 l3 offset-l1">
-            <p><label>
-              <input type="checkbox" name="benfeitorias" class="filled-in"/>
-              <span>
-                <i class="fas fa-tint"></i>
-                Água</span>
-              </label></p>
+  <div class="step-actions">
+    <button class="waves-effect waves-dark btn blue next-step">PRÓXIMO</button>
+    <button class="waves-effect waves-dark btn-flat previous-step">ANTERIOR</button>
+  </div>
+</div>
+</li>
 
-              <p><label>
-                <input type="checkbox" name="benfeitorias" class="filled-in" />
-                <span>
-                  <i class="material-icons">flash_on</i>
-                  Energia</span>
-                </label></p>
-                <p><label>
-                  <input type="checkbox" name="benfeitorias" class="filled-in" />
-                  <span>
-                    <i class="material-icons">delete_sweep</i>
-                    Limpeza Urbana</span>
-                  </label></p>
-                </div>
-                <div class="input-field col s12 m3 l3">
-                  <p>  <label>
 
-                    <input type="checkbox" name="benfeitorias" class="filled-in" />
-                    <span>
-                      <i class="fas fa-toilet"></i>
-                      Esgoto</span>
-                    </label></p>
-                    <p><label>
-                      <input type="checkbox" name="benfeitorias" class="filled-in" />
-                      <span>
-                        <i class="fas fa-dumpster"></i>
-                        Coleta de lixo</span>
-                      </label></p>
-                      <p><label>
-                        <input type="checkbox" name="benfeitorias" class="filled-in" />
-                        <span>
-                          <i class="fas fa-road"></i>
-                          Pavimentação</span>
+<li class="step">
+  <div data-step-label="Especifique aqui informações da edificação"
+  class="step-title waves-effect waves-dark">
+  <i class="material-icons">assignment_late</i>
+  EDIFICAÇÃO
+</div>
+<div class="step-content">
 
-                        </label></p>
-                      </div>
-                      <div class="input-field col s12 m3 l3">
-                        <p><label>
-                          <input type="checkbox" name="benfeitorias" class="filled-in" />
-                          <span>
-                            <i class="material-icons">ring_volume</i>
-                            Telefone</span>
-                          </label></p>
-                          <p><label>
-                            <input type="checkbox" name="benfeitorias" class="filled-in" />
-                            <span><i class="fas fa-kaaba">
-                            </i>
-                            Guias/Sarjetas</span>
-                          </label></p>
+  <blockquote>
+    <h5>Informações da edificação</h5>
+  </blockquote>
 
-                          <p>  <label>
-                            <input type="checkbox" name="benfeitorias" class="filled-in" />
-                            <span>
-                              <i class="fas fa-cloud-showers-heavy"></i>
-                              Aguas pluviais</span>
-                            </label></p>
-                          </div>
-                        </form>
-                      </div>
+  <div class="row">
+    <div class="col s12 m4 l4">
 
-                    </div>
-                  </li>
+      <blockquote class="blockChild">
+        <h6>Tipo de imóvel</h6>
+      </blockquote>
 
-                </ul>
+      <select class="">
+        <option value="" disabled selected>Selecione</option>
+        <option value="1">Apartamento</option>
+        <option value="2">Edifío Comercial</option>
+        <option value="3">Casa Isolada</option>
+        <option value="4">Casa Germinada 1-L</option>
+        <option value="5">Casa Germinada 2-L</option>
+        <option value="6">Loja/Galeria/Shopping</option>
+        <option value="7">Clube Cinema</option>
+        <option value="8">Ginásio</option>
+        <option value="9">edificação Especial</option>
+        <option value="10">Educação</option>
+        <option value="11">Templo</option>
+        <option value="12">Garagem Depósito</option>
+        <option value="13">Hotel/Pousada/Motel</option>
+        <option value="14">Galpão</option>
+        <option value="15">Indústrial/Fabrica</option>
+        <option value="16">Clínica/Hospital</option>
+        <option value="17">Substação</option>
+        <option value="18">Posto De Combustível</option>
+        <option value="19">Instituição Financeira</option>
+        <option value="20">Telheiro/Edificação Precária</option>
+        <option value="21">Construção</option>
+        <option value="22">Terreno</option>
+        <option value="23">Outros</option>
+      </select>
+    </div>
+
+    <div class="col s12 m4 l4">
+
+      <blockquote class="blockChild">
+        <h6>Utilização de imóvel</h6>
+      </blockquote>
+
+      <select class="">
+        <option value="" disabled selected>Selecione</option>
+        <option value="1">Residencial</option>
+        <option value="2">Industrial</option>
+        <option value="3">Mista</option>
+        <option value="4">Comercial</option>
+        <option value="5">Hospital</option>
+        <option value="6">Entrada Pública</option>
+        <option value="7">Prestação De Serviço</option>
+        <option value="8">Educação</option>
+        <option value="9">Outros</option>
+      </select>
+
+    </div>
+
+    <div class="col s12 m4 l4">
+      <blockquote class="blockChild">
+        <h6>Estado de conservação</h6>
+      </blockquote>
+
+      <select class="">
+        <option value="" disabled selected>Selecione</option>
+        <option value="1">Ótimo</option>
+        <option value="2">Bom</option>
+        <option value="3">Regular</option>
+        <option value="3">Outros</option>
+      </select>
+
+    </div>
+  </div>
+
+  <div class="row">
+
+
+    <div class="col s12 m4 l4">
+      <blockquote class="blockChild">
+        <h6>Padrão de qualidade</h6>
+      </blockquote>
+
+      <select class="">
+        <option value="" disabled selected>Selecione</option>
+        <option value="1">Ótimo</option>
+        <option value="2">Bom</option>
+        <option value="3">Regular</option>
+        <option value="4">Outros</option>
+
+      </select>
+    </div>
+
+    <div class="col s12 m4 l4">
+      <blockquote class="blockChild">
+        <h6>Estrutura</h6>
+      </blockquote>
+
+      <select class="">
+        <option value="" disabled selected>Selecione</option>
+        <option value="1">Concreto</option>
+        <option value="2">Madeira</option>
+        <option value="3">Mista</option>
+        <option value="4">Metálica</option>
+        <option value="5">Taipa</option>
+        <option value="6">Alvenaria</option>
+        <option value="7">Outros</option>
+
+      </select>
+
+    </div>
+
+  </div>
+
+  <div class="step-actions">
+    <button class="waves-effect waves-dark btn blue next-step">PRÓXIMO</button>
+    <button class="waves-effect waves-dark btn-flat previous-step">ANTERIOR</button>
+  </div>
+</div>
+<hr class="hrmin">
+</li>
+
+<li class="step">
+  <div data-step-label="Insira aqui os dados do proprietário do imóvel"
+  class="step-title waves-effect waves-dark">
+  <i class="material-icons">assignment_turned_in</i>
+  BENFEITORIAS
+</div>
+<div class="step-content">
+
+  <blockquote>
+    <h5>Benfeitorias da unidade</h5>
+  </blockquote>
+
+  <div class="row">
+    <form class="input-field">
+
+      <div class="input-field col s12 m6 l3 offset-l1">
+
+        <p>
+          <label for="1xiluminacao">
+            <input id="1xiluminacao" #1xiluminacao
+            type="checkbox" name="benfeitorias"/>
+            <span>
+              <i class="fas fa-lightbulb"></i>
+              Iluminação pública
+            </span>
+          </label>
+        </p>
+
+        <p>
+          <label for="1xenergia">
+            <input id="1xenergia" #1xenergia
+            type="checkbox"
+            name="benfeitorias"/>
+            <span>
+              <i class="material-icons">flash_on</i>
+              Energia
+            </span>
+          </label>
+        </p>
+
+        <p>
+          <label for="1xtelefone">
+            <input id="1xtelefone" #1xtelefone
+            type="checkbox" name="benfeitorias"/>
+            <span>
+              <i class="material-icons">ring_volume</i>
+              Telefone
+            </span>
+          </label>
+        </p>
+
+
+      </div>
+      <!-- Segunda coluna  -->
+
+      <div class="input-field col s12 m6 l3">
+        <p>
+          <label for="1xagua">
+            <input id="1xagua" #1xagua
+            type="checkbox"
+            name="benfeitorias">
+            <span>
+              <i class="fas fa-tint"></i>
+              Água
+            </span>
+          </label>
+        </p>
+
+        <p>
+          <label for="1xesgoto">
+            <input id="1xesgoto" #1xesgoto
+            type="checkbox" name="benfeitorias"/>
+            <span>
+              <i class="fas fa-toilet"></i>
+              Esgoto
+            </span>
+          </label>
+        </p>
+
+        <p>
+          <label for="1xlixo">
+            <input id="1xlixo" #1xlixo
+            type="checkbox" name="benfeitorias"/>
+            <span>
+              <i class="fas fa-dumpster"></i>
+              Coleta de lixo
+            </span>
+          </label>
+        </p>
+
+
+
+        <p>
+          <label for="1xlimpeza">
+            <input id="1xlimpeza" #1xlimpeza
+            type="checkbox" name="benfeitorias"/>
+            <span>
+              <i class="material-icons">delete_sweep</i>
+              Limpeza Urbana
+            </span>
+          </label>
+        </p>
+
+      </div>
+
+      <!-- Terceira coluna  -->
+      <div class="input-field col s12 m6 l3">
+
+        <p>
+          <label for="1xpavimentacao">
+            <input id="1xpavimentacao" #1xpavimentacao
+            type="checkbox" name="benfeitorias"/>
+            <span>
+              <i class="fas fa-road"></i>
+              Pavimentação
+            </span>
+          </label>
+        </p>
+
+        <p>
+          <label for="1xguias">
+            <input id="1xguias" #1xguias
+            type="checkbox" name="benfeitorias"/>
+            <span>
+              <i class="fas fa-kaaba"></i>
+              Guias/Sarjetas
+            </span>
+          </label>
+        </p>
+
+        <p>
+          <label for="1xpluviais">
+            <input id="1xpluviais" #1xpluviais
+            type="checkbox" name="benfeitorias"/>
+            <span>
+              <i class="fas fa-cloud-showers-heavy"></i>
+              Aguas pluviais
+            </span>
+          </label>
+        </p>
+
+      </div>
+    </form>
+  </div>
+
+  <div class="step-actions">
+    <button class="waves-effect waves-dark btn blue" type="submit">SALVAR</button>
+  </div>
+</div>
+</li>
+</ul></form>
+
+</div>
+</div>
+</div>
+
+</div>

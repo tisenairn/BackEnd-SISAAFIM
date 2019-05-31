@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css?family=Amaranth&display=swap');
+
+.input-field input[type=number] {
+  text-align: right;
+}
+.input-field input[type=radio]{
+  color: rgba(0, 0, 0, 0.73);
+}
+
+hr.hrmin {
+  margin-bottom: -15px;
+
+  width: 94%;
+  display: block; height: 1px;
+  border: 0; border-top: 1px solid #ccc;
+
+}
+
+blockquote{
+  text-indent: 22px;
+  padding: 5px;
+  color: rgba(255, 255, 255, .9);
+  text-shadow: .5px 0px 1px white, 0 0 .5em grey, 0 0 0.2em black;
+  font-family: 'Amaranth', sans-serif, serif;
+
+
+  background-color: rgba(55, 162, 186, 0.6);
+  box-shadow: 30px -16px rgba(23, 61, 96, 0.7);
+}
+
+blockquote.blockChild {
+  text-indent: 8px;
+  padding: 5px;
+  color: rgba(36, 5, 5, 0.7);
+  text-shadow: 0px 0px 0px black, 0 0 .1em grey, 0 0 0.05em black;
+  font-family: sans-serif, serif;
+
+
+  background-color: rgba(0, 0, 0, 0);
+  box-shadow: none;
+
+}
+/* do blockChild */
+/* border-radius: 70px; */
+/* box-shadow: .1em .2em .3em .1em rgba(184, 28, 28, 0.3) inset; */
+/* background-color: rgba(55, 162, 186, 0.6);
+box-shadow: .1em .1em .7em .1em rgba(23, 61, 96, 0.4) inset; */
