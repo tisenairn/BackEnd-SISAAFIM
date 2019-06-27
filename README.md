@@ -4,7 +4,7 @@ Projeto de software para a Secretaria Municipal de Tributação da Prefeitura Mu
 
 ## Checklist de tasks
 
-- [] Formulário
-- [] Funções do formulário
-- [] Rotas Implementadas
-- [] Serviços implementados
+- [ ] Formulário
+- [ ] Funções do formulário
+- [ ] Rotas Implementadas
+- [ ] Serviços implementados
