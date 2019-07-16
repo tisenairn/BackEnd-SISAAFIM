@@ -9,12 +9,13 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/v1")
+@RequestMapping("")
 public class UsuarioResource {
 
     @Autowired
@@ -31,15 +32,13 @@ public class UsuarioResource {
     @GetMapping("/usuario/{id}")
     public ResponseEntity<Usuario> buscarPeloId(@PathVariable Long id){
 
-        if (Optional.ofNullable(usuarioService.buscarPeloId(id)).isPresent()){
-            Usuario usuario = usuarioService.buscarPeloId(id);
-            return ResponseEntity.ok().body(usuario);
-        }
-        return ResponseEntity.notFound().build();
+        Usuario usuario = usuarioService.buscarPeloId(id);
+
+        return usuario != null ? ResponseEntity.ok(usuario) : ResponseEntity.notFound().build();
     }
 
     @PostMapping("/usuario")
-    public ResponseEntity<Usuario> salvar(@RequestBody Usuario usuario, HttpServletResponse resposta){
+    public ResponseEntity<Usuario> salvar(@Valid @RequestBody Usuario usuario, HttpServletResponse resposta){
 
         Usuario usuarioResposta = usuarioRepository.save(usuario);
 

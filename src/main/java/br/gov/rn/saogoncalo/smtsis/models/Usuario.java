@@ -3,6 +3,7 @@ package br.gov.rn.saogoncalo.smtsis.models;
 import br.gov.rn.saogoncalo.smtsis.enums.TipoUsuario;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "usuarios")
@@ -13,6 +14,7 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String matricula;
+    @NotNull
     private String nome;
     private String senha;
     private TipoUsuario tipo;
