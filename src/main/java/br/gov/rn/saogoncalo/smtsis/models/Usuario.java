@@ -4,6 +4,7 @@ import br.gov.rn.saogoncalo.smtsis.enums.TipoUsuario;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "usuarios")
@@ -15,6 +16,7 @@ public class Usuario {
     private Long id;
     private String matricula;
     @NotNull
+    @Size(min = 3, max = 50)
     private String nome;
     private String senha;
     private TipoUsuario tipo;
