@@ -1,9 +1,8 @@
 package br.gov.rn.saogoncalo.smtsis.resources;
 
-import br.gov.rn.saogoncalo.smtsis.eventos.RecursoCriadoEvento;
+import br.gov.rn.saogoncalo.smtsis.events.RecursoCriadoEvento;
 import br.gov.rn.saogoncalo.smtsis.models.Endereco;
 import br.gov.rn.saogoncalo.smtsis.services.EnderecoService;
-import br.gov.rn.saogoncalo.smtsis.services.LocalizacaoEnderecoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.HttpStatus;
@@ -22,9 +21,6 @@ public class EnderecoResource {
 
     @Autowired
     private EnderecoService enderecoService;
-
-    @Autowired
-    private LocalizacaoEnderecoService localizacaoEnderecoService;
 
     @Autowired
     private ApplicationEventPublisher publisher;

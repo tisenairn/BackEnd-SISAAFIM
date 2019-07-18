@@ -1,9 +1,10 @@
-package br.gov.rn.saogoncalo.smtsis.eventos.listeners;
+package br.gov.rn.saogoncalo.smtsis.events.listeners;
 
-import br.gov.rn.saogoncalo.smtsis.eventos.RecursoCriadoEvento;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import br.gov.rn.saogoncalo.smtsis.events.RecursoCriadoEvento;
 
 import javax.servlet.http.HttpServletResponse;
 import java.net.URI;

@@ -1,4 +1,4 @@
-package br.gov.rn.saogoncalo.smtsis.eventos;
+package br.gov.rn.saogoncalo.smtsis.events;
 
 import org.springframework.context.ApplicationEvent;
 
