@@ -24,15 +24,5 @@ public class UsuarioService{
         return null;
     }
 
-    private Boolean ContemUsuario(Long id){
-
-        List<Usuario> listaUsuario = usuarioRepository.findAll();
-        for (Usuario usuario: listaUsuario){
-            if (usuario.getId().equals(id)){
-                 return true;
-            }
-        }
-        return false;
-    }
 
 }
