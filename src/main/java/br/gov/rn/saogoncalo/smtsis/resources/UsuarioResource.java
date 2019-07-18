@@ -14,7 +14,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping("")
+@RequestMapping("usuario")
 public class UsuarioResource {
 
     @Autowired
@@ -23,29 +23,57 @@ public class UsuarioResource {
     @Autowired
     private UsuarioService usuarioService;
 
-    @GetMapping("/usuario")
+    @GetMapping("/listar")
     public List<Usuario> buscarTodos(){
-        return usuarioRepository.findAll();
+        return usuarioService.buscarTodos();
     }
 
-    @GetMapping("/usuario/{id}")
+    @GetMapping("/listar/{id}")
     public ResponseEntity<Usuario> buscarPeloId(@PathVariable Long id){
-
         Usuario usuario = usuarioService.buscarPeloId(id);
-
         return usuario != null ? ResponseEntity.ok(usuario) : ResponseEntity.notFound().build();
     }
 
-    @PostMapping("/usuario")
+    @PostMapping("/salvar")
     public ResponseEntity<Usuario> salvar(@Valid @RequestBody Usuario usuario, HttpServletResponse resposta){
 
-        Usuario usuarioResposta = usuarioRepository.save(usuario);
+        Usuario usuarioResposta = usuarioService.salvar(usuario);
 
         URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}")
                 .buildAndExpand(usuarioResposta.getId()).toUri();
-        resposta.setHeader("Location", uri.toASCIIString());
+        resposta.setHeader("Local salvo", uri.toASCIIString());
 
         return ResponseEntity.created(uri).body(usuarioResposta);
     }
+
+    @PutMapping("/atualizar/{id}")
+    public ResponseEntity<Usuario> atualizar(@Valid @PathVariable Long id, @RequestBody Usuario usuario, HttpServletResponse resposta){
+//   TODO Precisa ser testado
+
+        Usuario usuarioResposta = usuarioService.atualizar(id, usuario);
+
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}")
+                .buildAndExpand(usuarioResposta.getId()).toUri();
+        resposta.setHeader("Local salvo", uri.toASCIIString());
+
+//            Se a resposta do método atualizar for diferente de nulo, ele vai obter o local, e o objeto criado;
+        return usuarioResposta != null ? ResponseEntity.created(uri).body(usuarioResposta) : ResponseEntity.badRequest().build();
+    }
+
+    @PutMapping("/remover/{id}")
+    public ResponseEntity<Usuario> remover(@PathVariable Long id, @RequestBody Usuario usuario, HttpServletResponse resposta){
+
+        Boolean usuarioResposta = usuarioService.remover(id, usuario);
+        if (usuarioResposta == null){
+            return ResponseEntity.notFound().build();
+        } else if (usuarioResposta == true) {
+            return ResponseEntity.ok().build();
+        }
+
+        //        418 I'm a teapot
+        //        O servidor recusa a tentativa de coar café num bule de chá.
+        return ResponseEntity.status(418).build();
+    }
+
 
 }
