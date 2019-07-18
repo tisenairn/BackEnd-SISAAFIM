@@ -7,6 +7,7 @@ public class Imovel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
     private String pedologia;
     private String topologia;
@@ -17,8 +18,12 @@ public class Imovel {
     private String utilizacao;
     private String padraoDeQualidade;
     private String valorPorArea;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id", referencedColumnName = "id",unique = true)
+    private Endereco endereco;
 
-    public Imovel(Long id, String pedologia, String topologia, String conservacao, String terreno, String imposto, String limpeza, String utilizacao, String padraoDeQualidade, String valorPorArea) {
+
+    public Imovel(Long id, String pedologia, String topologia, String conservacao, String terreno, String imposto, String limpeza, String utilizacao, String padraoDeQualidade, String valorPorArea, Endereco endereco) {
         this.id = id;
         this.pedologia = pedologia;
         this.topologia = topologia;
@@ -29,6 +34,7 @@ public class Imovel {
         this.utilizacao = utilizacao;
         this.padraoDeQualidade = padraoDeQualidade;
         this.valorPorArea = valorPorArea;
+        this.endereco = endereco;
     }
     public Imovel(){}
 
@@ -146,7 +152,11 @@ public class Imovel {
     }
 
 
+    public Endereco getEndereco() {
+        return endereco;
+    }
 
-
-
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
 }

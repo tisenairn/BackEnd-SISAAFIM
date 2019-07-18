@@ -66,11 +66,11 @@ public class SmtsisExceptionHandler extends ResponseEntityExceptionHandler {
             this.respostaDesenvolvedor = respostaDesenvolvedor;
         }
 
-        public String getMensagemUsuario() {
+        public String getRespostaUsuario() {
             return respostaUsuario;
         }
 
-        public String getMensagemDesenvolvedor() {
+        public String getRespostaDesenvolvedor() {
             return respostaDesenvolvedor;
         }
     }

@@ -3,12 +3,13 @@ package br.gov.rn.saogoncalo.smtsis.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "contibruintes")
+@Table(name = "contribuintes")
 public class Contribuinte {
 
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
     private String nome;
     private String dataNascimento;
@@ -17,10 +18,14 @@ public class Contribuinte {
     private String rg;
     private String rgExpedidor;
     private String cnh;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id", referencedColumnName = "id",unique = true)
+    private Endereco endereco;
 
 
-    public Contribuinte(){}
-    public Contribuinte(Long id, String nome, String dataNascimento, String telefone, String cpf, String rg, String rgExpedidor, String cnh, String cnpj) {
+    public Contribuinte(){
+    }
+    public Contribuinte(Long id, String nome, String dataNascimento, String telefone, String cpf, String rg, String rgExpedidor, String cnh, Endereco endereco, String cnpj) {
         this.id = id;
         this.nome = nome;
         this.dataNascimento = dataNascimento;
@@ -29,6 +34,7 @@ public class Contribuinte {
         this.rg = rg;
         this.rgExpedidor = rgExpedidor;
         this.cnh = cnh;
+        this.endereco = endereco;
         this.cnpj = cnpj;
     }
 
@@ -138,5 +144,11 @@ public class Contribuinte {
     }
 
 
+    public Endereco getEndereco() {
+        return endereco;
+    }
 
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
 }
