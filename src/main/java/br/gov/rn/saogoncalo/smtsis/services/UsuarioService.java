@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,13 +18,13 @@ public class UsuarioService{
     private UsuarioRepository usuarioRepository;
 
     public Usuario salvar(Usuario usuario){
-
+        usuario.setAtivo(true);
         return usuarioRepository.save(usuario);
     }
 
     public Usuario atualizar(Long id, Usuario usuario){
-    //TODO testar esse ID
-       Optional<Usuario> optionalUsuario = usuarioRepository.findById(usuario.getId());
+//  TODO Precisa ser testado
+       Optional<Usuario> optionalUsuario = usuarioRepository.findById(id);
         if (optionalUsuario.isPresent()){
             usuario.setId(id);
             return usuarioRepository.save(usuario);
@@ -31,16 +32,23 @@ public class UsuarioService{
         return null;
     }
 
-    public Boolean remover(Long id){
-        if (usuarioRepository.existsById(id)){
-            usuarioRepository.deleteById(id);
+    public Boolean remover(Long id, Usuario usuario){
+        Optional<Usuario> optionalUsuario = usuarioRepository.findById(id);
+        if (!optionalUsuario.isPresent()){
+            return null;
+        } else if (optionalUsuario.isPresent() && optionalUsuario.get().getAtivo()){
+            usuario.setId(id);
+            usuario.setAtivo(false);
+            usuarioRepository.save(usuario);
             return true;
         }
         return false;
     }
 
     public List<Usuario> buscarTodos(){
-        return usuarioRepository.findAll();
+
+        List<Usuario> usuarios = usuarioRepository.findByAtivo();
+        return usuarios;
     }
 
     public Usuario buscarPeloId(Long id){
