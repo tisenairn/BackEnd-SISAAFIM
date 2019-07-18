@@ -12,10 +12,10 @@
 	<artifactId>smtsis</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>smtsis</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Sistema para Tributação.</description>
 
 	<properties>
-		<java.version>1.8</java.version>
+		<java.version>11</java.version>
 	</properties>
 
 	<dependencies>
@@ -29,6 +29,11 @@
 		</dependency>
 
 		<dependency>
+			<groupId>org.mariadb.jdbc</groupId>
+			<artifactId>mariadb-java-client</artifactId>
+		</dependency>
+
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
@@ -39,13 +44,6 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-
-		<dependency>
-			<groupId>org.mariadb.jdbc</groupId>
-			<artifactId>mariadb-java-client</artifactId>
-		</dependency>
-
-
 	</dependencies>
 
 	<build>
