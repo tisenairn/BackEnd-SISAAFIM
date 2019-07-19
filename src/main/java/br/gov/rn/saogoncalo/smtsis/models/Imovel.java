@@ -7,7 +7,7 @@ public class Imovel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "id_imovel")
     private Long id;
     private String pedologia;
     private String topologia;
@@ -18,6 +18,7 @@ public class Imovel {
     private String utilizacao;
     private String padraoDeQualidade;
     private String valorPorArea;
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id", referencedColumnName = "id",unique = true)
     private Endereco endereco;

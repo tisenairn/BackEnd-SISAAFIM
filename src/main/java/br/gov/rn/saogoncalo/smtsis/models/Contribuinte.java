@@ -9,7 +9,7 @@ public class Contribuinte {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "id_contribuinte")
     private Long id;
     private String nome;
     private String dataNascimento;
@@ -19,7 +19,7 @@ public class Contribuinte {
     private String rgExpedidor;
     private String cnh;
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id", referencedColumnName = "id",unique = true)
+    @JoinColumn(name = "id", referencedColumnName = "id", unique = true)
     private Endereco endereco;
 
 
