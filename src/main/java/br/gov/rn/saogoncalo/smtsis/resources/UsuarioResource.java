@@ -1,9 +1,11 @@
 package br.gov.rn.saogoncalo.smtsis.resources;
 
+import br.gov.rn.saogoncalo.smtsis.events.RecursoCriadoEvento;
 import br.gov.rn.saogoncalo.smtsis.models.Usuario;
-import br.gov.rn.saogoncalo.smtsis.repositories.UsuarioRepository;
 import br.gov.rn.saogoncalo.smtsis.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -19,6 +21,9 @@ public class UsuarioResource {
 
     @Autowired
     private UsuarioService usuarioService;
+
+    @Autowired
+    private ApplicationEventPublisher applicationEventPublisher;
 
     @GetMapping("/listar")
     public ResponseEntity<List<Usuario>> buscarTodos(){
@@ -46,13 +51,13 @@ public class UsuarioResource {
 
     @PostMapping("/salvar")
     public ResponseEntity<Usuario> salvar(@Valid @RequestBody Usuario usuario, HttpServletResponse resposta){
+//        TODO Fazer validações para não salvar duplicatas de acordo com matrícula
+
         Usuario usuarioResposta = usuarioService.salvar(usuario);
+        
+        applicationEventPublisher.publishEvent(new RecursoCriadoEvento(this, resposta, usuarioResposta.getId()));
 
-        URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}")
-                .buildAndExpand(usuarioResposta.getId()).toUri();
-        resposta.setHeader("Local salvo", uri.toASCIIString());
-
-        return ResponseEntity.created(uri).body(usuarioResposta);
+        return ResponseEntity.status(HttpStatus.CREATED).body(usuarioResposta);
     }
 
     @PutMapping("/atualizar/{id}")
