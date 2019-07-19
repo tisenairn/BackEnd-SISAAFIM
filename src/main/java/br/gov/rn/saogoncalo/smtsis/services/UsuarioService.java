@@ -51,7 +51,6 @@ public class UsuarioService{
     }
 
     public List<Usuario> buscarTodosInativos(){
-
         List<Usuario> usuarios = usuarioRepository.findByInativo();
         return usuarios;
     }
@@ -59,6 +58,12 @@ public class UsuarioService{
     public Usuario buscarAtivoPeloId(Long id){
         if (buscarAtivo(id) != null)
             return buscarAtivo(id);
+        return null;
+    }
+
+    public Usuario buscarInativosPeloId(Long id){
+        if (buscarInativo(id) != null)
+            return buscarInativo(id);
         return null;
     }
 
@@ -71,10 +76,12 @@ public class UsuarioService{
             }
         return null;
     }
-
-
-
-
-
-
+    private Usuario buscarInativo(Long id){
+        if (usuarioRepository.existsById(id)){
+            Optional<Usuario> usuarioEncontrado = usuarioRepository.findById(id);
+            if (!usuarioEncontrado.get().getAtivo())
+                return usuarioEncontrado.get();
+        }
+        return null;
+    }
 }
