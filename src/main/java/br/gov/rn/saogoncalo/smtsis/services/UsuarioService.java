@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -57,14 +56,25 @@ public class UsuarioService{
         return usuarios;
     }
 
-    public Usuario buscarPeloId(Long id){
-
-        if (usuarioRepository.existsById(id)){
-          Usuario usuarioEncontrado = usuarioRepository.findById(id).get();
-          return usuarioEncontrado;
-        }
+    public Usuario buscarAtivoPeloId(Long id){
+        if (buscarAtivo(id) != null)
+            return buscarAtivo(id);
         return null;
     }
+
+//  Verifica o se Id é existente, e em seguida se o usuário está ativo.
+    private Usuario buscarAtivo(Long id){
+        if (usuarioRepository.existsById(id)){
+            Optional<Usuario> usuarioEncontrado = usuarioRepository.findById(id);
+            if (usuarioEncontrado.get().getAtivo())
+                return usuarioEncontrado.get();
+            }
+        return null;
+    }
+
+
+
+
 
 
 }

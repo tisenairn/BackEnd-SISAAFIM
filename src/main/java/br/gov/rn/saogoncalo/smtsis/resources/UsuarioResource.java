@@ -35,7 +35,7 @@ public class UsuarioResource {
 
     @GetMapping("/listar/{id}")
     public ResponseEntity<Usuario> buscarPeloId(@PathVariable Long id){
-        Usuario usuario = usuarioService.buscarPeloId(id);
+        Usuario usuario = usuarioService.buscarAtivoPeloId(id);
         return usuario != null ? ResponseEntity.ok(usuario) : ResponseEntity.notFound().build();
     }
 
