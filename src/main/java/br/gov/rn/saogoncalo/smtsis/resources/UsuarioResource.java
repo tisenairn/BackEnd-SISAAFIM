@@ -18,30 +18,34 @@ import java.util.List;
 public class UsuarioResource {
 
     @Autowired
-    private UsuarioRepository usuarioRepository;
-
-    @Autowired
     private UsuarioService usuarioService;
 
     @GetMapping("/listar")
-    public List<Usuario> buscarTodos(){
-        return usuarioService.buscarTodos();
-    }
-
-    @GetMapping("/listar/inativos")
-    public List<Usuario> buscarTodosInativos(){
-        return usuarioService.buscarTodosInativos();
+    public ResponseEntity<List<Usuario>> buscarTodos(){
+        return usuarioService.buscarTodos().size() > 0 ?
+                ResponseEntity.ok().body(usuarioService.buscarTodos()) : ResponseEntity.noContent().build();
     }
 
     @GetMapping("/listar/{id}")
     public ResponseEntity<Usuario> buscarPeloId(@PathVariable Long id){
-        Usuario usuario = usuarioService.buscarAtivoPeloId(id);
-        return usuario != null ? ResponseEntity.ok(usuario) : ResponseEntity.notFound().build();
+        return usuarioService.buscarAtivoPeloId(id) != null ?
+                ResponseEntity.ok().body(usuarioService.buscarAtivoPeloId(id)) : ResponseEntity.notFound().build();
+    }
+
+    @GetMapping("/listar/inativo")
+    public ResponseEntity<List<Usuario>> buscarTodosInativos(){
+        return usuarioService.buscarTodosInativos().size() > 0 ?
+                ResponseEntity.ok().body(usuarioService.buscarTodosInativos()) : ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/listar/inativo/{id}")
+    public ResponseEntity<Usuario> buscarInativoPeloId(@PathVariable Long id){
+        return usuarioService.buscarInativosPeloId(id) != null ?
+                ResponseEntity.ok().body(usuarioService.buscarInativosPeloId(id)) : ResponseEntity.notFound().build();
     }
 
     @PostMapping("/salvar")
     public ResponseEntity<Usuario> salvar(@Valid @RequestBody Usuario usuario, HttpServletResponse resposta){
-
         Usuario usuarioResposta = usuarioService.salvar(usuario);
 
         URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}")
@@ -52,21 +56,18 @@ public class UsuarioResource {
     }
 
     @PutMapping("/atualizar/{id}")
-    public ResponseEntity<Usuario> atualizar(@Valid @PathVariable Long id, @RequestBody Usuario usuario, HttpServletResponse resposta){
-//   TODO Precisa ser testado
-
+    public ResponseEntity<Usuario> atualizar(@Valid @PathVariable Long id,
+                                             @RequestBody Usuario usuario, HttpServletResponse resposta){
         Usuario usuarioResposta = usuarioService.atualizar(id, usuario);
 
-        URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}")
-                .buildAndExpand(usuarioResposta.getId()).toUri();
-        resposta.setHeader("Local salvo", uri.toASCIIString());
-
 //            Se a resposta do método atualizar for diferente de nulo, ele vai obter o local, e o objeto criado;
-        return usuarioResposta != null ? ResponseEntity.created(uri).body(usuarioResposta) : ResponseEntity.badRequest().build();
+        return usuarioResposta != null ?
+                ResponseEntity.ok().body(usuarioResposta) : ResponseEntity.badRequest().build();
     }
 
     @PutMapping("/remover/{id}")
-    public ResponseEntity<Usuario> remover(@PathVariable Long id, @RequestBody Usuario usuario, HttpServletResponse resposta){
+    public ResponseEntity<Usuario> remover(@PathVariable Long id,
+                                           @RequestBody Usuario usuario, HttpServletResponse resposta){
 
         Boolean usuarioResposta = usuarioService.remover(id, usuario);
         if (usuarioResposta == null){
