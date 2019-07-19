@@ -1,4 +1,5 @@
 package br.gov.rn.saogoncalo.smtsis.models;
+
 import javax.persistence.*;
 
 @Entity
@@ -20,24 +21,21 @@ public class Imovel {
     private String valorPorArea;
 
     @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_imovel", referencedColumnName = "id", unique = true)
+    private InfoEdificacao infoEdificacao;
+
+    public InfoEdificacao getInfoEdificacao() {
+        return infoEdificacao;
+    }
+
+    public void setInfoEdificacao(InfoEdificacao infoEdificacao) {
+        this.infoEdificacao = infoEdificacao;
+    }
+
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id", referencedColumnName = "id",unique = true)
     private Endereco endereco;
 
-
-    public Imovel(Long id, String pedologia, String topologia, String conservacao, String terreno, String imposto, String limpeza, String utilizacao, String padraoDeQualidade, String valorPorArea, Endereco endereco) {
-        this.id = id;
-        this.pedologia = pedologia;
-        this.topologia = topologia;
-        this.conservacao = conservacao;
-        this.terreno = terreno;
-        this.imposto = imposto;
-        this.limpeza = limpeza;
-        this.utilizacao = utilizacao;
-        this.padraoDeQualidade = padraoDeQualidade;
-        this.valorPorArea = valorPorArea;
-        this.endereco = endereco;
-    }
-    public Imovel(){}
 
     public Long getId() {
         return id;
@@ -119,6 +117,14 @@ public class Imovel {
         this.valorPorArea = valorPorArea;
     }
 
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -152,12 +158,4 @@ public class Imovel {
                 + valorPorArea + "]";
     }
 
-
-    public Endereco getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
-    }
 }

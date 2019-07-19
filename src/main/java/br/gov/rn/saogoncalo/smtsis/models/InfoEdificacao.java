@@ -2,17 +2,39 @@ package br.gov.rn.saogoncalo.smtsis.models;
 
 import br.gov.rn.saogoncalo.smtsis.enums.*;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
+@Entity
+@Table(name = "informacoes_edificacao")
 public class InfoEdificacao {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+
+    @NotNull
+//    @Size(max = 11)
     private TipoImovel tipoImovel;
+    @NotNull
+//    @Size(max = 8)
     private UtilizacaoImovel utilizacaoImovel;
+    @NotNull
+//    @Size(max = 5)
     private PadraoQualidade padraoQualidade;
+    @NotNull
+//    @Size(max = 16)
     private Pedologia pedologia;
+    @NotNull
+//    @Size(max = 21)
     private Topografia topografia;
+    @NotNull
+//    @Size(max = 7)
     private EstadoConservacao estadoConservacao;
+    @NotNull
+//    @Size(max = 18)
     private SituacaoTerreno situacaoTerreno;
 
     @Override
@@ -26,20 +48,6 @@ public class InfoEdificacao {
     @Override
     public int hashCode() {
         return Objects.hash(id);
-    }
-
-    @Override
-    public String toString() {
-        return "InfoEdificacao{" +
-                "id=" + id +
-                ", tipoImovel=" + tipoImovel +
-                ", utilizacaoImovel=" + utilizacaoImovel +
-                ", padraoQualidade=" + padraoQualidade +
-                ", pedologia=" + pedologia +
-                ", topografia=" + topografia +
-                ", estadoConservacao=" + estadoConservacao +
-                ", situacaoTerreno=" + situacaoTerreno +
-                '}';
     }
 
     public Long getId() {
