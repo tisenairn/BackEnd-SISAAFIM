@@ -54,7 +54,7 @@ public class UsuarioResource {
 //        TODO Fazer validações para não salvar duplicatas de acordo com matrícula
 
         Usuario usuarioResposta = usuarioService.salvar(usuario);
-        
+
         applicationEventPublisher.publishEvent(new RecursoCriadoEvento(this, resposta, usuarioResposta.getId()));
 
         return ResponseEntity.status(HttpStatus.CREATED).body(usuarioResposta);
