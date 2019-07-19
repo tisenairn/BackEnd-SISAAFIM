@@ -6,6 +6,4 @@ import org.springframework.stereotype.Repository;
 import br.gov.rn.saogoncalo.smtsis.models.Benfeitorias;
 
 @Repository
-public interface BenfeitoriasRepository extends JpaRepository<Benfeitorias, Long> {
-
-}
+public interface BenfeitoriasRepository extends JpaRepository<Benfeitorias, Long> {}
