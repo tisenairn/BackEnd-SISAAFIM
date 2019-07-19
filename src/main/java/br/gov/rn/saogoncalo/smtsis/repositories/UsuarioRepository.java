@@ -10,7 +10,11 @@ import java.util.List;
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
-    @Query("SELECT * FROM usuarios WHERE ativo = 1")
+//    Buscar Ativos
+    @Query("SELECT u FROM Usuario u WHERE u.ativo = 1")
     List<Usuario> findByAtivo();
+//    Buscar Inativos
+    @Query("SELECT u FROM Usuario u WHERE u.ativo = 0")
+    List<Usuario> findByInativo();
 
 }

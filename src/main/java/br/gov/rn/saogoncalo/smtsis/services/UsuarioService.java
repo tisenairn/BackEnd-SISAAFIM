@@ -51,6 +51,12 @@ public class UsuarioService{
         return usuarios;
     }
 
+    public List<Usuario> buscarTodosInativos(){
+
+        List<Usuario> usuarios = usuarioRepository.findByInativo();
+        return usuarios;
+    }
+
     public Usuario buscarPeloId(Long id){
 
         if (usuarioRepository.existsById(id)){

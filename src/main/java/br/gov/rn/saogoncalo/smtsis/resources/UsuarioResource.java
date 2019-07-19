@@ -28,6 +28,11 @@ public class UsuarioResource {
         return usuarioService.buscarTodos();
     }
 
+    @GetMapping("/listar/inativos")
+    public List<Usuario> buscarTodosInativos(){
+        return usuarioService.buscarTodosInativos();
+    }
+
     @GetMapping("/listar/{id}")
     public ResponseEntity<Usuario> buscarPeloId(@PathVariable Long id){
         Usuario usuario = usuarioService.buscarPeloId(id);
