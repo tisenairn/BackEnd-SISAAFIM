@@ -12,8 +12,8 @@ public class InfoEdificacao {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_info_edificacao")
-    private Long codigoInfoEdificacao;
+    @Column(name = "id_infoEdificacao")
+    private Long id;
     @NotNull
 //    @Size(max = 11)
     private TipoImovel tipoImovel;
@@ -36,12 +36,12 @@ public class InfoEdificacao {
 //    @Size(max = 18)
     private SituacaoTerreno situacaoTerreno;
 
-    public Long getCodigoInfoEdificacao() {
-        return codigoInfoEdificacao;
+    public Long getId() {
+        return id;
     }
 
-    public void setCodigoInfoEdificacao(Long codigoInfoEdificacao) {
-        this.codigoInfoEdificacao = codigoInfoEdificacao;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public TipoImovel getTipoImovel() {
@@ -105,11 +105,11 @@ public class InfoEdificacao {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         InfoEdificacao that = (InfoEdificacao) o;
-        return Objects.equals(codigoInfoEdificacao, that.codigoInfoEdificacao);
+        return Objects.equals(id, that.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(codigoInfoEdificacao);
+        return Objects.hash(id);
     }
 }

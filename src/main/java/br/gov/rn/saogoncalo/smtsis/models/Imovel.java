@@ -13,11 +13,12 @@ public class Imovel {
     private Long id;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idEndereco", referencedColumnName = "id",unique = true)
+    @JoinColumn(name = "id_imovel_endereco", referencedColumnName = "id",unique = true)
     private Endereco endereco;
 
     @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "codigoInfoEdificacao", referencedColumnName = "id_info_edificacao", insertable = false, updatable = false, unique = true)
+    @JoinColumn(name = "id_imovel_info", referencedColumnName = "id_infoEdificacao",
+            insertable = false, updatable = false, unique = true)
     private InfoEdificacao infoEdificacao;
 
 

@@ -19,8 +19,12 @@ public class Contribuinte {
     private String rgExpedidor;
     private String cnh;
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id", referencedColumnName = "id", unique = true)
+    @JoinColumn(name = "id_contribuinte_endereco", referencedColumnName = "id", unique = true)
     private Endereco endereco;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_contribuinte_imovel", referencedColumnName = "id_imovel", unique = true)
+    private Imovel imovel;
 
 
     public Contribuinte(){
