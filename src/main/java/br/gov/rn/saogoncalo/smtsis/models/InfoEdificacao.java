@@ -7,14 +7,13 @@ import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 @Entity
-@Table(name = "informacoes_edificacao")
+@Table(name = "informacoes")
 public class InfoEdificacao {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Long id;
-
+    @Column(name = "id_info_edificacao")
+    private Long codigoInfoEdificacao;
     @NotNull
 //    @Size(max = 11)
     private TipoImovel tipoImovel;
@@ -37,25 +36,12 @@ public class InfoEdificacao {
 //    @Size(max = 18)
     private SituacaoTerreno situacaoTerreno;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        InfoEdificacao that = (InfoEdificacao) o;
-        return Objects.equals(id, that.id);
+    public Long getCodigoInfoEdificacao() {
+        return codigoInfoEdificacao;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public void setCodigoInfoEdificacao(Long codigoInfoEdificacao) {
+        this.codigoInfoEdificacao = codigoInfoEdificacao;
     }
 
     public TipoImovel getTipoImovel() {
@@ -112,5 +98,18 @@ public class InfoEdificacao {
 
     public void setSituacaoTerreno(SituacaoTerreno situacaoTerreno) {
         this.situacaoTerreno = situacaoTerreno;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        InfoEdificacao that = (InfoEdificacao) o;
+        return Objects.equals(codigoInfoEdificacao, that.codigoInfoEdificacao);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(codigoInfoEdificacao);
     }
 }
