@@ -7,7 +7,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "boletim_inscricao_cadastral")
-public class boletimIncricaoCadastral{
+public class BoletimIncricaoCadastral {
 
 //    TODO Fazer seu CRUD
     @Id
@@ -49,7 +49,7 @@ public class boletimIncricaoCadastral{
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        boletimIncricaoCadastral that = (boletimIncricaoCadastral) o;
+        BoletimIncricaoCadastral that = (BoletimIncricaoCadastral) o;
         return Objects.equals(id, that.id);
     }
 
