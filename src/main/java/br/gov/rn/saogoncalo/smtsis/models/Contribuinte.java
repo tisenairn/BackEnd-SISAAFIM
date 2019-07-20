@@ -18,8 +18,9 @@ public class Contribuinte {
     private String rg;
     private String rgExpedidor;
     private String cnh;
+    private String cnpj;
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_contribuinte_endereco", referencedColumnName = "id", unique = true)
+    @JoinColumn(name = "id_contribuinte_endereco", referencedColumnName = "id_endereco", unique = true)
     private Endereco endereco;
 
     @OneToOne(cascade = CascadeType.ALL)
@@ -29,6 +30,7 @@ public class Contribuinte {
 
     public Contribuinte(){
     }
+
     public Contribuinte(Long id, String nome, String dataNascimento, String telefone, String cpf, String rg, String rgExpedidor, String cnh, Endereco endereco, String cnpj) {
         this.id = id;
         this.nome = nome;
@@ -41,8 +43,6 @@ public class Contribuinte {
         this.endereco = endereco;
         this.cnpj = cnpj;
     }
-
-    private String cnpj;
     public Long getId() {
         return id;
     }

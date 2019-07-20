@@ -13,7 +13,7 @@ public class Imovel {
     private Long id;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_imovel_endereco", referencedColumnName = "id",unique = true)
+    @JoinColumn(name = "id_imovel_endereco", referencedColumnName = "id_endereco", unique = true)
     private Endereco endereco;
 
     @OneToOne(fetch = FetchType.EAGER)

@@ -11,7 +11,7 @@ public class Endereco {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "id_endereco")
     private Long id;
     //@NotNull
     //@NotEmpty
@@ -34,6 +34,10 @@ public class Endereco {
     //@NotNull
     //@NotEmpty
     private String numero;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_endereco_localizacao", referencedColumnName = "id_localizacao", unique = true)
+    private LocalizacaoEndereco localizacaoEndereco;
 
     public Long getId() {
         return id;
@@ -99,6 +103,14 @@ public class Endereco {
         this.numero = numero;
     }
 
+    public LocalizacaoEndereco getLocalizacaoEndereco() {
+        return localizacaoEndereco;
+    }
+
+    public void setLocalizacaoEndereco(LocalizacaoEndereco localizacaoEndereco) {
+        this.localizacaoEndereco = localizacaoEndereco;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -123,6 +135,7 @@ public class Endereco {
                 ", complemento='" + complemento + '\'' +
                 ", cep='" + cep + '\'' +
                 ", numero='" + numero + '\'' +
+                ", localizacaoEndereco=" + localizacaoEndereco +
                 '}';
     }
 }
