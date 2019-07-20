@@ -13,26 +13,26 @@ public class Endereco {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
-    @NotNull
-    @NotEmpty
+    //@NotNull
+    //@NotEmpty
     private String uf;
-    @NotNull
-    @NotEmpty
+    //@NotNull
+    //@NotEmpty
     private String cidade;
-    @NotNull
-    @NotEmpty
+    //@NotNull
+    //@NotEmpty
     private String bairro;
-    @NotNull
-    @NotEmpty
+    //@NotNull
+    //@NotEmpty
     private String logradouro;
-    @NotNull
-    @NotEmpty
+    //@NotNull
+    //@NotEmpty
     private String complemento;
-    @NotNull
-    @NotEmpty
+    //@NotNull
+    //@NotEmpty
     private String cep;
-    @NotNull
-    @NotEmpty
+    //@NotNull
+    //@NotEmpty
     private String numero;
 
     public Long getId() {

@@ -15,13 +15,13 @@ public class LocalizacaoEndereco {
     @Column(name = "id_localizacao")
     private Long id;
 
-    @NotNull
-    @NotEmpty
+    //@NotNull
+    //@NotEmpty
     @Size(max = 25,message = "A latitude não pode ter mais de 25 caracteres.")
     private String latitude;
 
-    @NotNull
-    @NotEmpty
+    //@NotNull
+    //@NotEmpty
     @Size(max = 25,message = "A longitude não pode ter mais de 25 caracteres.")
     private String longitude;
 
