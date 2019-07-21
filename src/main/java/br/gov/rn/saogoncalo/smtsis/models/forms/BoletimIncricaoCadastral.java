@@ -1,6 +1,7 @@
 package br.gov.rn.saogoncalo.smtsis.models.forms;
 
 import br.gov.rn.saogoncalo.smtsis.models.Contribuinte;
+import br.gov.rn.saogoncalo.smtsis.models.administrative.Fiscal;
 
 import javax.persistence.*;
 import java.util.Objects;
@@ -14,8 +15,11 @@ public class BoletimIncricaoCadastral {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_BIC")
     private Long id;
-
     private boolean ativo;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_bic_fiscal", referencedColumnName = "id_fiscal", unique = true)
+    private Fiscal fiscal;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_bic_contribuinte", referencedColumnName = "id_contribuinte", unique = true)
@@ -35,6 +39,14 @@ public class BoletimIncricaoCadastral {
 
     public void setAtivo(boolean ativo) {
         this.ativo = ativo;
+    }
+
+    public Fiscal getFiscal() {
+        return fiscal;
+    }
+
+    public void setFiscal(Fiscal fiscal) {
+        this.fiscal = fiscal;
     }
 
     public Contribuinte getContribuinte() {
