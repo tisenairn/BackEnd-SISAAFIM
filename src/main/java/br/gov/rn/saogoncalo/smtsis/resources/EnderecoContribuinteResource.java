@@ -1,34 +1,42 @@
 package br.gov.rn.saogoncalo.smtsis.resources;
 
-import br.gov.rn.saogoncalo.smtsis.events.RecursoCriadoEvento;
-import br.gov.rn.saogoncalo.smtsis.models.imovel.EnderecoImovel;
-import br.gov.rn.saogoncalo.smtsis.services.imovel.EnderecoImovelService;
+import java.util.List;
+import java.util.Optional;
+
+import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpServletResponse;
-import javax.validation.Valid;
-import java.util.List;
-import java.util.Optional;
+import br.gov.rn.saogoncalo.smtsis.events.RecursoCriadoEvento;
+import br.gov.rn.saogoncalo.smtsis.models.EnderecoContribuinte;
+import br.gov.rn.saogoncalo.smtsis.services.contribuinte.EnderecoContribuinteService;
 
 @CrossOrigin
 @RestController
 @RequestMapping("v1")
-public class EnderecoResource {
+public class EnderecoContribuinteResource {
 
     @Autowired
-    private EnderecoImovelService enderecoService;
+    private EnderecoContribuinteService enderecoService;
 
     @Autowired
     private ApplicationEventPublisher publisher;
 
     @RequestMapping("enderecos")
-    public ResponseEntity<List<EnderecoImovel>> buscarTodos(){
-        List<EnderecoImovel> listaEnderecoImovels = enderecoService.buscarTodos();
+    public ResponseEntity<List<EnderecoContribuinte>> buscarTodos(){
+        List<EnderecoContribuinte> listaEnderecoImovels = enderecoService.buscarTodos();
         if (listaEnderecoImovels.size() > 0){
             return ResponseEntity.ok(listaEnderecoImovels);
         }
@@ -36,18 +44,18 @@ public class EnderecoResource {
     }
 
     @RequestMapping("endereco/{id}")
-    public ResponseEntity<EnderecoImovel> buscarPorID(@PathVariable Long id){
-        EnderecoImovel endereco = enderecoService.buscarPorId(id);
+    public ResponseEntity<EnderecoContribuinte> buscarPorID(@PathVariable Long id){
+    	EnderecoContribuinte endereco = enderecoService.buscarPorId(id);
         if (Optional.ofNullable(endereco).isPresent())
             return ResponseEntity.ok(endereco);
         return ResponseEntity.notFound().build();
     }
 
     @PostMapping("endereco")
-    public ResponseEntity<EnderecoImovel> salvar(@RequestBody @Valid EnderecoImovel endereco
+    public ResponseEntity<EnderecoContribuinte> salvar(@RequestBody @Valid EnderecoContribuinte endereco
                                             ,HttpServletResponse servletResponse) {
         if (endereco != null ){
-            EnderecoImovel enderecoSalvo = enderecoService.salvar(endereco);
+        	EnderecoContribuinte enderecoSalvo = enderecoService.salvar(endereco);
             publisher.publishEvent(new RecursoCriadoEvento(this,
                                                                 servletResponse,
                                                                 enderecoSalvo.getId()));
@@ -57,14 +65,14 @@ public class EnderecoResource {
     }
 
     @PutMapping("endereco")
-    public ResponseEntity<EnderecoImovel> atualizar(@RequestBody EnderecoImovel endereco){
+    public ResponseEntity<EnderecoContribuinte> atualizar(@RequestBody EnderecoContribuinte endereco){
         if (Optional.ofNullable(enderecoService.atualizar(endereco)).isPresent())
             return ResponseEntity.accepted().body(endereco);
         return ResponseEntity.noContent().build();
     }
 
     @DeleteMapping("endereco/{id}")
-    public ResponseEntity<EnderecoImovel> deleta(@PathVariable Long id){
+    public ResponseEntity<EnderecoContribuinte> deleta(@PathVariable Long id){
         if (enderecoService.deleta(id))
             return ResponseEntity.noContent().build();
         return ResponseEntity.badRequest().build();

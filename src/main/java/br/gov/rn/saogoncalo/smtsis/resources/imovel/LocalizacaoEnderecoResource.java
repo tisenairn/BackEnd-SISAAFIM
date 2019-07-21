@@ -1,4 +1,4 @@
-package br.gov.rn.saogoncalo.smtsis.resources;
+package br.gov.rn.saogoncalo.smtsis.resources.imovel;
 
 import br.gov.rn.saogoncalo.smtsis.models.imovel.LocalizacaoEnderecoImovel;
 import br.gov.rn.saogoncalo.smtsis.services.imovel.LocalizacaoEnderecoImovelService;
