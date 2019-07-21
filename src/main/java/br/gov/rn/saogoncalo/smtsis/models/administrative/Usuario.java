@@ -1,9 +1,8 @@
-package br.gov.rn.saogoncalo.smtsis.models;
+package br.gov.rn.saogoncalo.smtsis.models.administrative;
 
 import br.gov.rn.saogoncalo.smtsis.enums.TipoUsuario;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -13,9 +12,10 @@ public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_usuario")
     private Long id;
     private String matricula;
-    @NotNull
+//    @NotNull
     @Size(min = 3, max = 50)
     private String nome;
     private String senha;

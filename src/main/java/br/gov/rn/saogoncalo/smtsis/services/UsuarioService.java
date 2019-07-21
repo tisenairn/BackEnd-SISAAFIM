@@ -1,6 +1,6 @@
 package br.gov.rn.saogoncalo.smtsis.services;
 
-import br.gov.rn.saogoncalo.smtsis.models.Usuario;
+import br.gov.rn.saogoncalo.smtsis.models.administrative.Usuario;
 import br.gov.rn.saogoncalo.smtsis.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

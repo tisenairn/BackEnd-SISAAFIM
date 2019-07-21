@@ -1,18 +1,16 @@
 package br.gov.rn.saogoncalo.smtsis.resources;
 
 import br.gov.rn.saogoncalo.smtsis.events.RecursoCriadoEvento;
-import br.gov.rn.saogoncalo.smtsis.models.Usuario;
+import br.gov.rn.saogoncalo.smtsis.models.administrative.Usuario;
 import br.gov.rn.saogoncalo.smtsis.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
-import java.net.URI;
 import java.util.List;
 
 @RestController
