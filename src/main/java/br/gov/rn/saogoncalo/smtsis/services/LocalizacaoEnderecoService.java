@@ -1,13 +1,7 @@
 package br.gov.rn.saogoncalo.smtsis.services;
 
-import br.gov.rn.saogoncalo.smtsis.models.Endereco;
-import br.gov.rn.saogoncalo.smtsis.models.LocalizacaoEndereco;
-import br.gov.rn.saogoncalo.smtsis.repositories.LocalizacaoEnderecoRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
 
 @Service
 @Transactional
@@ -20,10 +14,10 @@ public class LocalizacaoEnderecoService {
 //    private EnderecoService enderecoService;
 //
 //    public LocalizacaoEndereco salvar(LocalizacaoEndereco localizacaoEndereco, Long enderecoId) {
-//        Endereco endereco = enderecoService.buscarPorId(enderecoId);
+//        ContribuinteEndereco endereco = enderecoService.buscarPorId(enderecoId);
 //        if (endereco != null ) {
 //            if (buscarPorId(enderecoId) == null) {
-//                localizacaoEndereco.setEndereco(endereco);
+//                localizacaoEndereco.setImovelEndereco(endereco);
 //                LocalizacaoEndereco localizacaoSalva = localizacaoEnderecoRepository.save(localizacaoEndereco);
 //                return localizacaoSalva;
 //            }
@@ -56,7 +50,7 @@ public class LocalizacaoEnderecoService {
 //        if (buscarPorId(id) != null) {
 //            LocalizacaoEndereco localizacaoEnderecoEncontrado = buscarPorId(id);
 //            localizacaoEndereco.setId(localizacaoEnderecoEncontrado.getId());
-//            localizacaoEndereco.setEndereco(localizacaoEnderecoEncontrado.getEndereco());
+//            localizacaoEndereco.setImovelEndereco(localizacaoEnderecoEncontrado.getImovelEndereco());
 //            localizacaoEnderecoRepository.save(localizacaoEndereco);
 //            return localizacaoEndereco;
 //        }

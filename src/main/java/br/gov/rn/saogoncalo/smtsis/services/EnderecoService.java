@@ -1,6 +1,6 @@
 package br.gov.rn.saogoncalo.smtsis.services;
 
-import br.gov.rn.saogoncalo.smtsis.models.Endereco;
+import br.gov.rn.saogoncalo.smtsis.models.imovel.ImovelEndereco;
 import br.gov.rn.saogoncalo.smtsis.repositories.EnderecoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,17 +15,17 @@ public class EnderecoService {
     @Autowired
     private EnderecoRepository enderecoRepository;
 
-    public List<Endereco> buscarTodos() {
+    public List<ImovelEndereco> buscarTodos() {
         return enderecoRepository.findAll();
     }
 
-    public Endereco salvar(Endereco endereco) {
-        if (endereco.getId() == null)
-            return enderecoRepository.save(endereco);
+    public ImovelEndereco salvar(ImovelEndereco imovelEndereco) {
+        if (imovelEndereco.getId() == null)
+            return enderecoRepository.save(imovelEndereco);
         return null;
     }
 
-    public Endereco buscarPorId(Long id) {
+    public ImovelEndereco buscarPorId(Long id) {
         if (enderecoExiste(id))
             return  enderecoRepository.findById(id).get();
         return null;
@@ -40,19 +40,19 @@ public class EnderecoService {
     }
 
     private boolean enderecoExiste(Long id){
-        List<Endereco> listaEnderecos = enderecoRepository.findAll();
-        for (Endereco endereco: listaEnderecos) {
-            if(endereco.getId().compareTo(id) == 0){
+        List<ImovelEndereco> listaImovelEnderecos = enderecoRepository.findAll();
+        for (ImovelEndereco imovelEndereco : listaImovelEnderecos) {
+            if(imovelEndereco.getId().compareTo(id) == 0){
                 return true;
             }
         }
         return false;
     }
 
-    public Endereco atualizar(Endereco endereco) {
-        if (endereco.getId() != null){
-            if (enderecoExiste(endereco.getId())){
-                return enderecoRepository.save(endereco);
+    public ImovelEndereco atualizar(ImovelEndereco imovelEndereco) {
+        if (imovelEndereco.getId() != null){
+            if (enderecoExiste(imovelEndereco.getId())){
+                return enderecoRepository.save(imovelEndereco);
             }
         }
         return null;

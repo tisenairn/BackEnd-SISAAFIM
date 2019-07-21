@@ -1,6 +1,6 @@
 package br.gov.rn.saogoncalo.smtsis.repositories;
 
-import br.gov.rn.saogoncalo.smtsis.models.LocalizacaoEndereco;
+import br.gov.rn.saogoncalo.smtsis.models.imovel.LocalizacaoEndereco;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -12,7 +12,7 @@ public interface LocalizacaoEnderecoRepository extends JpaRepository<Localizacao
     @Override
     @Query("select l, e.id \n" +
             "as id_endereco, e.bairro \n" +
-            "from LocalizacaoEndereco l inner join Endereco e\n" +
+            "from LocalizacaoEndereco l inner join ContribuinteEndereco e\n" +
             "ON l.id = e.id\n" +
             "where e.id = :id")
     Optional<LocalizacaoEndereco> findById(Long id);

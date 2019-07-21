@@ -1,13 +1,11 @@
-package br.gov.rn.saogoncalo.smtsis.models;
+package br.gov.rn.saogoncalo.smtsis.models.contribuinte;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 @Entity
-@Table(name = "enderecos")
-public class Endereco {
+@Table(name = "contribuintes_endereco")
+public class ContribuinteEndereco {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,10 +32,6 @@ public class Endereco {
     //@NotNull
     //@NotEmpty
     private String numero;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_endereco_localizacao", referencedColumnName = "id_localizacao", unique = true)
-    private LocalizacaoEndereco localizacaoEndereco;
 
     public Long getId() {
         return id;
@@ -103,20 +97,13 @@ public class Endereco {
         this.numero = numero;
     }
 
-    public LocalizacaoEndereco getLocalizacaoEndereco() {
-        return localizacaoEndereco;
-    }
-
-    public void setLocalizacaoEndereco(LocalizacaoEndereco localizacaoEndereco) {
-        this.localizacaoEndereco = localizacaoEndereco;
-    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Endereco endereco = (Endereco) o;
-        return Objects.equals(id, endereco.id);
+        ContribuinteEndereco contribuinteEndereco = (ContribuinteEndereco) o;
+        return Objects.equals(id, contribuinteEndereco.id);
     }
 
     @Override
@@ -126,7 +113,7 @@ public class Endereco {
 
     @Override
     public String toString() {
-        return "Endereco{" +
+        return "ContribuinteEndereco{" +
                 "id=" + id +
                 ", uf='" + uf + '\'' +
                 ", cidade='" + cidade + '\'' +
@@ -135,7 +122,6 @@ public class Endereco {
                 ", complemento='" + complemento + '\'' +
                 ", cep='" + cep + '\'' +
                 ", numero='" + numero + '\'' +
-                ", localizacaoEndereco=" + localizacaoEndereco +
                 '}';
     }
 }

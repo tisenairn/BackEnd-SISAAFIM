@@ -1,6 +1,6 @@
 package br.gov.rn.saogoncalo.smtsis.models.forms;
 
-import br.gov.rn.saogoncalo.smtsis.models.Contribuinte;
+import br.gov.rn.saogoncalo.smtsis.models.contribuinte.Contribuinte;
 import br.gov.rn.saogoncalo.smtsis.models.administrative.Fiscal;
 
 import javax.persistence.*;

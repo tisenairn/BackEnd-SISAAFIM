@@ -1,6 +1,9 @@
-package br.gov.rn.saogoncalo.smtsis.models;
+package br.gov.rn.saogoncalo.smtsis.models.contribuinte;
+
+import br.gov.rn.saogoncalo.smtsis.models.imovel.Imovel;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "contribuintes")
@@ -21,28 +24,15 @@ public class Contribuinte {
     private String cnpj;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_contribuinte_endereco", referencedColumnName = "id_endereco", unique = true)
-    private Endereco endereco;
+    private ContribuinteEndereco contribuinteEndereco;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_contribuinte_imovel", referencedColumnName = "id_imovel", unique = true)
     private Imovel imovel;
 
-
     public Contribuinte(){
     }
 
-    public Contribuinte(Long id, String nome, String dataNascimento, String telefone, String cpf, String rg, String rgExpedidor, String cnh, Endereco endereco, String cnpj) {
-        this.id = id;
-        this.nome = nome;
-        this.dataNascimento = dataNascimento;
-        this.telefone = telefone;
-        this.cpf = cpf;
-        this.rg = rg;
-        this.rgExpedidor = rgExpedidor;
-        this.cnh = cnh;
-        this.endereco = endereco;
-        this.cnpj = cnpj;
-    }
     public Long getId() {
         return id;
     }
@@ -115,44 +105,49 @@ public class Contribuinte {
         this.cnpj = cnpj;
     }
 
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((id == null) ? 0 : id.hashCode());
-        return result;
+    public ContribuinteEndereco getContribuinteEndereco() {
+        return contribuinteEndereco;
+    }
+
+    public void setContribuinteEndereco(ContribuinteEndereco contribuinteEndereco) {
+        this.contribuinteEndereco = contribuinteEndereco;
+    }
+
+    public Imovel getImovel() {
+        return imovel;
+    }
+
+    public void setImovel(Imovel imovel) {
+        this.imovel = imovel;
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Contribuinte other = (Contribuinte) obj;
-        if (id == null) {
-            if (other.id != null)
-                return false;
-        } else if (!id.equals(other.id))
-            return false;
-        return true;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Contribuinte that = (Contribuinte) o;
+        return Objects.equals(id, that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 
     @Override
     public String toString() {
-        return "Contribuinte [id=" + id + ", nome=" + nome + ", dataNascimento=" + dataNascimento + ", telefone="
-                + telefone + ", cpf=" + cpf + ", rg=" + rg + ", rgExpedidor=" + rgExpedidor + ", cnh=" + cnh + ", cnpj="
-                + cnpj + "]";
-    }
-
-
-    public Endereco getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
+        return "Contribuinte{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", dataNascimento='" + dataNascimento + '\'' +
+                ", telefone='" + telefone + '\'' +
+                ", cpf='" + cpf + '\'' +
+                ", rg='" + rg + '\'' +
+                ", rgExpedidor='" + rgExpedidor + '\'' +
+                ", cnh='" + cnh + '\'' +
+                ", cnpj='" + cnpj + '\'' +
+                ", contribuinteEndereco=" + contribuinteEndereco +
+                ", imovel=" + imovel +
+                '}';
     }
 }

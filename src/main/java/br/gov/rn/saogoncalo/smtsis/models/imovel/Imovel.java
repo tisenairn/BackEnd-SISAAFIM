@@ -1,4 +1,4 @@
-package br.gov.rn.saogoncalo.smtsis.models;
+package br.gov.rn.saogoncalo.smtsis.models.imovel;
 
 import javax.persistence.*;
 import java.util.Objects;
@@ -14,7 +14,7 @@ public class Imovel {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_imovel_endereco", referencedColumnName = "id_endereco", unique = true)
-    private Endereco endereco;
+    private ImovelEndereco imovelEndereco;
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_imovel_info", referencedColumnName = "id_infoEdificacao",
@@ -38,12 +38,12 @@ public class Imovel {
         this.id = id;
     }
 
-    public Endereco getEndereco() {
-        return endereco;
+    public ImovelEndereco getImovelEndereco() {
+        return imovelEndereco;
     }
 
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
+    public void setImovelEndereco(ImovelEndereco imovelEndereco) {
+        this.imovelEndereco = imovelEndereco;
     }
 
     @Override
@@ -63,7 +63,7 @@ public class Imovel {
     public String toString() {
         return "Imovel{" +
                 "id=" + id +
-                ", endereco=" + endereco +
+                ", imovelEndereco=" + imovelEndereco +
                 ", infoEdificacao=" + infoEdificacao +
                 '}';
     }

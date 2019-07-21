@@ -1,8 +1,6 @@
-package br.gov.rn.saogoncalo.smtsis.models;
+package br.gov.rn.saogoncalo.smtsis.models.imovel;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Objects;
 
@@ -32,7 +30,7 @@ public class LocalizacaoEndereco {
     //    @JsonIgnore
 //    @OneToOne(cascade = CascadeType.ALL)
 //    @JoinColumn(name = "id_localizacao_endereco", referencedColumnName = "id_endereco", unique = true)
-//    private Endereco endereco;
+//    private ContribuinteEndereco endereco;
 
     public Long getId() {
         return id;

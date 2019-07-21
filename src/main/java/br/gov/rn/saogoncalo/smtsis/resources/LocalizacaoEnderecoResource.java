@@ -1,14 +1,6 @@
 package br.gov.rn.saogoncalo.smtsis.resources;
 
-import br.gov.rn.saogoncalo.smtsis.models.LocalizacaoEndereco;
-import br.gov.rn.saogoncalo.smtsis.services.LocalizacaoEnderecoService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import javax.validation.Valid;
-import java.util.List;
 
 @CrossOrigin
 @RestController
