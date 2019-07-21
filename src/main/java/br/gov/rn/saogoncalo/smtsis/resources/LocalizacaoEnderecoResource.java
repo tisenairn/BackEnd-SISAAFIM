@@ -1,7 +1,8 @@
 package br.gov.rn.saogoncalo.smtsis.resources;
 
-import br.gov.rn.saogoncalo.smtsis.models.LocalizacaoEndereco;
-import br.gov.rn.saogoncalo.smtsis.services.LocalizacaoEnderecoService;
+import br.gov.rn.saogoncalo.smtsis.models.imovel.LocalizacaoEnderecoImovel;
+import br.gov.rn.saogoncalo.smtsis.services.imovel.LocalizacaoEnderecoImovelService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,11 +17,11 @@ import java.util.List;
 public class LocalizacaoEnderecoResource {
 
     @Autowired
-    private LocalizacaoEnderecoService localizacaoEnderecoService;
+    private LocalizacaoEnderecoImovelService localizacaoEnderecoService;
 
     @GetMapping("localizacaoEndereco")
-    public ResponseEntity<List<LocalizacaoEndereco>> buscarTodos(){
-        List<LocalizacaoEndereco> localizacaoEnderecos =
+    public ResponseEntity<List<LocalizacaoEnderecoImovel>> buscarTodos(){
+        List<LocalizacaoEnderecoImovel> localizacaoEnderecos =
                 localizacaoEnderecoService.buscarTodos();
         if (localizacaoEnderecos != null)
             return ResponseEntity.ok().body(localizacaoEnderecos);
@@ -28,33 +29,33 @@ public class LocalizacaoEnderecoResource {
     }
 
     @PostMapping("localizacaoEndereco/{enderecoId}")
-    public ResponseEntity<LocalizacaoEndereco> salvar(@RequestBody@Valid LocalizacaoEndereco localizacaoEndereco
+    public ResponseEntity<LocalizacaoEnderecoImovel> salvar(@RequestBody@Valid LocalizacaoEnderecoImovel localizacaoEndereco
                                                         ,@PathVariable Long enderecoId){
-        LocalizacaoEndereco locEndSalvar = localizacaoEnderecoService.salvar(localizacaoEndereco, enderecoId);
+    	LocalizacaoEnderecoImovel locEndSalvar = localizacaoEnderecoService.salvar(localizacaoEndereco, enderecoId);
         if (locEndSalvar != null)
             return ResponseEntity.status(HttpStatus.CREATED).body(locEndSalvar);
         return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).build();
     }
 
     @GetMapping("localizacaoEndereco/{id}")
-    public ResponseEntity<LocalizacaoEndereco> buscarPorId(@PathVariable Long id){
-        LocalizacaoEndereco localEndEncotrada = localizacaoEnderecoService.buscarPorId(id);
+    public ResponseEntity<LocalizacaoEnderecoImovel> buscarPorId(@PathVariable Long id){
+    	LocalizacaoEnderecoImovel localEndEncotrada = localizacaoEnderecoService.buscarPorId(id);
         if (localEndEncotrada != null)
             return ResponseEntity.ok(localEndEncotrada);
         return ResponseEntity.noContent().build();
     }
 
     @DeleteMapping("localizacaoEndereco/{id}")
-    public ResponseEntity<LocalizacaoEndereco> deletePorId(@PathVariable Long id){
+    public ResponseEntity<LocalizacaoEnderecoImovel> deletePorId(@PathVariable Long id){
         if (localizacaoEnderecoService.deletePorId(id))
             return ResponseEntity.ok().build();
         return ResponseEntity.noContent().build();
     }
 
     @PutMapping("localizacaoEndereco/{enderecoId}")
-    public ResponseEntity<LocalizacaoEndereco> atualizar(@PathVariable Long enderecoId,
-                                                         @RequestBody LocalizacaoEndereco locaEndereco){
-        LocalizacaoEndereco locEndAtualizado = localizacaoEnderecoService.atualizar(enderecoId, locaEndereco);
+    public ResponseEntity<LocalizacaoEnderecoImovel> atualizar(@PathVariable Long enderecoId,
+                                                         @RequestBody LocalizacaoEnderecoImovel locaEndereco){
+    	LocalizacaoEnderecoImovel locEndAtualizado = localizacaoEnderecoService.atualizar(enderecoId, locaEndereco);
         if (locEndAtualizado != null)
             return ResponseEntity.ok(locEndAtualizado);
         return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).build();

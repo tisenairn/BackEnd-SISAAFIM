@@ -1,6 +1,6 @@
-package br.gov.rn.saogoncalo.smtsis.services;
+package br.gov.rn.saogoncalo.smtsis.services.imovel;
 
-import br.gov.rn.saogoncalo.smtsis.models.Endereco;
+import br.gov.rn.saogoncalo.smtsis.models.imovel.EnderecoImovel;
 import br.gov.rn.saogoncalo.smtsis.repositories.EnderecoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,22 +10,22 @@ import java.util.List;
 
 @Service
 @Transactional
-public class EnderecoService {
+public class EnderecoImovelService {
 
     @Autowired
     private EnderecoRepository enderecoRepository;
 
-    public List<Endereco> buscarTodos() {
+    public List<EnderecoImovel> buscarTodos() {
         return enderecoRepository.findAll();
     }
 
-    public Endereco salvar(Endereco endereco) {
+    public EnderecoImovel salvar(EnderecoImovel endereco) {
         if (endereco.getId() == null)
             return enderecoRepository.save(endereco);
         return null;
     }
 
-    public Endereco buscarPorId(Long id) {
+    public EnderecoImovel buscarPorId(Long id) {
         if (enderecoExiste(id))
             return  enderecoRepository.findById(id).get();
         return null;
@@ -43,7 +43,7 @@ public class EnderecoService {
         return enderecoRepository.existsById(id);
     }
 
-    public Endereco atualizar(Endereco endereco) {
+    public EnderecoImovel atualizar(EnderecoImovel endereco) {
         if (endereco.getId() != null){
             if (enderecoExiste(endereco.getId())){
                 return enderecoRepository.save(endereco);

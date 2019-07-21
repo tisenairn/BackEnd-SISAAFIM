@@ -4,11 +4,12 @@ import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
 import java.util.Objects;
 
 @Entity
-@Table(name = "localizacoes")
-public class LocalizacaoEndereco {
+@Table(name = "localizacoes_contribuintes")
+public class LocalizacaoEnderecoContribuinte {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,8 +28,8 @@ public class LocalizacaoEndereco {
 
 //    @JsonIgnore
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id", referencedColumnName = "id",unique = true)
-    private Endereco endereco;
+    @JoinColumn(name = "id_endereco_contribuinte", referencedColumnName = "id",unique = true)
+    private EnderecoContribuinte endereco;
 
     public Long getId() {
         return id;
@@ -54,11 +55,11 @@ public class LocalizacaoEndereco {
         this.longitude = longitude;
     }
 
-    public Endereco getEndereco() {
+    public EnderecoContribuinte getEndereco() {
         return endereco;
     }
 
-    public void setEndereco(Endereco endereco) {
+    public void setEndereco(EnderecoContribuinte endereco) {
         this.endereco = endereco;
     }
 
@@ -66,7 +67,7 @@ public class LocalizacaoEndereco {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        LocalizacaoEndereco that = (LocalizacaoEndereco) o;
+        LocalizacaoEnderecoContribuinte that = (LocalizacaoEnderecoContribuinte) o;
         return Objects.equals(id, that.id);
     }
 

@@ -1,4 +1,4 @@
-package br.gov.rn.saogoncalo.smtsis.models;
+package br.gov.rn.saogoncalo.smtsis.models.imovel;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
@@ -6,8 +6,8 @@ import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 @Entity
-@Table(name = "enderecos")
-public class Endereco {
+@Table(name = "enderecos_imoveis")
+public class EnderecoImovel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -103,7 +103,7 @@ public class Endereco {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Endereco endereco = (Endereco) o;
+        EnderecoImovel endereco = (EnderecoImovel) o;
         return Objects.equals(id, endereco.id);
     }
 
