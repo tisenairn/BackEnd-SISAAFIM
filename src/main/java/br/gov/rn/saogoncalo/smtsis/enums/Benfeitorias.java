@@ -1,0 +1,6 @@
+package br.gov.rn.saogoncalo.smtsis.enums;
+
+public enum Benfeitorias {
+    AGUA, SARJETAS, ESGOTO, REDE_ELETRICA, LIMPEZA_URBANA, ILUMINACAO_PUBLICA, PAVIMENTACAO, TELEFONE, GALERIAS_PLUVIAIS, COLETA_LIXO;
+
+}
