@@ -3,7 +3,6 @@ package br.gov.rn.saogoncalo.smtsis.models.imovel;
 import br.gov.rn.saogoncalo.smtsis.enums.*;
 
 import javax.persistence.*;
-import javax.validation.constraints.Size;
 import java.util.Objects;
 
 @Entity
@@ -15,25 +14,18 @@ public class InfoEdificacao {
     @Column(name = "id_infoEdificacao")
     private Long id;
     //@NotNull
-    @Size(max = 11)
     private TipoImovel tipoImovel;
     //@NotNull
-    @Size(max = 8)
     private UtilizacaoImovel utilizacaoImovel;
     //@NotNull
-    @Size(max = 5)
     private PadraoQualidade padraoQualidade;
     //@NotNull
-    @Size(max = 16)
     private Pedologia pedologia;
     //@NotNull
-    @Size(max = 21)
     private Topografia topografia;
     //@NotNull
-    @Size(max = 7)
     private EstadoConservacao estadoConservacao;
     //@NotNull
-    @Size(max = 18)
     private SituacaoTerreno situacaoTerreno;
 
     public Long getId() {

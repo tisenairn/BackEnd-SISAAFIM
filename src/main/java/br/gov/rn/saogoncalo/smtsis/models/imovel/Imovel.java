@@ -16,9 +16,8 @@ public class Imovel {
     @JoinColumn(name = "id_imovel_endereco", referencedColumnName = "id_endereco", unique = true)
     private ImovelEndereco imovelEndereco;
 
-    @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_imovel_info", referencedColumnName = "id_infoEdificacao",
-            insertable = false, updatable = false, unique = true)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_imovel_info", referencedColumnName = "id_infoEdificacao", unique = true)
     private InfoEdificacao infoEdificacao;
 
 
