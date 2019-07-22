@@ -20,6 +20,19 @@ public class Imovel {
     @JoinColumn(name = "id_imovel_info", referencedColumnName = "id_infoEdificacao", unique = true)
     private InfoEdificacao infoEdificacao;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_imovel_benfeitorias", referencedColumnName = "id_benfeitorias", unique = true)
+    private Benfeitorias benfeitorias;
+
+    @Override
+    public String toString() {
+        return "Imovel{" +
+                "id=" + id +
+                ", imovelEndereco=" + imovelEndereco +
+                ", infoEdificacao=" + infoEdificacao +
+                ", benfeitorias=" + benfeitorias +
+                '}';
+    }
 
     public Long getId() {
         return id;
@@ -45,6 +58,14 @@ public class Imovel {
         this.imovelEndereco = imovelEndereco;
     }
 
+    public Benfeitorias getBenfeitorias() {
+        return benfeitorias;
+    }
+
+    public void setBenfeitorias(Benfeitorias benfeitorias) {
+        this.benfeitorias = benfeitorias;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -56,15 +77,6 @@ public class Imovel {
     @Override
     public int hashCode() {
         return Objects.hash(id);
-    }
-
-    @Override
-    public String toString() {
-        return "Imovel{" +
-                "id=" + id +
-                ", imovelEndereco=" + imovelEndereco +
-                ", infoEdificacao=" + infoEdificacao +
-                '}';
     }
 
 }
