@@ -16,8 +16,8 @@ public class Usuario {
     //@NotNull
     //@NotEmpty
     // TODO Criar um tratamento de exceção para este coluna do tipo Unico
-    @Column(unique = true, columnDefinition = "int(7) ZEROFILL", length = 7)
-    private String matricula;
+    //    @Column(unique = true, columnDefinition = "int(7) ZEROFILL", length = 7)
+    private int matricula;
     //@NotNull
     //@NotEmpty
     private String senha;
@@ -81,11 +81,11 @@ public class Usuario {
         this.id = id;
     }
 
-    public String getMatricula() {
+    public int getMatricula() {
         return matricula;
     }
 
-    public void setMatricula(String matricula) {
+    public void setMatricula(int matricula) {
         this.matricula = matricula;
     }
 

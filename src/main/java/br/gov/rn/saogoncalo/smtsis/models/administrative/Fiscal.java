@@ -44,9 +44,7 @@ public class Fiscal {
     }
 
     public void setUsuario(Usuario usuario) {
-//        TODO Ver se este tipo está funcional.
         this.usuario = usuario;
-        this.usuario.setTipo(TipoUsuario.FISCAL);
     }
 
 
