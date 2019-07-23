@@ -34,13 +34,16 @@ public class BICResource {
     @PostMapping("/salvar")
     public ResponseEntity<BoletimIncricaoCadastral> salvar(@Valid @RequestBody BoletimIncricaoCadastral bic,
                                                            HttpServletResponse resposta){
-        bic.setAtivo(true);
+
         BoletimIncricaoCadastral bicResposta = bicService.salvar(bic);
         applicationEventPublisher.publishEvent(new RecursoCriadoEvento(this, resposta, bicResposta.getId()));
         return ResponseEntity.status(HttpStatus.CREATED).body(bicResposta);
     }
 
-//    TODO Criar um DeleteMapping aqui, para excluir histórico do BIC
-//    @DeleteMapping
+    @PutMapping
+    public ResponseEntity<BoletimIncricaoCadastral> inativar(@Valid @PathVariable Long id, @RequestBody BoletimIncricaoCadastral bic){
 
+
+        return null;
+    }
 }
