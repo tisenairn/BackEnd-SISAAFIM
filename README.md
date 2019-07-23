@@ -3,14 +3,20 @@
 
 #### O modelo abaixo descreve como as enumerações se comportam na API e o que, cada valor inteiro significa como uma String.
 
-> Formatação do Glossário:
-`<Nome-original-sem-formatações>`: *<valor>: <valor-enumerado>* - **[<Nome-formatado-no-padrão-do-sistema>];**.
+> Layout de Formatação do Glossário:
 
-> O que é nome original sem formatações? É o formato do português natural, contendo acentuações e símbolos.
+  <`Nome-original-sem-formatações`>: <*valor: valor-enumerador*> - <**[String-formatada-no-padrão-do-sistema/String enumerada]**>;.
 
-> O que é o valor enumerado? É o valor no qual está na API do sistema, este que enumera o valor do <Nome-formatado-no-padrão-do-sistema>.
+> [FAQ] - Quanto a interpretação da formatação do Glossário:
 
-> O que é o <Nome-formatado-no-padrão-do-sistema>? é o nome que foi estabelecido na API, este, não pode conter, símbolos ou acentuações.
+
+> O que é "<>"? Indica a posição onde está localizado o item significando o formato do texto por extenso.
+
+> O que é nome original sem formatações? É o formato do português natural, contendo acentuações e símbolos. Está dentro de um retângulo quase transparente;
+
+> O que é o valor enumerador? É o valor no qual está na API do sistema, este que enumera o valor do <[String-formatada-no-padrão-do-sistema/String enumerada]>. Está em itálico;
+
+> O que é o [String-formatada-no-padrão-do-sistema/String enumerada]? é o nome que foi estabelecido na API, este, não pode conter, símbolos ou acentuações. Está em negrito;
 
 
 ### `Imóvel`:
