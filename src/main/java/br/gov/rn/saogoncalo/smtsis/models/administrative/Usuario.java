@@ -15,7 +15,8 @@ public class Usuario {
     private Long id;
     //@NotNull
     //@NotEmpty
-    @Column(unique = true)
+    // TODO Criar um tratamento de exceção para este coluna do tipo Unico
+    @Column(unique = true, columnDefinition = "int(7) ZEROFILL", length = 7)
     private String matricula;
     //@NotNull
     //@NotEmpty
