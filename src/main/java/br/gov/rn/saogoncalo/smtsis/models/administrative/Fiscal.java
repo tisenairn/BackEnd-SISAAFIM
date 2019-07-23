@@ -3,6 +3,7 @@ package br.gov.rn.saogoncalo.smtsis.models.administrative;
 import br.gov.rn.saogoncalo.smtsis.enums.TipoUsuario;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.Objects;
 
 @Entity
@@ -13,9 +14,9 @@ public class Fiscal {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_fiscal")
     private Long id;
-// TODO Anotar com propriedades de conversão do hibernate para data.
-//    private Date data;
 
+    //@NotNull
+    //@NotEmpty
     private String observacoes;
 
     @OneToOne(cascade = CascadeType.ALL)

@@ -4,23 +4,30 @@ import br.gov.rn.saogoncalo.smtsis.models.contribuinte.Contribuinte;
 import br.gov.rn.saogoncalo.smtsis.models.administrative.Fiscal;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.Objects;
 
 @Entity
 @Table(name = "boletim_inscricao_cadastral")
 public class BoletimIncricaoCadastral {
 
-//    TODO Fazer seu CRUD
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_BIC")
     private Long id;
     private boolean ativo;
 
+//    @Temporal(TemporalType.DATE)
+//    private Date data;
+
+//  TODO Ao fim dos testes, as chaves estrangeiras do Boletim deverão ser do tipo Fetch Eager
+//    @OneToOne(fetch = FetchType.EAGER)
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_bic_fiscal", referencedColumnName = "id_fiscal", unique = true)
     private Fiscal fiscal;
-
+// TODO
+//    @OneToOne(fetch = FetchType.EAGER)
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_bic_contribuinte", referencedColumnName = "id_contribuinte", unique = true)
     private Contribuinte contribuinte;

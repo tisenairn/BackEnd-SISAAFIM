@@ -14,18 +14,25 @@ public class InfoEdificacao {
     @Column(name = "id_infoEdificacao")
     private Long id;
     //@NotNull
+    //@NotEmpty
     private TipoImovel tipoImovel;
     //@NotNull
+    //@NotEmpty
     private UtilizacaoImovel utilizacaoImovel;
     //@NotNull
+    //@NotEmpty
     private PadraoQualidade padraoQualidade;
     //@NotNull
+    //@NotEmpty
     private Pedologia pedologia;
     //@NotNull
+    //@NotEmpty
     private Topografia topografia;
     //@NotNull
+    //@NotEmpty
     private EstadoConservacao estadoConservacao;
     //@NotNull
+    //@NotEmpty
     private SituacaoTerreno situacaoTerreno;
 
     public Long getId() {

@@ -1,6 +1,7 @@
 package br.gov.rn.saogoncalo.smtsis.models.imovel;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "imoveis_benfeitorias")
@@ -120,28 +121,15 @@ public class Benfeitorias {
     }
 
     @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((id == null) ? 0 : id.hashCode());
-        return result;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Benfeitorias that = (Benfeitorias) o;
+        return Objects.equals(id, that.id);
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Benfeitorias other = (Benfeitorias) obj;
-        if (id == null) {
-            if (other.id != null)
-                return false;
-        } else if (!id.equals(other.id))
-            return false;
-        return true;
+    public int hashCode() {
+        return Objects.hash(id);
     }
-
 }

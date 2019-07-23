@@ -3,24 +3,41 @@ package br.gov.rn.saogoncalo.smtsis.models.contribuinte;
 import br.gov.rn.saogoncalo.smtsis.models.imovel.Imovel;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.Objects;
 
 @Entity
 @Table(name = "contribuintes")
 public class Contribuinte {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_contribuinte")
     private Long id;
+    //@NotNull
+    //@NotEmpty
     private String nome;
-    private String dataNascimento;
+    //@NotNull
+    //@NotEmpty
+//  @Temporal(TemporalType.DATE)
+    private Date dataNascimento;
+    //@NotNull
+    //@NotEmpty
     private String telefone;
+    //@NotNull
+    //@NotEmpty
     private String cpf;
+    //@NotNull
+    //@NotEmpty
     private String rg;
+    //@NotNull
+    //@NotEmpty
     private String rgExpedidor;
+    //@NotNull
+    //@NotEmpty
     private String cnh;
+    //@NotNull
+    //@NotEmpty
     private String cnpj;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_contribuinte_endereco", referencedColumnName = "id_endereco", unique = true)
@@ -49,11 +66,11 @@ public class Contribuinte {
         this.nome = nome;
     }
 
-    public String getDataNascimento() {
+    public Date getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(String dataNascimento) {
+    public void setDataNascimento(Date dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 

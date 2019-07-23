@@ -23,15 +23,6 @@ public class LocalizacaoEndereco {
     @Size(max = 25,message = "A longitude não pode ter mais de 25 caracteres.")
     private String longitude;
 
-//    Em 20/07, achei estranho porque para registrar uma localização, eu teria que ter um endereço criado,
-//    para então cadastrar uma localização. achei mais eficaz, relacionar da seguinte maneira:
-//    Um endereço tem uma localização. -- Lindson
-
-    //    @JsonIgnore
-//    @OneToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "id_localizacao_endereco", referencedColumnName = "id_endereco", unique = true)
-//    private ContribuinteEndereco endereco;
-
     public Long getId() {
         return id;
     }

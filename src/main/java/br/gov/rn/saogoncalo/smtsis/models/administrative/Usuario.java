@@ -3,41 +3,42 @@ package br.gov.rn.saogoncalo.smtsis.models.administrative;
 import br.gov.rn.saogoncalo.smtsis.enums.TipoUsuario;
 
 import javax.persistence.*;
-import javax.validation.constraints.Size;
+import java.util.Objects;
 
 @Entity
 @Table(name = "usuarios")
 public class Usuario {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_usuario")
     private Long id;
+    //@NotNull
+    //@NotEmpty
+    @Column(unique = true)
     private String matricula;
-//    @NotNull
-    @Size(min = 3, max = 50)
-    private String nome;
+    //@NotNull
+    //@NotEmpty
     private String senha;
+    //@NotNull
+    //@NotEmpty
+//    @Size(min = 3, max = 50)
+    private String nome;
+    //@NotNull
+    //@NotEmpty
     private TipoUsuario tipo;
+    //@NotNull
+    //@NotEmpty
     private String telefone;
+    //@NotNull
+    //@NotEmpty
     private String email;
+    //@NotNull
+    //@NotEmpty
     private String cargo;
+    //@NotNull
+    //@NotEmpty
     private Boolean ativo;
-
-
-
-    public Usuario(){}
-    public Usuario(Long id, String matricula, String nome, String senha, TipoUsuario tipo, String telefone, String email, Boolean ativo) {
-        this.id = id;
-        this.matricula = matricula;
-        this.nome = nome;
-        this.senha = senha;
-        this.tipo = tipo;
-        this.telefone = telefone;
-        this.email = email;
-        this.ativo = ativo;
-    }
 
     @Override
     public String toString() {
@@ -45,35 +46,30 @@ public class Usuario {
                 + tipo + ", telefone=" + telefone + ", email=" + email + ", ativo=" + ativo + "]";
     }
 
+//    Equals and HashCode para matrícula do usuário.
+    public boolean matriculaEquals(Object matricula) {
+        if (this == matricula) return true;
+        if (matricula == null || getClass() != matricula.getClass()) return false;
+        Usuario usuario = (Usuario) matricula;
+        return Objects.equals(this.matricula, usuario.matricula);
+    }
+
+    public int matriculaHashCode() {
+        return Objects.hash(matricula);
+    }
+
+//    Equals and hashCode do id.
     @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((id == null) ? 0 : id.hashCode());
-        result = prime * result + ((matricula == null) ? 0 : matricula.hashCode());
-        return result;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Usuario usuario = (Usuario) o;
+        return Objects.equals(id, usuario.id);
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Usuario other = (Usuario) obj;
-        if (id == null) {
-            if (other.id != null)
-                return false;
-        } else if (!id.equals(other.id))
-            return false;
-        if (matricula == null) {
-            if (other.matricula != null)
-                return false;
-        } else if (!matricula.equals(other.matricula))
-            return false;
-        return true;
+    public int hashCode() {
+        return Objects.hash(id);
     }
 
     public Long getId() {
@@ -147,4 +143,5 @@ public class Usuario {
     public void setCargo(String cargo) {
         this.cargo = cargo;
     }
+
 }

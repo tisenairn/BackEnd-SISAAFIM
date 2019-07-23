@@ -12,14 +12,20 @@ public class Imovel {
     @Column(name = "id_imovel")
     private Long id;
 
+    //@NotNull
+    //@NotEmpty
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_imovel_endereco", referencedColumnName = "id_endereco", unique = true)
     private ImovelEndereco imovelEndereco;
 
+    //@NotNull
+    //@NotEmpty
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_imovel_info", referencedColumnName = "id_infoEdificacao", unique = true)
     private InfoEdificacao infoEdificacao;
 
+    //@NotNull
+    //@NotEmpty
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_imovel_benfeitorias", referencedColumnName = "id_benfeitorias", unique = true)
     private Benfeitorias benfeitorias;
