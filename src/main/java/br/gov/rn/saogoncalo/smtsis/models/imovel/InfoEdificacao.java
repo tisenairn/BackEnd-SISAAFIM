@@ -9,30 +9,39 @@ import java.util.Objects;
 @Table(name = "informacoes_edificacao")
 public class InfoEdificacao {
 
+
+//    TODO Criar tratamento de exceção para o tamanho máximo do RANGE.
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_infoEdificacao")
     private Long id;
     //@NotNull
     //@NotEmpty
+    @Column(columnDefinition = "TINYINT(1) UNSIGNED")
     private TipoImovel tipoImovel;
     //@NotNull
     //@NotEmpty
+    @Column(columnDefinition = "TINYINT(1) UNSIGNED")
     private UtilizacaoImovel utilizacaoImovel;
     //@NotNull
     //@NotEmpty
+    @Column(columnDefinition = "TINYINT(1) UNSIGNED")
     private PadraoQualidade padraoQualidade;
     //@NotNull
     //@NotEmpty
+    @Column(columnDefinition = "TINYINT(1) UNSIGNED")
     private Pedologia pedologia;
     //@NotNull
     //@NotEmpty
+    @Column(columnDefinition = "TINYINT(1) UNSIGNED")
     private Topografia topografia;
     //@NotNull
     //@NotEmpty
+    @Column(columnDefinition = "TINYINT(1) UNSIGNED")
     private EstadoConservacao estadoConservacao;
     //@NotNull
     //@NotEmpty
+    @Column(columnDefinition = "TINYINT(1) UNSIGNED")
     private SituacaoTerreno situacaoTerreno;
 
     public Long getId() {
