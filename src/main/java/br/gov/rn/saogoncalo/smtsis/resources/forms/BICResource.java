@@ -39,4 +39,8 @@ public class BICResource {
         applicationEventPublisher.publishEvent(new RecursoCriadoEvento(this, resposta, bicResposta.getId()));
         return ResponseEntity.status(HttpStatus.CREATED).body(bicResposta);
     }
+
+//    TODO Criar um DeleteMapping aqui, para excluir histórico do BIC
+//    @DeleteMapping
+
 }
