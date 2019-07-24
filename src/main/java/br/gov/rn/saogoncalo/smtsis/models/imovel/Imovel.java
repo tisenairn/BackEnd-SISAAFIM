@@ -27,6 +27,12 @@ public class Imovel {
     //@NotNull
     //@NotEmpty
     @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_terreno_info", referencedColumnName = "id_infoTerreno", unique = true)
+    private InfoTerreno infoTerreno;
+
+    //@NotNull
+    //@NotEmpty
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_imovel_benfeitorias", referencedColumnName = "id_benfeitorias", unique = true)
     private Benfeitorias benfeitorias;
 
