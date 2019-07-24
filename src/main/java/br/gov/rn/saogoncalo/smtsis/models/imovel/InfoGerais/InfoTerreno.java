@@ -1,4 +1,4 @@
-package br.gov.rn.saogoncalo.smtsis.models.imovel;
+package br.gov.rn.saogoncalo.smtsis.models.imovel.InfoGerais;
 
 import br.gov.rn.saogoncalo.smtsis.enums.EstadoConservacao;
 import br.gov.rn.saogoncalo.smtsis.enums.Pedologia;

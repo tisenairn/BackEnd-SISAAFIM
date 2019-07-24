@@ -1,7 +1,7 @@
 package br.gov.rn.saogoncalo.smtsis.resources;
 
 import br.gov.rn.saogoncalo.smtsis.events.RecursoCriadoEvento;
-import br.gov.rn.saogoncalo.smtsis.models.imovel.ImovelEndereco;
+import br.gov.rn.saogoncalo.smtsis.models.imovel.InfoGerais.ImovelEndereco;
 import br.gov.rn.saogoncalo.smtsis.services.EnderecoService;
 import br.gov.rn.saogoncalo.smtsis.services.LocalizacaoEnderecoService;
 import org.springframework.beans.factory.annotation.Autowired;

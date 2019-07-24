@@ -13,7 +13,6 @@ import java.util.Objects;
 @Table(name = "boletim_inscricao_cadastral")
 public class BoletimIncricaoCadastral {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_BIC")

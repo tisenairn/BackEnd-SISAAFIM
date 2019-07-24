@@ -1,4 +1,4 @@
-package br.gov.rn.saogoncalo.smtsis.models.imovel;
+package br.gov.rn.saogoncalo.smtsis.models.imovel.InfoGerais;
 
 import br.gov.rn.saogoncalo.smtsis.enums.*;
 
@@ -9,7 +9,6 @@ import java.util.Objects;
 @Table(name = "informacoes_edificacao")
 public class InfoEdificacao {
 
-
 //    TODO Criar tratamento de exceção para o tamanho máximo do RANGE.
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,8 +16,12 @@ public class InfoEdificacao {
     private Long id;
     //@NotNull
     //@NotEmpty
-    @Column(columnDefinition = "TINYINT(1) UNSIGNED")
+    @Column(columnDefinition = "TINYINT(2) UNSIGNED")
     private TipoImovel tipoImovel;
+    //@NotNull
+    //@NotEmpty
+    @Column(columnDefinition = "TINYINT(1) UNSIGNED")
+    private TipoEstrutura tipoEstrutura;
     //@NotNull
     //@NotEmpty
     @Column(columnDefinition = "TINYINT(1) UNSIGNED")
@@ -27,22 +30,6 @@ public class InfoEdificacao {
     //@NotEmpty
     @Column(columnDefinition = "TINYINT(1) UNSIGNED")
     private PadraoQualidade padraoQualidade;
-    //@NotNull
-    //@NotEmpty
-    @Column(columnDefinition = "TINYINT(1) UNSIGNED")
-    private Pedologia pedologia;
-    //@NotNull
-    //@NotEmpty
-    @Column(columnDefinition = "TINYINT(1) UNSIGNED")
-    private Topografia topografia;
-    //@NotNull
-    //@NotEmpty
-    @Column(columnDefinition = "TINYINT(1) UNSIGNED")
-    private EstadoConservacao estadoConservacao;
-    //@NotNull
-    //@NotEmpty
-    @Column(columnDefinition = "TINYINT(1) UNSIGNED")
-    private SituacaoTerreno situacaoTerreno;
 
     public Long getId() {
         return id;
@@ -60,6 +47,14 @@ public class InfoEdificacao {
         this.tipoImovel = tipoImovel;
     }
 
+    public TipoEstrutura getTipoEstrutura() {
+        return tipoEstrutura;
+    }
+
+    public void setTipoEstrutura(TipoEstrutura tipoEstrutura) {
+        this.tipoEstrutura = tipoEstrutura;
+    }
+
     public UtilizacaoImovel getUtilizacaoImovel() {
         return utilizacaoImovel;
     }
@@ -74,38 +69,6 @@ public class InfoEdificacao {
 
     public void setPadraoQualidade(PadraoQualidade padraoQualidade) {
         this.padraoQualidade = padraoQualidade;
-    }
-
-    public Pedologia getPedologia() {
-        return pedologia;
-    }
-
-    public void setPedologia(Pedologia pedologia) {
-        this.pedologia = pedologia;
-    }
-
-    public Topografia getTopografia() {
-        return topografia;
-    }
-
-    public void setTopografia(Topografia topografia) {
-        this.topografia = topografia;
-    }
-
-    public EstadoConservacao getEstadoConservacao() {
-        return estadoConservacao;
-    }
-
-    public void setEstadoConservacao(EstadoConservacao estadoConservacao) {
-        this.estadoConservacao = estadoConservacao;
-    }
-
-    public SituacaoTerreno getSituacaoTerreno() {
-        return situacaoTerreno;
-    }
-
-    public void setSituacaoTerreno(SituacaoTerreno situacaoTerreno) {
-        this.situacaoTerreno = situacaoTerreno;
     }
 
     @Override

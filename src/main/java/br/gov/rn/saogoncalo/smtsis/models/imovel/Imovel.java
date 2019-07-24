@@ -1,5 +1,10 @@
 package br.gov.rn.saogoncalo.smtsis.models.imovel;
 
+import br.gov.rn.saogoncalo.smtsis.models.imovel.InfoGerais.Benfeitorias;
+import br.gov.rn.saogoncalo.smtsis.models.imovel.InfoGerais.ImovelEndereco;
+import br.gov.rn.saogoncalo.smtsis.models.imovel.InfoGerais.InfoEdificacao;
+import br.gov.rn.saogoncalo.smtsis.models.imovel.InfoGerais.InfoTerreno;
+
 import javax.persistence.*;
 import java.util.Objects;
 
@@ -21,13 +26,13 @@ public class Imovel {
     //@NotNull
     //@NotEmpty
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_imovel_info", referencedColumnName = "id_infoEdificacao", unique = true)
+    @JoinColumn(name = "id_imovel_edificacao", referencedColumnName = "id_infoEdificacao", unique = true)
     private InfoEdificacao infoEdificacao;
 
     //@NotNull
     //@NotEmpty
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_terreno_info", referencedColumnName = "id_infoTerreno", unique = true)
+    @JoinColumn(name = "id_imovel_terreno", referencedColumnName = "id_infoTerreno", unique = true)
     private InfoTerreno infoTerreno;
 
     //@NotNull
@@ -68,6 +73,14 @@ public class Imovel {
 
     public void setImovelEndereco(ImovelEndereco imovelEndereco) {
         this.imovelEndereco = imovelEndereco;
+    }
+
+    public InfoTerreno getInfoTerreno() {
+        return infoTerreno;
+    }
+
+    public void setInfoTerreno(InfoTerreno infoTerreno) {
+        this.infoTerreno = infoTerreno;
     }
 
     public Benfeitorias getBenfeitorias() {

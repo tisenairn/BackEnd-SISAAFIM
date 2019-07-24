@@ -1,4 +1,4 @@
-package br.gov.rn.saogoncalo.smtsis.models.imovel;
+package br.gov.rn.saogoncalo.smtsis.models.imovel.InfoGerais;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;

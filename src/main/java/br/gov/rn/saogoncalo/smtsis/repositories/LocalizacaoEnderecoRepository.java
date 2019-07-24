@@ -1,6 +1,6 @@
 package br.gov.rn.saogoncalo.smtsis.repositories;
 
-import br.gov.rn.saogoncalo.smtsis.models.imovel.LocalizacaoEndereco;
+import br.gov.rn.saogoncalo.smtsis.models.imovel.InfoGerais.LocalizacaoEndereco;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

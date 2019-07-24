@@ -1,6 +1,6 @@
 package br.gov.rn.saogoncalo.smtsis.services;
 
-import br.gov.rn.saogoncalo.smtsis.models.imovel.ImovelEndereco;
+import br.gov.rn.saogoncalo.smtsis.models.imovel.InfoGerais.ImovelEndereco;
 import br.gov.rn.saogoncalo.smtsis.repositories.EnderecoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
