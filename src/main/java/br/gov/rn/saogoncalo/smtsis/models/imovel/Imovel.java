@@ -1,5 +1,6 @@
 package br.gov.rn.saogoncalo.smtsis.models.imovel;
 
+import br.gov.rn.saogoncalo.smtsis.models.contribuinte.Contribuinte;
 import br.gov.rn.saogoncalo.smtsis.models.imovel.InfoGerais.*;
 
 import javax.persistence.*;
@@ -19,6 +20,12 @@ public class Imovel {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_imovel_endereco", referencedColumnName = "id_endereco", unique = true)
     private ImovelEndereco imovelEndereco;
+
+    //@NotNull
+    //@NotEmpty
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_imovel_contribuinte", referencedColumnName = "id_contribuinte", unique = true)
+    private Contribuinte contribuinte;
 
     //@NotNull
     //@NotEmpty
@@ -49,7 +56,10 @@ public class Imovel {
         return "Imovel{" +
                 "id=" + id +
                 ", imovelEndereco=" + imovelEndereco +
+                ", contribuinte=" + contribuinte +
+                ", infoUnidade=" + infoUnidade +
                 ", infoEdificacao=" + infoEdificacao +
+                ", infoTerreno=" + infoTerreno +
                 ", benfeitorias=" + benfeitorias +
                 '}';
     }
@@ -66,17 +76,11 @@ public class Imovel {
         this.infoUnidade = infoUnidade;
     }
 
-    public InfoEdificacao getInfoEdificacao() {
-        return infoEdificacao;
-    }
-
-    public void setInfoEdificacao(InfoEdificacao infoEdificacao) {
-        this.infoEdificacao = infoEdificacao;
-    }
-
     public void setId(Long id) {
         this.id = id;
     }
+
+
 
     public ImovelEndereco getImovelEndereco() {
         return imovelEndereco;
@@ -84,6 +88,22 @@ public class Imovel {
 
     public void setImovelEndereco(ImovelEndereco imovelEndereco) {
         this.imovelEndereco = imovelEndereco;
+    }
+
+    public Contribuinte getContribuinte() {
+        return contribuinte;
+    }
+
+    public void setContribuinte(Contribuinte contribuinte) {
+        this.contribuinte = contribuinte;
+    }
+
+    public InfoEdificacao getInfoEdificacao() {
+        return infoEdificacao;
+    }
+
+    public void setInfoEdificacao(InfoEdificacao infoEdificacao) {
+        this.infoEdificacao = infoEdificacao;
     }
 
     public InfoTerreno getInfoTerreno() {

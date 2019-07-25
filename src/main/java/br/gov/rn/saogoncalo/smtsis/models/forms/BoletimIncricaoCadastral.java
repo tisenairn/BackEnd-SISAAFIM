@@ -1,8 +1,7 @@
 package br.gov.rn.saogoncalo.smtsis.models.forms;
 
-import br.gov.rn.saogoncalo.smtsis.models.contribuinte.Contribuinte;
 import br.gov.rn.saogoncalo.smtsis.models.administrative.Fiscal;
-import net.bytebuddy.implementation.bind.annotation.Default;
+import br.gov.rn.saogoncalo.smtsis.models.imovel.Imovel;
 import org.springframework.beans.factory.annotation.Value;
 
 import javax.persistence.*;
@@ -35,8 +34,8 @@ public class BoletimIncricaoCadastral {
 // TODO
 //    @OneToOne(fetch = FetchType.EAGER)
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_bic_contribuinte", referencedColumnName = "id_contribuinte", unique = true)
-    private Contribuinte contribuinte;
+    @JoinColumn(name = "id_bic_imovel", referencedColumnName = "id_imovel", unique = true)
+    private Imovel imovel;
 
     public Long getId() {
         return id;
@@ -78,12 +77,12 @@ public class BoletimIncricaoCadastral {
         this.fiscal = fiscal;
     }
 
-    public Contribuinte getContribuinte() {
-        return contribuinte;
+    public Imovel getImovel() {
+        return imovel;
     }
 
-    public void setContribuinte(Contribuinte contribuinte) {
-        this.contribuinte = contribuinte;
+    public void setImovel(Imovel imovel) {
+        this.imovel = imovel;
     }
 
     @Override

@@ -1,7 +1,5 @@
 package br.gov.rn.saogoncalo.smtsis.models.contribuinte;
 
-import br.gov.rn.saogoncalo.smtsis.models.imovel.Imovel;
-
 import javax.persistence.*;
 import java.util.Date;
 import java.util.Objects;
@@ -43,9 +41,7 @@ public class Contribuinte {
     @JoinColumn(name = "id_contribuinte_endereco", referencedColumnName = "id_endereco", unique = true)
     private ContribuinteEndereco contribuinteEndereco;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_contribuinte_imovel", referencedColumnName = "id_imovel", unique = true)
-    private Imovel imovel;
+
 
     public Contribuinte(){
     }
@@ -130,13 +126,6 @@ public class Contribuinte {
         this.contribuinteEndereco = contribuinteEndereco;
     }
 
-    public Imovel getImovel() {
-        return imovel;
-    }
-
-    public void setImovel(Imovel imovel) {
-        this.imovel = imovel;
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -164,7 +153,6 @@ public class Contribuinte {
                 ", cnh='" + cnh + '\'' +
                 ", cnpj='" + cnpj + '\'' +
                 ", contribuinteEndereco=" + contribuinteEndereco +
-                ", imovel=" + imovel +
                 '}';
     }
 }
