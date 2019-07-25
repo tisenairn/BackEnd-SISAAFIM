@@ -1,7 +1,6 @@
 package br.gov.rn.saogoncalo.smtsis.models.contribuinte;
 
 import javax.persistence.*;
-import java.util.Date;
 import java.util.Objects;
 
 @Entity
@@ -14,34 +13,24 @@ public class Contribuinte {
     private Long id;
     //@NotNull
     //@NotEmpty
+    private String cpfCnpj;
+    //@NotNull
+    //@NotEmpty
     private String nome;
-    //@NotNull
-    //@NotEmpty
-//  @Temporal(TemporalType.DATE)
-    private Date dataNascimento;
-    //@NotNull
-    //@NotEmpty
-    private String telefone;
-    //@NotNull
-    //@NotEmpty
-    private String cpf;
-    //@NotNull
-    //@NotEmpty
-    private String rg;
-    //@NotNull
-    //@NotEmpty
-    private String rgExpedidor;
-    //@NotNull
-    //@NotEmpty
-    private String cnh;
-    //@NotNull
-    //@NotEmpty
-    private String cnpj;
+    @Column(nullable = true)
+    private String email;
+    @Column(nullable = true)
+    private String telefoneResidencial;
+    @Column(nullable = true)
+    private String telefoneComercial;
+    @Column(nullable = true)
+    private String fax;
+    @Column(nullable = true)
+    private String celular;
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_contribuinte_endereco", referencedColumnName = "id_endereco", unique = true)
     private ContribuinteEndereco contribuinteEndereco;
-
-
 
     public Contribuinte(){
     }
@@ -54,6 +43,14 @@ public class Contribuinte {
         this.id = id;
     }
 
+    public String getCpfCnpj() {
+        return cpfCnpj;
+    }
+
+    public void setCpfCnpj(String cpfCnpj) {
+        this.cpfCnpj = cpfCnpj;
+    }
+
     public String getNome() {
         return nome;
     }
@@ -62,60 +59,44 @@ public class Contribuinte {
         this.nome = nome;
     }
 
-    public Date getDataNascimento() {
-        return dataNascimento;
+    public String getEmail() {
+        return email;
     }
 
-    public void setDataNascimento(Date dataNascimento) {
-        this.dataNascimento = dataNascimento;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getTelefone() {
-        return telefone;
+    public String getTelefoneResidencial() {
+        return telefoneResidencial;
     }
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
+    public void setTelefoneResidencial(String telefoneResidencial) {
+        this.telefoneResidencial = telefoneResidencial;
     }
 
-    public String getCpf() {
-        return cpf;
+    public String getTelefoneComercial() {
+        return telefoneComercial;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setTelefoneComercial(String telefoneComercial) {
+        this.telefoneComercial = telefoneComercial;
     }
 
-    public String getRg() {
-        return rg;
+    public String getFax() {
+        return fax;
     }
 
-    public void setRg(String rg) {
-        this.rg = rg;
+    public void setFax(String fax) {
+        this.fax = fax;
     }
 
-    public String getRgExpedidor() {
-        return rgExpedidor;
+    public String getCelular() {
+        return celular;
     }
 
-    public void setRgExpedidor(String rgExpedidor) {
-        this.rgExpedidor = rgExpedidor;
-    }
-
-    public String getCnh() {
-        return cnh;
-    }
-
-    public void setCnh(String cnh) {
-        this.cnh = cnh;
-    }
-
-    public String getCnpj() {
-        return cnpj;
-    }
-
-    public void setCnpj(String cnpj) {
-        this.cnpj = cnpj;
+    public void setCelular(String celular) {
+        this.celular = celular;
     }
 
     public ContribuinteEndereco getContribuinteEndereco() {
@@ -126,6 +107,20 @@ public class Contribuinte {
         this.contribuinteEndereco = contribuinteEndereco;
     }
 
+    @Override
+    public String toString() {
+        return "Contribuinte{" +
+                "id=" + id +
+                ", cpfCnpj='" + cpfCnpj + '\'' +
+                ", nome='" + nome + '\'' +
+                ", email='" + email + '\'' +
+                ", telefoneResidencial='" + telefoneResidencial + '\'' +
+                ", telefoneComercial='" + telefoneComercial + '\'' +
+                ", fax='" + fax + '\'' +
+                ", celular='" + celular + '\'' +
+                ", contribuinteEndereco=" + contribuinteEndereco +
+                '}';
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -140,19 +135,4 @@ public class Contribuinte {
         return Objects.hash(id);
     }
 
-    @Override
-    public String toString() {
-        return "Contribuinte{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", dataNascimento='" + dataNascimento + '\'' +
-                ", telefone='" + telefone + '\'' +
-                ", cpf='" + cpf + '\'' +
-                ", rg='" + rg + '\'' +
-                ", rgExpedidor='" + rgExpedidor + '\'' +
-                ", cnh='" + cnh + '\'' +
-                ", cnpj='" + cnpj + '\'' +
-                ", contribuinteEndereco=" + contribuinteEndereco +
-                '}';
-    }
 }
