@@ -1,9 +1,6 @@
 package br.gov.rn.saogoncalo.smtsis.models.imovel;
 
-import br.gov.rn.saogoncalo.smtsis.models.imovel.InfoGerais.Benfeitorias;
-import br.gov.rn.saogoncalo.smtsis.models.imovel.InfoGerais.ImovelEndereco;
-import br.gov.rn.saogoncalo.smtsis.models.imovel.InfoGerais.InfoEdificacao;
-import br.gov.rn.saogoncalo.smtsis.models.imovel.InfoGerais.InfoTerreno;
+import br.gov.rn.saogoncalo.smtsis.models.imovel.InfoGerais.*;
 
 import javax.persistence.*;
 import java.util.Objects;
@@ -22,6 +19,12 @@ public class Imovel {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_imovel_endereco", referencedColumnName = "id_endereco", unique = true)
     private ImovelEndereco imovelEndereco;
+
+    //@NotNull
+    //@NotEmpty
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_imovel_unidade", referencedColumnName = "id_infoUnidade", unique = true)
+    private InfoUnidade infoUnidade;
 
     //@NotNull
     //@NotEmpty
@@ -53,6 +56,14 @@ public class Imovel {
 
     public Long getId() {
         return id;
+    }
+
+    public InfoUnidade getInfoUnidade() {
+        return infoUnidade;
+    }
+
+    public void setInfoUnidade(InfoUnidade infoUnidade) {
+        this.infoUnidade = infoUnidade;
     }
 
     public InfoEdificacao getInfoEdificacao() {
