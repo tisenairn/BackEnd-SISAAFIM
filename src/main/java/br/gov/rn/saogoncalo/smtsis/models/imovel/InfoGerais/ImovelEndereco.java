@@ -1,5 +1,9 @@
 package br.gov.rn.saogoncalo.smtsis.models.imovel.InfoGerais;
 
+import br.gov.rn.saogoncalo.smtsis.enums.Bairro;
+import br.gov.rn.saogoncalo.smtsis.enums.Edificio;
+import br.gov.rn.saogoncalo.smtsis.enums.TipoSubunidade;
+
 import javax.persistence.*;
 import java.util.Objects;
 
@@ -11,27 +15,24 @@ public class ImovelEndereco {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_endereco")
     private Long id;
-    //@NotNull
-    //@NotEmpty
-    private String uf;
-    //@NotNull
-    //@NotEmpty
-    private String cidade;
-    //@NotNull
-    //@NotEmpty
-    private String bairro;
-    //@NotNull
-    //@NotEmpty
-    private String logradouro;
-    //@NotNull
-    //@NotEmpty
-    private String complemento;
-    //@NotNull
-    //@NotEmpty
+
+    private String endereco;
+    @Column(length = 5)
+    private int numero;
+    @Column(length = 6)
+    private String bloco;
+    @Column(columnDefinition = "TINYINT(2) UNSIGNED")
+    private TipoSubunidade subunidade;
+    @Column(length = 4)
+    private String numeroSubunidade;
+    @Column(length = 9)
     private String cep;
-    //@NotNull
-    //@NotEmpty
-    private String numero;
+//    TODO Testar o RANGE do bairro, para saber se precisa ser maior que o TINYINT
+    @Column(columnDefinition = "TINYINT(3) UNSIGNED")
+    private Bairro bairro;
+    @Column(columnDefinition = "TINYINT(3) UNSIGNED")
+    private Edificio edificio;
+
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_endereco_localizacao", referencedColumnName = "id_localizacao", unique = true)
@@ -45,44 +46,44 @@ public class ImovelEndereco {
         this.id = id;
     }
 
-    public String getUf() {
-        return uf;
+    public String getEndereco() {
+        return endereco;
     }
 
-    public void setUf(String uf) {
-        this.uf = uf;
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     }
 
-    public String getCidade() {
-        return cidade;
+    public int getNumero() {
+        return numero;
     }
 
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
+    public void setNumero(int numero) {
+        this.numero = numero;
     }
 
-    public String getBairro() {
-        return bairro;
+    public String getBloco() {
+        return bloco;
     }
 
-    public void setBairro(String bairro) {
-        this.bairro = bairro;
+    public void setBloco(String bloco) {
+        this.bloco = bloco;
     }
 
-    public String getLogradouro() {
-        return logradouro;
+    public TipoSubunidade getSubunidade() {
+        return subunidade;
     }
 
-    public void setLogradouro(String logradouro) {
-        this.logradouro = logradouro;
+    public void setSubunidade(TipoSubunidade subunidade) {
+        this.subunidade = subunidade;
     }
 
-    public String getComplemento() {
-        return complemento;
+    public String getNumeroSubunidade() {
+        return numeroSubunidade;
     }
 
-    public void setComplemento(String complemento) {
-        this.complemento = complemento;
+    public void setNumeroSubunidade(String numeroSubunidade) {
+        this.numeroSubunidade = numeroSubunidade;
     }
 
     public String getCep() {
@@ -93,12 +94,20 @@ public class ImovelEndereco {
         this.cep = cep;
     }
 
-    public String getNumero() {
-        return numero;
+    public Bairro getBairro() {
+        return bairro;
     }
 
-    public void setNumero(String numero) {
-        this.numero = numero;
+    public void setBairro(Bairro bairro) {
+        this.bairro = bairro;
+    }
+
+    public Edificio getEdificio() {
+        return edificio;
+    }
+
+    public void setEdificio(Edificio edificio) {
+        this.edificio = edificio;
     }
 
     public LocalizacaoEndereco getLocalizacaoEndereco() {
@@ -113,8 +122,8 @@ public class ImovelEndereco {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        ImovelEndereco imovelEndereco = (ImovelEndereco) o;
-        return Objects.equals(id, imovelEndereco.id);
+        ImovelEndereco that = (ImovelEndereco) o;
+        return Objects.equals(id, that.id);
     }
 
     @Override
@@ -124,15 +133,16 @@ public class ImovelEndereco {
 
     @Override
     public String toString() {
-        return "ContribuinteEndereco{" +
+        return "ImovelEndereco{" +
                 "id=" + id +
-                ", uf='" + uf + '\'' +
-                ", cidade='" + cidade + '\'' +
-                ", bairro='" + bairro + '\'' +
-                ", logradouro='" + logradouro + '\'' +
-                ", complemento='" + complemento + '\'' +
+                ", endereco='" + endereco + '\'' +
+                ", numero=" + numero +
+                ", bloco='" + bloco + '\'' +
+                ", subunidade=" + subunidade +
+                ", numeroSubunidade='" + numeroSubunidade + '\'' +
                 ", cep='" + cep + '\'' +
-                ", numero='" + numero + '\'' +
+                ", bairro=" + bairro +
+                ", edificio=" + edificio +
                 ", localizacaoEndereco=" + localizacaoEndereco +
                 '}';
     }

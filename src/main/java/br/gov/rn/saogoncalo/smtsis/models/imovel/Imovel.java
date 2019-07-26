@@ -1,5 +1,7 @@
 package br.gov.rn.saogoncalo.smtsis.models.imovel;
 
+import br.gov.rn.saogoncalo.smtsis.enums.Loteamento;
+import br.gov.rn.saogoncalo.smtsis.enums.TipoNatureza;
 import br.gov.rn.saogoncalo.smtsis.models.contribuinte.Contribuinte;
 import br.gov.rn.saogoncalo.smtsis.models.imovel.InfoGerais.*;
 
@@ -14,6 +16,16 @@ public class Imovel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_imovel")
     private Long id;
+    private String inscricao;
+    private TipoNatureza natureza;
+    private Loteamento loteamento;
+    @Column(columnDefinition = "INT(9) UNSIGNED", unique = true)
+    private int sequencial;
+    @Column(length = 5)
+    private String quadra;
+    @Column(length = 11)
+    private String lote;
+
 
     //@NotNull
     //@NotEmpty
