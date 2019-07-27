@@ -18,8 +18,11 @@ public class Imovel {
     private Long id;
     private String inscricao;
     private TipoNatureza natureza;
+    @Column(columnDefinition = "TINYINT(3) UNSIGNED")
     private Loteamento loteamento;
-    @Column(columnDefinition = "INT(9) UNSIGNED", unique = true)
+//    TODO após os testes, deverá ser um valor único para o banco de dados.
+//  @Column(columnDefinition = "INT(9) UNSIGNED", unique = true)
+    @Column(columnDefinition = "INT(9) UNSIGNED")
     private int sequencial;
     @Column(length = 5)
     private String quadra;
@@ -80,19 +83,57 @@ public class Imovel {
         return id;
     }
 
-    public InfoUnidade getInfoUnidade() {
-        return infoUnidade;
-    }
-
-    public void setInfoUnidade(InfoUnidade infoUnidade) {
-        this.infoUnidade = infoUnidade;
-    }
-
     public void setId(Long id) {
         this.id = id;
     }
 
+    public String getInscricao() {
+        return inscricao;
+    }
 
+    public void setInscricao(String inscricao) {
+        this.inscricao = inscricao;
+    }
+
+    public TipoNatureza getNatureza() {
+        return natureza;
+    }
+
+    public void setNatureza(TipoNatureza natureza) {
+        this.natureza = natureza;
+    }
+
+    public Loteamento getLoteamento() {
+        return loteamento;
+    }
+
+    public void setLoteamento(Loteamento loteamento) {
+        this.loteamento = loteamento;
+    }
+
+    public int getSequencial() {
+        return sequencial;
+    }
+
+    public void setSequencial(int sequencial) {
+        this.sequencial = sequencial;
+    }
+
+    public String getQuadra() {
+        return quadra;
+    }
+
+    public void setQuadra(String quadra) {
+        this.quadra = quadra;
+    }
+
+    public String getLote() {
+        return lote;
+    }
+
+    public void setLote(String lote) {
+        this.lote = lote;
+    }
 
     public ImovelEndereco getImovelEndereco() {
         return imovelEndereco;
@@ -108,6 +149,14 @@ public class Imovel {
 
     public void setContribuinte(Contribuinte contribuinte) {
         this.contribuinte = contribuinte;
+    }
+
+    public InfoUnidade getInfoUnidade() {
+        return infoUnidade;
+    }
+
+    public void setInfoUnidade(InfoUnidade infoUnidade) {
+        this.infoUnidade = infoUnidade;
     }
 
     public InfoEdificacao getInfoEdificacao() {
