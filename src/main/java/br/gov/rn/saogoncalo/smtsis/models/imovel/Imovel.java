@@ -17,6 +17,7 @@ public class Imovel {
     @Column(name = "id_imovel")
     private Long id;
     private String inscricao;
+    @Column(columnDefinition = "TINYINT(1) UNSIGNED")
     private TipoNatureza natureza;
     @Column(columnDefinition = "TINYINT(3) UNSIGNED")
     private Loteamento loteamento;
@@ -70,6 +71,12 @@ public class Imovel {
     public String toString() {
         return "Imovel{" +
                 "id=" + id +
+                ", inscricao='" + inscricao + '\'' +
+                ", natureza=" + natureza +
+                ", loteamento=" + loteamento +
+                ", sequencial=" + sequencial +
+                ", quadra='" + quadra + '\'' +
+                ", lote='" + lote + '\'' +
                 ", imovelEndereco=" + imovelEndereco +
                 ", contribuinte=" + contribuinte +
                 ", infoUnidade=" + infoUnidade +
@@ -195,5 +202,4 @@ public class Imovel {
     public int hashCode() {
         return Objects.hash(id);
     }
-
 }
