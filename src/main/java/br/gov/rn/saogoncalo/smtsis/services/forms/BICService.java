@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -26,12 +27,13 @@ public class BICService {
         return bicRepository.save(bic);
     }
 
-    public BoletimIncricaoCadastral inativar(Long id, BoletimIncricaoCadastral bic){
-        bic.setId(id);
-        bic.setDataFechadura(datas.setDataAtual());
-        bic.setAtivo(false);
-
-        return bicRepository.save(bic);
+    public Optional<BoletimIncricaoCadastral> inativar(Long id){
+        Optional<BoletimIncricaoCadastral> bic = bicRepository.findById(id);
+//        bic.get().setId(id);
+        bic.get().setDataFechadura(datas.setDataAtual());
+        bic.get().setAtivo(false);
+        bicRepository.save(bic.get());
+        return bic;
     }
 
     public List<BoletimIncricaoCadastral> buscarTodos() {

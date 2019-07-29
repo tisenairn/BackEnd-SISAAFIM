@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin
 @RestController
@@ -40,10 +41,9 @@ public class BICResource {
         return ResponseEntity.status(HttpStatus.CREATED).body(bicResposta);
     }
 
-    @PutMapping
-    public ResponseEntity<BoletimIncricaoCadastral> inativar(@Valid @PathVariable Long id, @RequestBody BoletimIncricaoCadastral bic){
-
-
-        return null;
+    @PutMapping("/inativar/{id}")
+    public ResponseEntity<BoletimIncricaoCadastral> inativar(@Valid @PathVariable Long id){
+        Optional<BoletimIncricaoCadastral> boletimIncricaoCadastral = bicService.inativar(id);
+        return ResponseEntity.ok(boletimIncricaoCadastral.get());
     }
 }
