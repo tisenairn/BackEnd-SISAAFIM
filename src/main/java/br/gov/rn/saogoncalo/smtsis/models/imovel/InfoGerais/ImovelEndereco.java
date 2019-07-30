@@ -33,7 +33,6 @@ public class ImovelEndereco {
     @Column(columnDefinition = "TINYINT(3) UNSIGNED")
     private Edificio edificio;
 
-
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_endereco_localizacao", referencedColumnName = "id_localizacao", unique = true)
     private LocalizacaoEndereco localizacaoEndereco;
