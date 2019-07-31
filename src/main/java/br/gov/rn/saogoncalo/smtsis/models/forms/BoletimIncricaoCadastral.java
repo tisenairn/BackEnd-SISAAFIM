@@ -62,14 +62,6 @@ public class BoletimIncricaoCadastral extends AuditedEntity {
         this.dataFechadura = dataFechadura;
     }
 
-    public boolean isAtivo() {
-        return ativo;
-    }
-
-    public void setAtivo(boolean ativo) {
-        this.ativo = ativo;
-    }
-
     public Fiscal getFiscal() {
         return fiscal;
     }
