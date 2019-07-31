@@ -1,10 +1,5 @@
 package br.gov.rn.saogoncalo.smtsis.repositories;
 
-import java.util.List;
-import java.util.Optional;
-
-import javax.transaction.Transactional;
-
 import br.gov.rn.saogoncalo.smtsis.models.AuditedEntity;
 import br.gov.rn.saogoncalo.smtsis.models.administrative.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -12,6 +7,10 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.NoRepositoryBean;
 import org.springframework.data.repository.query.Param;
+
+import javax.transaction.Transactional;
+import java.util.List;
+import java.util.Optional;
 
 @NoRepositoryBean
 public interface GenericRepository<T extends AuditedEntity> extends JpaRepository<T, Long> {
@@ -38,9 +37,9 @@ public interface GenericRepository<T extends AuditedEntity> extends JpaRepositor
 
     //    Buscar Ativos
     @Query("SELECT entity FROM #{#entityName} entity WHERE entity.ativo = 1")
-    List<Usuario> findByAtivo();
+    List<T> findByAtivo();
 
     //    Buscar Inativos
     @Query("SELECT entity FROM #{#entityName} entity WHERE entity.ativo = 0")
-    List<Usuario> findByInativo();
+    List<T> findByInativo();
 }
