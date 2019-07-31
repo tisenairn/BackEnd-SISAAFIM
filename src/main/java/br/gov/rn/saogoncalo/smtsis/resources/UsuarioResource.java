@@ -1,79 +1,9 @@
 package br.gov.rn.saogoncalo.smtsis.resources;
 
-import br.gov.rn.saogoncalo.smtsis.events.RecursoCriadoEvento;
 import br.gov.rn.saogoncalo.smtsis.models.administrative.Usuario;
-import br.gov.rn.saogoncalo.smtsis.services.UsuarioService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationEventPublisher;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpServletResponse;
-import javax.validation.Valid;
-import java.util.List;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("usuario")
-public class UsuarioResource {
-
-    @Autowired
-    private UsuarioService usuarioService;
-
-    @Autowired
-    private ApplicationEventPublisher applicationEventPublisher;
-
-    @GetMapping("/listar")
-    public ResponseEntity<List<Usuario>> buscarTodos(){
-        return usuarioService.buscarTodos().size() > 0 ?
-                ResponseEntity.ok().body(usuarioService.buscarTodos()) : ResponseEntity.noContent().build();
-    }
-
-    @GetMapping("/listar/{id}")
-    public ResponseEntity<Usuario> buscarPeloId(@PathVariable Long id){
-        return usuarioService.buscarAtivoPeloId(id) != null ?
-                ResponseEntity.ok().body(usuarioService.buscarAtivoPeloId(id)) : ResponseEntity.notFound().build();
-    }
-
-    @GetMapping("/listar/inativo")
-    public ResponseEntity<List<Usuario>> buscarTodosInativos(){
-        return usuarioService.buscarTodosInativos().size() > 0 ?
-                ResponseEntity.ok().body(usuarioService.buscarTodosInativos()) : ResponseEntity.noContent().build();
-    }
-
-    @GetMapping("/listar/inativo/{id}")
-    public ResponseEntity<Usuario> buscarInativoPeloId(@PathVariable Long id){
-        return usuarioService.buscarInativosPeloId(id) != null ?
-                ResponseEntity.ok().body(usuarioService.buscarInativosPeloId(id)) : ResponseEntity.notFound().build();
-    }
-
-    @PostMapping("/salvar")
-    public ResponseEntity<Usuario> salvar(@Valid @RequestBody Usuario usuario, HttpServletResponse resposta){
-//        TODO Fazer validações para não salvar duplicatas de acordo com matrícula
-
-        Usuario usuarioResposta = usuarioService.salvar(usuario);
-
-        applicationEventPublisher.publishEvent(new RecursoCriadoEvento(this, resposta, usuarioResposta.getId()));
-
-        return ResponseEntity.status(HttpStatus.CREATED).body(usuarioResposta);
-    }
-
-    @PutMapping("/atualizar/{id}")
-    public ResponseEntity<Usuario> atualizar(@Valid @PathVariable Long id,
-                                             @RequestBody Usuario usuario, HttpServletResponse resposta){
-        Usuario usuarioResposta = usuarioService.atualizar(id, usuario);
-
-//            Se a resposta do método atualizar for diferente de nulo, ele vai obter o local, e o objeto criado;
-        return usuarioResposta != null ?
-                ResponseEntity.ok().body(usuarioResposta) : ResponseEntity.badRequest().build();
-    }
-
-    @DeleteMapping("/remover/{id}")
-    public ResponseEntity<Usuario> remover(@PathVariable Long id,
-                                           HttpServletResponse resposta){
-
-        Boolean usuarioResposta = usuarioService.remover(id);
-        return usuarioResposta == false ? ResponseEntity.notFound().build() : ResponseEntity.ok().build();
-    }
-
-}
+public class UsuarioResource extends GenericResourceController<Usuario>{ }
