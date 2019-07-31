@@ -17,7 +17,6 @@ public class UsuarioService{
     private UsuarioRepository usuarioRepository;
 
     public Usuario salvar(Usuario usuario){
-        usuario.setAtivo(true);
         return usuarioRepository.save(usuario);
     }
 
@@ -31,21 +30,17 @@ public class UsuarioService{
         return null;
     }
 
-    public Boolean remover(Long id, Usuario usuario){
+    public boolean remover(Long id){
         Optional<Usuario> optionalUsuario = usuarioRepository.findById(id);
-        if (!optionalUsuario.isPresent()){
-            return null;
-        } else if (optionalUsuario.isPresent() && optionalUsuario.get().getAtivo()){
-            usuario.setId(id);
-            usuario.setAtivo(false);
-            usuarioRepository.save(usuario);
+        if (optionalUsuario.isPresent() && optionalUsuario.get().getAtivo()){
+            optionalUsuario.get().PreRemove();
+            usuarioRepository.deleteById(id);
             return true;
         }
         return false;
     }
 
     public List<Usuario> buscarTodos(){
-
         List<Usuario> usuarios = usuarioRepository.findByAtivo();
         return usuarios;
     }

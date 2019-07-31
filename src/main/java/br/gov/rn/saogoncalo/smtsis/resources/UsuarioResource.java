@@ -68,21 +68,12 @@ public class UsuarioResource {
                 ResponseEntity.ok().body(usuarioResposta) : ResponseEntity.badRequest().build();
     }
 
-    @PutMapping("/remover/{id}")
+    @DeleteMapping("/remover/{id}")
     public ResponseEntity<Usuario> remover(@PathVariable Long id,
-                                           @RequestBody Usuario usuario, HttpServletResponse resposta){
+                                           HttpServletResponse resposta){
 
-        Boolean usuarioResposta = usuarioService.remover(id, usuario);
-        if (usuarioResposta == null){
-            return ResponseEntity.notFound().build();
-        } else if (usuarioResposta == true) {
-            return ResponseEntity.ok().build();
-        }
-
-        //        418 I'm a teapot
-        //        O servidor recusa a tentativa de coar café num bule de chá.
-        return ResponseEntity.status(418).build();
+        Boolean usuarioResposta = usuarioService.remover(id);
+        return usuarioResposta == false ? ResponseEntity.notFound().build() : ResponseEntity.ok().build();
     }
-
 
 }

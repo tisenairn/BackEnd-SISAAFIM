@@ -29,7 +29,6 @@ public class BICService {
 
     public Optional<BoletimIncricaoCadastral> inativar(Long id){
         Optional<BoletimIncricaoCadastral> bic = bicRepository.findById(id);
-//        bic.get().setId(id);
         bic.get().setDataFechadura(datas.setDataAtual());
         bic.get().setAtivo(false);
         bicRepository.save(bic.get());

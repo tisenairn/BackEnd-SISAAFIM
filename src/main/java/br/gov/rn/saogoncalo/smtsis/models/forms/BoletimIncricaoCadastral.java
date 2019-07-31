@@ -1,5 +1,6 @@
 package br.gov.rn.saogoncalo.smtsis.models.forms;
 
+import br.gov.rn.saogoncalo.smtsis.models.AuditedEntity;
 import br.gov.rn.saogoncalo.smtsis.models.administrative.Fiscal;
 import br.gov.rn.saogoncalo.smtsis.models.imovel.Imovel;
 import org.springframework.beans.factory.annotation.Value;
@@ -10,7 +11,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "boletim_inscricao_cadastral")
-public class BoletimIncricaoCadastral {
+public class BoletimIncricaoCadastral extends AuditedEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,13 +1,15 @@
 package br.gov.rn.saogoncalo.smtsis.models.administrative;
 
 import br.gov.rn.saogoncalo.smtsis.enums.TipoUsuario;
+import br.gov.rn.saogoncalo.smtsis.models.AuditedEntity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
 @Table(name = "usuarios")
-public class Usuario {
+public class Usuario extends AuditedEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,6 +22,7 @@ public class Usuario {
     private int matricula;
     //@NotNull
     //@NotEmpty
+    @JsonIgnore
     private String senha;
     //@NotNull
     //@NotEmpty
@@ -39,12 +42,11 @@ public class Usuario {
     private String cargo;
     //@NotNull
     //@NotEmpty
-    private Boolean ativo;
 
     @Override
     public String toString() {
         return "Usuario [id=" + id + ", matricula=" + matricula + ", nome=" + nome + ", senha=" + senha + ", tipo="
-                + tipo + ", telefone=" + telefone + ", email=" + email + ", ativo=" + ativo + "]";
+                + tipo + ", telefone=" + telefone + ", email=" + email + ", ativo=" + "]";
     }
 
 //    Equals and HashCode para matrícula do usuário.
@@ -127,14 +129,6 @@ public class Usuario {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public Boolean getAtivo() {
-        return ativo;
-    }
-
-    public void setAtivo(Boolean ativo) {
-        this.ativo = ativo;
     }
 
     public String getCargo() {

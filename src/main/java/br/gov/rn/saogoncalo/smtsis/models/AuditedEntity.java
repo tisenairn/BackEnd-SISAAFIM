@@ -2,11 +2,7 @@ package br.gov.rn.saogoncalo.smtsis.models;
 
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.PreUpdate;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -27,15 +23,21 @@ public abstract class AuditedEntity implements Comparable<AuditedEntity>, Persis
     //JsonIgnore usado para ocultar no cabeçalho get do protocolo http
     private Date dataCriacao = new Date();
 
-
     @LastModifiedDate
     @Column(name ="data_modificacao", nullable = true)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @JsonIgnore
     private Date dataModificacao;
+
+    @Column(name ="data_delecao", nullable = true)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonIgnore
+    private Date dataDelecao;
+
     @Column(name = "ativo", nullable = false)
     @JsonIgnore
     private Boolean ativo = true;
+
     @JsonIgnore
     public Date getDataCriacao() {
         return dataCriacao;
@@ -52,10 +54,13 @@ public abstract class AuditedEntity implements Comparable<AuditedEntity>, Persis
     public void setDataModificacao(Date dataModificacao) {
         this.dataModificacao = dataModificacao;
     }
-    //Usado para atualizar a data toda vez que alterado
-    @PreUpdate
-    private void PreUpdate() {
-        this.dataModificacao = new Date();
+
+    public Date getDataDelecao() {
+        return dataDelecao;
+    }
+
+    public void setDataDelecao(Date dataDelecao) {
+        this.dataDelecao = dataDelecao;
     }
 
     public Boolean getAtivo() {
@@ -66,13 +71,22 @@ public abstract class AuditedEntity implements Comparable<AuditedEntity>, Persis
         this.ativo = ativo;
     }
 
+    @PreUpdate
+    private void PreUpdate() {
+        this.dataModificacao = new Date();
+    }
+
+    @PreRemove
+    public void PreRemove() {
+        this.dataDelecao = new Date();
+    }
+
     public Boolean isAtivo() {
         return ativo;
     }
 
     @Override
     public int compareTo(AuditedEntity entity) {
-
         return this.getId().compareTo(entity.getId());
     }
 
