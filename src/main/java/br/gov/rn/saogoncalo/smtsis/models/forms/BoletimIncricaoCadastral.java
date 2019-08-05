@@ -3,6 +3,7 @@ package br.gov.rn.saogoncalo.smtsis.models.forms;
 import br.gov.rn.saogoncalo.smtsis.models.AuditedEntity;
 import br.gov.rn.saogoncalo.smtsis.models.administrative.Fiscal;
 import br.gov.rn.saogoncalo.smtsis.models.imovel.Imovel;
+import com.fasterxml.jackson.annotation.JsonMerge;
 
 import javax.persistence.*;
 import java.util.Objects;
@@ -18,12 +19,14 @@ public class BoletimIncricaoCadastral extends AuditedEntity {
 
 //  TODO Ao fim dos testes, as chaves estrangeiras do Boletim deverão ser do tipo Fetch Eager
 //    @OneToOne(fetch = FetchType.EAGER)
-    @OneToOne(cascade = CascadeType.ALL)
+    @JsonMerge
+    @ManyToOne
     @JoinColumn(name = "id_bic_fiscal", referencedColumnName = "id_fiscal", unique = true)
     private Fiscal fiscal;
 // TODO
 //    @OneToOne(fetch = FetchType.EAGER)
-    @OneToOne(cascade = CascadeType.ALL)
+    @JsonMerge
+    @ManyToOne
     @JoinColumn(name = "id_bic_imovel", referencedColumnName = "id_imovel", unique = true)
     private Imovel imovel;
 
