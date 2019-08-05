@@ -2,6 +2,7 @@ package br.gov.rn.saogoncalo.smtsis.models.imovel;
 
 import br.gov.rn.saogoncalo.smtsis.enums.Loteamento;
 import br.gov.rn.saogoncalo.smtsis.enums.TipoNatureza;
+import br.gov.rn.saogoncalo.smtsis.models.AuditedEntity;
 import br.gov.rn.saogoncalo.smtsis.models.contribuinte.Contribuinte;
 import br.gov.rn.saogoncalo.smtsis.models.imovel.InfoGerais.*;
 
@@ -10,7 +11,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "imoveis")
-public class Imovel {
+public class Imovel extends AuditedEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,7 +40,7 @@ public class Imovel {
 
     //@NotNull
     //@NotEmpty
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)  // relacionamento peculiar
     @JoinColumn(name = "id_imovel_contribuinte", referencedColumnName = "id_contribuinte", unique = true)
     private Contribuinte contribuinte;
 
