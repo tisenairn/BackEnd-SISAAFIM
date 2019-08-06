@@ -20,7 +20,7 @@ public abstract class AuditedEntity implements Comparable<AuditedEntity>, Persis
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Temporal(TemporalType.TIMESTAMP)
     @JsonIgnore
-    //JsonIgnore usado para ocultar no cabeçalho get do protocolo http
+    //JsonIgnore usado para ocultar no corpo get do protocolo http
     private Date dataCriacao = new Date();
 
     @LastModifiedDate
@@ -38,7 +38,6 @@ public abstract class AuditedEntity implements Comparable<AuditedEntity>, Persis
     @JsonIgnore
     private Boolean ativo = true;
 
-    @JsonIgnore
     public Date getDataCriacao() {
         return dataCriacao;
     }

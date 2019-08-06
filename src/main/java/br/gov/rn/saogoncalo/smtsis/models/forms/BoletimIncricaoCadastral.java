@@ -20,13 +20,13 @@ public class BoletimIncricaoCadastral extends AuditedEntity {
 //  TODO Ao fim dos testes, as chaves estrangeiras do Boletim deverão ser do tipo Fetch Eager
 //    @OneToOne(fetch = FetchType.EAGER)
     @JsonMerge
-    @ManyToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_bic_fiscal", referencedColumnName = "id_fiscal", unique = true)
     private Fiscal fiscal;
 // TODO
 //    @OneToOne(fetch = FetchType.EAGER)
     @JsonMerge
-    @ManyToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_bic_imovel", referencedColumnName = "id_imovel", unique = true)
     private Imovel imovel;
 

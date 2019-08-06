@@ -41,4 +41,5 @@ public interface GenericRepository<T extends AuditedEntity> extends JpaRepositor
     //    Buscar Inativos
     @Query("SELECT entity FROM #{#entityName} entity WHERE entity.ativo = 0")
     List<T> findByInativo();
+
 }

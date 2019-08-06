@@ -7,4 +7,4 @@ import javax.transaction.Transactional;
 
 @Service
 @Transactional
-public class UsuarioService extends GenericService<Usuario>{}
+public class UsuarioService extends GenericService<Usuario>{ }
