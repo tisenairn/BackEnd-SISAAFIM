@@ -1,14 +1,16 @@
 package br.gov.rn.saogoncalo.smtsis.models.contribuinte;
 
+import br.gov.rn.saogoncalo.smtsis.models.AuditedEntity;
+
 import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
 @Table(name = "contribuintes")
-public class Contribuinte {
+public class Contribuinte extends AuditedEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_contribuinte")
     private Long id;
     //@NotNull

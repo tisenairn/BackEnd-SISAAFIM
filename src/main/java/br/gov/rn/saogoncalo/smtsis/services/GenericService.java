@@ -18,7 +18,7 @@ public abstract class GenericService<T extends AuditedEntity>{
 
     public T atualizar(Long id, T entity){
     Optional<T> optionalEntity = repository.findById(id);
-        if (optionalEntity.isPresent()){
+        if (optionalEntity.isPresent() && optionalEntity.get().isAtivo()){
             entity.setId(id);
             return repository.save(entity);
         }

@@ -11,7 +11,7 @@ public class InfoEdificacao {
 
 //    TODO Criar tratamento de exceção para o tamanho máximo do RANGE.
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_infoEdificacao")
     private Long id;
     //@NotNull

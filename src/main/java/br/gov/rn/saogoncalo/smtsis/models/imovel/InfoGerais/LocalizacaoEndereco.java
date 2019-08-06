@@ -9,7 +9,7 @@ import java.util.Objects;
 public class LocalizacaoEndereco {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_localizacao")
     private Long id;
 
