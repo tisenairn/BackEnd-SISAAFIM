@@ -11,7 +11,7 @@ import java.util.Objects;
 public class Fiscal {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_fiscal")
     private Long id;
 

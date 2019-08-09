@@ -1,7 +1,6 @@
 package br.gov.rn.saogoncalo.smtsis.repositories;
 
 import br.gov.rn.saogoncalo.smtsis.models.AuditedEntity;
-import br.gov.rn.saogoncalo.smtsis.models.administrative.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

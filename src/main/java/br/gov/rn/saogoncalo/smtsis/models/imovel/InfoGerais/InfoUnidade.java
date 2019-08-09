@@ -11,7 +11,7 @@ import java.util.Objects;
 public class InfoUnidade {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_infoUnidade")
     private Long id;
 

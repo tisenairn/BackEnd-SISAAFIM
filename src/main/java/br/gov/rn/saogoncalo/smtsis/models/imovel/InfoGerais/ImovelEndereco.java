@@ -12,7 +12,7 @@ import java.util.Objects;
 public class ImovelEndereco {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_endereco")
     private Long id;
 

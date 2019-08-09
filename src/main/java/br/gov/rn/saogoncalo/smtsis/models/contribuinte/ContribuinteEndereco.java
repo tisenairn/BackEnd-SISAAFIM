@@ -12,7 +12,7 @@ import java.util.Objects;
 public class ContribuinteEndereco {
 // Entidade não obrigatória, ou seja, tudo nesta entidade pode ser nulo.
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_endereco")
     private Long id;
     private boolean possuiEnderecoCorrespondecia;
