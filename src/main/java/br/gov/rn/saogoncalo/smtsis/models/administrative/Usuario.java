@@ -5,7 +5,9 @@ import br.gov.rn.saogoncalo.smtsis.models.AuditedEntity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.util.Objects;
+
 
 @Entity
 @Table(name = "usuarios")
@@ -15,33 +17,27 @@ public class Usuario extends AuditedEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_usuario")
     private Long id;
-    //@NotNull
-    //@NotEmpty
-    // TODO Criar um tratamento de exceção para este coluna do tipo Unico
-    //    @Column(unique = true, columnDefinition = "int(7) ZEROFILL", length = 7)
+// TODO Criar um tratamento de exceção para este coluna do tipo Unico
+    @NotNull(message = "A matrícula não pode ser nula")
+//    @Column(unique = true, columnDefinition = "int(7) ZEROFILL", length = 7)
     private int matricula;
-    //@NotNull
-    //@NotEmpty
     @JsonIgnore
+    @NotEmpty(message = "A senha não estar vazia, nem nula")
+    @Size(min = 8, max = 50, message = "Tamanho mínimo, 8, e máximo 50")
     private String senha;
-    //@NotNull
-    //@NotEmpty
-//    @Size(min = 3, max = 50)
+    @NotEmpty(message = "O nome não pode estar vazio, nem nulo")
+    @Size(min = 3, max = 50, message = "Tamanho mínimo 3, e máximo 50 chars")
     private String nome;
-    //@NotNull
-    //@NotEmpty
+    @NotNull(message = "O tipo de usuário não pode ser nulo")
     private TipoUsuario tipo;
-    //@NotNull
-    //@NotEmpty
+    @NotEmpty(message = "O telefone não pode estar vazio nem nulo")
     private String telefone;
-    //@NotNull
-    //@NotEmpty
+    @Email(message = "Insira um e-mail válido")
+    @NotEmpty(message = "O e-mail não pode estar vazio nem nulo")
     private String email;
-    //@NotNull
-    //@NotEmpty
+    @NotEmpty(message = "O cargo não pode estar vazio nem nulo")
     private String cargo;
-    //@NotNull
-    //@NotEmpty
+
 
     public Usuario(){}
 
@@ -55,7 +51,15 @@ public class Usuario extends AuditedEntity {
         this.email = email;
         this.cargo = cargo;
     }
-
+    public Usuario(int matricula, String senha, String nome, TipoUsuario tipo, String telefone, String email, String cargo) {
+        this.matricula = matricula;
+        this.senha = senha;
+        this.nome = nome;
+        this.tipo = tipo;
+        this.telefone = telefone;
+        this.email = email;
+        this.cargo = cargo;
+    }
 
 
     @Override
