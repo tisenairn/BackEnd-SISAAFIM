@@ -1,5 +1,6 @@
 package br.gov.rn.saogoncalo.smtsis.models;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.*;
@@ -13,7 +14,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import br.gov.rn.saogoncalo.smtsis.repositories.PersistableEntity;
 
 @MappedSuperclass
-public abstract class AuditedEntity implements Comparable<AuditedEntity>, PersistableEntity<Long>{
+public abstract class AuditedEntity implements Comparable<AuditedEntity>, PersistableEntity<Long> {
 
     @CreatedDate
     @Column(name = "data_criacao", nullable = false, updatable = false)
@@ -36,7 +37,7 @@ public abstract class AuditedEntity implements Comparable<AuditedEntity>, Persis
 
     @Column(name = "ativo", nullable = false)
     @JsonIgnore
-    private Boolean ativo = true;
+    protected Boolean ativo = true;
 
     public Date getDataCriacao() {
         return dataCriacao;
