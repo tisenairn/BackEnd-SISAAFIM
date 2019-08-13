@@ -2,10 +2,12 @@ package br.gov.rn.saogoncalo.smtsis.models.administrative;
 
 import br.gov.rn.saogoncalo.smtsis.enums.TipoUsuario;
 import br.gov.rn.saogoncalo.smtsis.models.AuditedEntity;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
-import javax.validation.constraints.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Objects;
 
 
@@ -17,31 +19,31 @@ public class Usuario extends AuditedEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_usuario")
     private Long id;
-// TODO Criar um tratamento de exceção para este coluna do tipo Unico
-    @NotNull(message = "A matrícula não pode ser nula")
-//    @Column(unique = true, columnDefinition = "int(7) ZEROFILL", length = 7)
-    private int matricula;
-    @JsonIgnore
-    @NotEmpty(message = "A senha não estar vazia, nem nula")
-    @Size(min = 8, max = 50, message = "Tamanho mínimo, 8, e máximo 50")
+// TODO Criar um tratamento de exceção para este coluna do tipo Unico, atualmente retornando 500
+//    Em produção, anotar definição da coluna matricula com zerofill, padrão da PMSGA
+    @NotNull
+    @Column(columnDefinition = "INT(7)", length = 7, unique = true)
+    private Long matricula;
+    @NotEmpty
+    @Size(min = 8, max = 50)
     private String senha;
-    @NotEmpty(message = "O nome não pode estar vazio, nem nulo")
-    @Size(min = 3, max = 50, message = "Tamanho mínimo 3, e máximo 50 chars")
+    @NotEmpty
+    @Size(min = 3, max = 50)
     private String nome;
-    @NotNull(message = "O tipo de usuário não pode ser nulo")
+    @NotNull
     private TipoUsuario tipo;
-    @NotEmpty(message = "O telefone não pode estar vazio nem nulo")
+    @NotEmpty
     private String telefone;
-    @Email(message = "Insira um e-mail válido")
-    @NotEmpty(message = "O e-mail não pode estar vazio nem nulo")
+    @Email
+    @NotEmpty
     private String email;
-    @NotEmpty(message = "O cargo não pode estar vazio nem nulo")
+    @NotEmpty
     private String cargo;
 
 
     public Usuario(){}
 
-    public Usuario(int matricula, String senha, String nome, TipoUsuario tipo, String telefone, String email, String cargo) {
+    public Usuario(Long matricula, String senha, String nome, TipoUsuario tipo, String telefone, String email, String cargo) {
 
         this.matricula = matricula;
         this.senha = senha;
@@ -51,7 +53,7 @@ public class Usuario extends AuditedEntity {
         this.email = email;
         this.cargo = cargo;
     }
-    public Usuario(Long id, int matricula, String senha, String nome, TipoUsuario tipo, String telefone, String email, String cargo) {
+    public Usuario(Long id, Long matricula, String senha, String nome, TipoUsuario tipo, String telefone, String email, String cargo) {
         this.id = id;
         this.matricula = matricula;
         this.senha = senha;
@@ -61,15 +63,7 @@ public class Usuario extends AuditedEntity {
         this.email = email;
         this.cargo = cargo;
     }
-    public Usuario(int matricula, String senha, String nome, TipoUsuario tipo, String telefone, String email, String cargo) {
-        this.matricula = matricula;
-        this.senha = senha;
-        this.nome = nome;
-        this.tipo = tipo;
-        this.telefone = telefone;
-        this.email = email;
-        this.cargo = cargo;
-    }
+
 
 
     @Override
@@ -120,11 +114,11 @@ public class Usuario extends AuditedEntity {
         this.id = id;
     }
 
-    public int getMatricula() {
+    public Long getMatricula() {
         return matricula;
     }
 
-    public void setMatricula(int matricula) {
+    public void setMatricula(Long matricula) {
         this.matricula = matricula;
     }
 
