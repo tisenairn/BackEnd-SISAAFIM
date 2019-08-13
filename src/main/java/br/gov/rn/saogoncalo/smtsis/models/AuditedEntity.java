@@ -16,7 +16,6 @@ public abstract class AuditedEntity implements Comparable<AuditedEntity>, Persis
     @Column(name = "data_criacao", nullable = false, updatable = false)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Temporal(TemporalType.TIMESTAMP)
-    //JsonIgnore usado para ocultar no corpo get do protocolo http
     @JsonIgnore
     private Date dataCriacao = new Date();
     @LastModifiedDate
