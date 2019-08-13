@@ -28,18 +28,24 @@ public interface GenericRepository<T extends AuditedEntity> extends JpaRepositor
 
     @Override
     @Query("SELECT entity FROM #{#entityName} entity WHERE entity.id=:id")
-    Optional<T> findById(Long id);
+    Optional<T> findById(@Param("id")Long id);
 
     @Override
     @Query("SELECT entity FROM #{#entityName} entity")
     List<T> findAll();
 
-    //    Buscar Ativos
-    @Query("SELECT entity FROM #{#entityName} entity WHERE entity.ativo = 1")
+    //    Buscar com critério de ativos
+    @Query("SELECT entity FROM #{#entityName} entity WHERE entity.ativo = true")
     List<T> findByAtivo();
 
+    @Query("SELECT entity FROM #{#entityName} entity WHERE entity.ativo = true AND entity.id=:id")
+    Optional<T> findAtivoById();
+
     //    Buscar Inativos
-    @Query("SELECT entity FROM #{#entityName} entity WHERE entity.ativo = 0")
+    @Query("SELECT entity FROM #{#entityName} entity WHERE entity.ativo = false")
     List<T> findByInativo();
+
+    @Query("SELECT entity FROM #{#entityName} entity WHERE entity.ativo = false AND entity.id=:id")
+    Optional<T> findInativoById();
 
 }
