@@ -77,7 +77,7 @@ public abstract class GenericService<T extends AuditedEntity>{
 //  Verifica o se Id é existente, e em seguida se o usuário está ativo.
     private T buscarAtivo(Long id){
         if (repository.existsById(id)){
-            Optional<T> entityEncontrada = repository.findById(id);
+            Optional<T> entityEncontrada = repository.findAtivoById(id);
             if (entityEncontrada.get().getAtivo())
                 return entityEncontrada.get();
         }

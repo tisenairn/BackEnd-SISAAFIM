@@ -39,13 +39,13 @@ public interface GenericRepository<T extends AuditedEntity> extends JpaRepositor
     List<T> findByAtivo();
 
     @Query("SELECT entity FROM #{#entityName} entity WHERE entity.ativo = true AND entity.id=:id")
-    Optional<T> findAtivoById();
+    Optional<T> findAtivoById(@Param("id")Long id);
 
     //    Buscar Inativos
     @Query("SELECT entity FROM #{#entityName} entity WHERE entity.ativo = false")
     List<T> findByInativo();
 
     @Query("SELECT entity FROM #{#entityName} entity WHERE entity.ativo = false AND entity.id=:id")
-    Optional<T> findInativoById();
+    Optional<T> findInativoById(@Param("id")Long id);
 
 }

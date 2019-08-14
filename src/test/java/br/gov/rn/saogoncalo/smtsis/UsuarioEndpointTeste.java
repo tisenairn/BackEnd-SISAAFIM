@@ -43,21 +43,21 @@ public class UsuarioEndpointTeste {
 
 //    final String baseUrl = "http://localhost/usuario/";
 
-    final List<Usuario> usuarios = new ArrayList<>();
-    Usuario usuario;
-
+    private final List<Usuario> usuarios = new ArrayList<>();
+    private Optional<Usuario> usuario = Optional.of(new Usuario(3L, 000126L, "12345678",
+            "Optional<Lindson>", TipoUsuario.FISCAL, "988888888", "lindson@hotmail.com", "Técnico"));
 
     @Before
     public void AlimentarOsTestes(){
         System.out.println("Rodando na porta: "+randomServerPort);
 
-        usuarios.add(new Usuario(1L, 0000124L, "12345678", "Lindson",
+        usuarios.add(new Usuario(0000124L, "12345678", "Lindson",
                 TipoUsuario.FISCAL,"986326467","lindson@gmail.com", "Tecnico"));
-        usuarios.add(new Usuario(2L, 0000125L, "88888888", "Lindson França",
+        usuarios.add(new Usuario(0000125L, "88888888", "Lindson França",
                 TipoUsuario.SUPERVISOR,"986326467","lindson@gmail.com", "Caba de peia"));
+//      usuario =  new Optional<Usuario>(3L, 0000126L, "88888888", "Lindson França",
+//                TipoUsuario.SUPERVISOR,"986326467","lindson@gmail.com", "Caba de peia");
 
-        usuario = new Usuario(3L, 0000126L, "88888888", "Lindson França",
-                TipoUsuario.SUPERVISOR,"986326467","lindson@gmail.com", "Caba de peia");
     }
 
     //    Para rodar os testes é necessário ter informações de usuario com valores reais no banco de dados.
@@ -80,15 +80,14 @@ public class UsuarioEndpointTeste {
 
     @Test
     public void listarUmUsuarioDeveRetornar200(){
-        BDDMockito.when(usuarioRepository.findAtivoById()).thenReturn(Optional.ofNullable(usuario));
+        BDDMockito.when(usuarioRepository.findAtivoById(usuario.get().getId())).thenReturn(usuario);
         ResponseEntity<String> responseEntity = restTemplate.getForEntity("/usuario/listar/3", String.class);
         assertThat(responseEntity.getStatusCodeValue()).isEqualTo(200);
     }
 
-
     @Test
     public void listarUmUsuarioInexistenteDeveRetornar404(){
-        BDDMockito.when(usuarioRepository.findAtivoById()).thenReturn(Optional.ofNullable(usuario));
+        BDDMockito.when(usuarioRepository.findAtivoById(this.usuario.get().getId())).thenReturn(this.usuario);
         ResponseEntity<String> responseEntity = restTemplate.getForEntity("/usuario/listar/5", String.class);
         assertThat(responseEntity.getStatusCodeValue()).isEqualTo(404);
     }
