@@ -10,15 +10,4 @@ import javax.transaction.Transactional;
 
 @Service
 @Transactional
-public class ImovelService extends GenericService<Imovel> {
-//    @Override
-//    public Imovel salvar(Imovel entity) {
-//        Long id = entity.getId();
-//        associarImovelAoContribuinte(id);
-//        return super.salvar(entity);
-//    }
-//
-//    @PrePersist
-//    @Query("INSERT INTO imoveis (id_imovel_contribuinte) SELECT imoveis.contribuinte_id FROM imoveis WHERE id=:id")
-//    public void associarImovelAoContribuinte(@Param("id")Long id){}
-}
+public class ImovelService extends GenericService<Imovel> {}

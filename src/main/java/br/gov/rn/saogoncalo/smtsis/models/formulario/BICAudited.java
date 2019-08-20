@@ -15,7 +15,11 @@ public class BICAudited {
     @Column(name = "id_bicaudited")
     private Long id;
 
-    @NotNull
+//    @NotNull
+//    @JsonManagedReference
+//    @OneToOne(orphanRemoval = true, fetch = FetchType.EAGER)
+//    private Usuario usuario;
+
     private Long usuarioId;
 
     @NotNull
@@ -23,7 +27,7 @@ public class BICAudited {
 
     @JsonBackReference
     @ManyToOne
-    @JoinColumn(name = "BICAudited_BIC")
+    @JoinColumn(name = "id_bicaudited_bic", referencedColumnName = "id_BIC", updatable = false)
     private BoletimIncricaoCadastral boletim;
 
     public Long getId() {
@@ -32,14 +36,6 @@ public class BICAudited {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Long getUsuarioId() {
-        return usuarioId;
-    }
-
-    public void setUsuarioId(Long usuarioId) {
-        this.usuarioId = usuarioId;
     }
 
     public String getObservacoes() {

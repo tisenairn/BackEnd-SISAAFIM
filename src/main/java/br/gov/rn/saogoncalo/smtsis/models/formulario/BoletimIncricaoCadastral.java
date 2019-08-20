@@ -1,6 +1,8 @@
 package br.gov.rn.saogoncalo.smtsis.models.formulario;
 
 import br.gov.rn.saogoncalo.smtsis.models.AuditedEntity;
+import br.gov.rn.saogoncalo.smtsis.models.imovel.Imovel;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
@@ -20,7 +22,10 @@ public class BoletimIncricaoCadastral extends AuditedEntity  {
     @OneToMany(mappedBy = "boletim", cascade = CascadeType.ALL)
     private Collection<BICAudited> auditoria;
 
-    private Long imovelId;
+    @JsonBackReference
+    @ManyToOne
+    @JoinColumn(name = "id_bic_imovel", referencedColumnName = "id_imovel", updatable = false)
+    private Imovel imovel;
 
     public Long getId() {
         return id;
@@ -30,12 +35,12 @@ public class BoletimIncricaoCadastral extends AuditedEntity  {
         this.id = id;
     }
 
-    public Long getImovelId() {
-        return imovelId;
+    public Imovel getImovel() {
+        return imovel;
     }
 
-    public void setImovelId(Long imovelId) {
-        this.imovelId = imovelId;
+    public void setImovel(Imovel imovel) {
+        this.imovel = imovel;
     }
 
     public Collection<BICAudited> getAuditoria() {
