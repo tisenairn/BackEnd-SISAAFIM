@@ -12,7 +12,7 @@ import java.util.Objects;
 public class Usuario extends AuditedEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_usuario")
     private Long id;
     //@NotNull

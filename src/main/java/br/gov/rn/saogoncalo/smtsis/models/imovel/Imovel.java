@@ -5,6 +5,8 @@ import br.gov.rn.saogoncalo.smtsis.enums.TipoNatureza;
 import br.gov.rn.saogoncalo.smtsis.models.AuditedEntity;
 import br.gov.rn.saogoncalo.smtsis.models.contribuinte.Contribuinte;
 import br.gov.rn.saogoncalo.smtsis.models.imovel.InfoGerais.*;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import org.springframework.data.jpa.repository.Query;
 
 import javax.persistence.*;
 import java.util.Objects;
@@ -15,7 +17,7 @@ public class Imovel extends AuditedEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_imovel")
+    @Column(name = "id_imovel", nullable = false, unique = true)
     private Long id;
     private String inscricao;
     @Column(columnDefinition = "TINYINT(1) UNSIGNED")
@@ -31,6 +33,8 @@ public class Imovel extends AuditedEntity {
     @Column(length = 11)
     private String lote;
 
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "id_BIC")
+//    private Set<BoletimIncricaoCadastral> boletinsIncricaoCadastral;
 
     //@NotNull
     //@NotEmpty
@@ -38,10 +42,12 @@ public class Imovel extends AuditedEntity {
     @JoinColumn(name = "id_imovel_endereco", referencedColumnName = "id_endereco", unique = true)
     private ImovelEndereco imovelEndereco;
 
+
     //@NotNull
     //@NotEmpty
-    @ManyToOne(cascade = CascadeType.ALL)  // relacionamento peculiar
-    @JoinColumn(name = "id_imovel_contribuinte", referencedColumnName = "id_contribuinte", unique = true)
+    @JsonBackReference
+    @ManyToOne
+    @JoinColumn(name = "id_imovel_contribuinte", referencedColumnName = "id_contribuinte", updatable = false)
     private Contribuinte contribuinte;
 
     //@NotNull
@@ -79,7 +85,7 @@ public class Imovel extends AuditedEntity {
                 ", quadra='" + quadra + '\'' +
                 ", lote='" + lote + '\'' +
                 ", imovelEndereco=" + imovelEndereco +
-                ", contribuinte=" + contribuinte +
+//                ", contribuinte=" + contribuinte +
                 ", infoUnidade=" + infoUnidade +
                 ", infoEdificacao=" + infoEdificacao +
                 ", infoTerreno=" + infoTerreno +
@@ -151,14 +157,6 @@ public class Imovel extends AuditedEntity {
         this.imovelEndereco = imovelEndereco;
     }
 
-    public Contribuinte getContribuinte() {
-        return contribuinte;
-    }
-
-    public void setContribuinte(Contribuinte contribuinte) {
-        this.contribuinte = contribuinte;
-    }
-
     public InfoUnidade getInfoUnidade() {
         return infoUnidade;
     }
@@ -189,6 +187,14 @@ public class Imovel extends AuditedEntity {
 
     public void setBenfeitorias(Benfeitorias benfeitorias) {
         this.benfeitorias = benfeitorias;
+    }
+
+    public Contribuinte getContribuinte() {
+        return contribuinte;
+    }
+
+    public void setContribuinte(Contribuinte contribuinte) {
+        this.contribuinte = contribuinte;
     }
 
     @Override

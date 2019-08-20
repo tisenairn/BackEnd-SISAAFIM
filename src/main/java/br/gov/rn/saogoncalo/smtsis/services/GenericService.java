@@ -2,8 +2,11 @@ package br.gov.rn.saogoncalo.smtsis.services;
 
 import br.gov.rn.saogoncalo.smtsis.models.AuditedEntity;
 import br.gov.rn.saogoncalo.smtsis.repositories.GenericRepository;
+import org.dom4j.tree.AbstractEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.persistence.EntityManager;
+import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Optional;
 
@@ -92,4 +95,5 @@ public abstract class GenericService<T extends AuditedEntity>{
         }
         return null;
     }
+
 }

@@ -28,7 +28,7 @@ public interface GenericRepository<T extends AuditedEntity> extends JpaRepositor
 
     @Override
     @Query("SELECT entity FROM #{#entityName} entity WHERE entity.id=:id")
-    Optional<T> findById(Long id);
+    Optional<T> findById(@Param("id")Long id);
 
     @Override
     @Query("SELECT entity FROM #{#entityName} entity")

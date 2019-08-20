@@ -1,13 +1,18 @@
 package br.gov.rn.saogoncalo.smtsis.models.contribuinte;
 
 import br.gov.rn.saogoncalo.smtsis.models.AuditedEntity;
+import br.gov.rn.saogoncalo.smtsis.models.imovel.Imovel;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Collection;
 import java.util.Objects;
 
 @Entity
 @Table(name = "contribuintes")
-public class Contribuinte extends AuditedEntity {
+public class Contribuinte extends AuditedEntity implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,6 +34,11 @@ public class Contribuinte extends AuditedEntity {
     private String fax;
     @Column(nullable = true)
     private String celular;
+
+//  mappedBy referencia a instância deste objeto na classe imovel.
+    @JsonManagedReference
+    @OneToMany(mappedBy = "contribuinte", fetch = FetchType.EAGER, orphanRemoval = true, cascade = CascadeType.ALL)
+    private Collection<Imovel> imovel;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_contribuinte_endereco", referencedColumnName = "id_endereco", unique = true)
