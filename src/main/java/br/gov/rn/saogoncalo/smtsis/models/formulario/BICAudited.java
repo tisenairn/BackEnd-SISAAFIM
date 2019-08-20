@@ -1,5 +1,6 @@
 package br.gov.rn.saogoncalo.smtsis.models.formulario;
 
+import br.gov.rn.saogoncalo.smtsis.models.administrative.Usuario;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
@@ -16,7 +17,8 @@ public class BICAudited {
     private Long id;
 
     @NotNull
-    private Long usuarioId;
+    @ManyToMany
+    private Usuario usuario;
 
     @NotNull
     private String observacoes;
@@ -34,12 +36,12 @@ public class BICAudited {
         this.id = id;
     }
 
-    public Long getUsuarioId() {
-        return usuarioId;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setUsuarioId(Long usuarioId) {
-        this.usuarioId = usuarioId;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     public String getObservacoes() {

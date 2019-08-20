@@ -4,11 +4,13 @@ import br.gov.rn.saogoncalo.smtsis.enums.Loteamento;
 import br.gov.rn.saogoncalo.smtsis.enums.TipoNatureza;
 import br.gov.rn.saogoncalo.smtsis.models.AuditedEntity;
 import br.gov.rn.saogoncalo.smtsis.models.contribuinte.Contribuinte;
+import br.gov.rn.saogoncalo.smtsis.models.formulario.BoletimIncricaoCadastral;
 import br.gov.rn.saogoncalo.smtsis.models.imovel.InfoGerais.*;
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import org.springframework.data.jpa.repository.Query;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.Objects;
 
 @Entity
@@ -73,6 +75,10 @@ public class Imovel extends AuditedEntity {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_imovel_benfeitorias", referencedColumnName = "id_benfeitorias", unique = true)
     private Benfeitorias benfeitorias;
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "imovel", fetch = FetchType.EAGER, orphanRemoval = true, cascade = CascadeType.ALL)
+    private Collection<BoletimIncricaoCadastral> boletimIncricaoCadastral;
 
     @Override
     public String toString() {
