@@ -15,12 +15,10 @@ public class BICAudited {
     @Column(name = "id_bicaudited")
     private Long id;
 
-//    @NotNull
-//    @JsonManagedReference
-//    @OneToOne(orphanRemoval = true, fetch = FetchType.EAGER)
-//    private Usuario usuario;
+    //    @Column(unique = true, columnDefinition = "int(7) ZEROFILL", length = 7)
+    private int usuarioMatricula;
 
-    private Long usuarioId;
+    private String numeroProtocolo;
 
     @NotNull
     private String observacoes;
@@ -36,6 +34,22 @@ public class BICAudited {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public int getUsuarioMatricula() {
+        return usuarioMatricula;
+    }
+
+    public void setUsuarioMatricula(int usuarioMatricula) {
+        this.usuarioMatricula = usuarioMatricula;
+    }
+
+    public String getNumeroProtocolo() {
+        return numeroProtocolo;
+    }
+
+    public void setNumeroProtocolo(String numeroProtocolo) {
+        this.numeroProtocolo = numeroProtocolo;
     }
 
     public String getObservacoes() {
