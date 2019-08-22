@@ -8,13 +8,17 @@ import br.gov.rn.saogoncalo.smtsis.models.formulario.BoletimIncricaoCadastral;
 import br.gov.rn.saogoncalo.smtsis.models.imovel.InfoGerais.*;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.Collection;
-import java.util.Objects;
 
 @Entity
 @Table(name = "imoveis")
+@Getter @Setter @EqualsAndHashCode @ToString
 public class Imovel extends AuditedEntity {
 
     @Id
@@ -35,43 +39,28 @@ public class Imovel extends AuditedEntity {
     @Column(length = 11)
     private String lote;
 
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "id_BIC")
-//    private Set<BoletimIncricaoCadastral> boletinsIncricaoCadastral;
 
-    //@NotNull
-    //@NotEmpty
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_imovel_endereco", referencedColumnName = "id_endereco", unique = true)
     private ImovelEndereco imovelEndereco;
 
-
-    //@NotNull
-    //@NotEmpty
     @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "id_imovel_contribuinte", referencedColumnName = "id_contribuinte", updatable = false)
     private Contribuinte contribuinte;
 
-    //@NotNull
-    //@NotEmpty
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_imovel_unidade", referencedColumnName = "id_infoUnidade", unique = true)
     private InfoUnidade infoUnidade;
 
-    //@NotNull
-    //@NotEmpty
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_imovel_edificacao", referencedColumnName = "id_infoEdificacao", unique = true)
     private InfoEdificacao infoEdificacao;
 
-    //@NotNull
-    //@NotEmpty
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_imovel_terreno", referencedColumnName = "id_infoTerreno", unique = true)
     private InfoTerreno infoTerreno;
 
-    //@NotNull
-    //@NotEmpty
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_imovel_benfeitorias", referencedColumnName = "id_benfeitorias", unique = true)
     private Benfeitorias benfeitorias;
@@ -80,139 +69,14 @@ public class Imovel extends AuditedEntity {
     @OneToMany(mappedBy = "imovelId", fetch = FetchType.EAGER, orphanRemoval = true, cascade = CascadeType.ALL)
     private Collection<BoletimIncricaoCadastral> boletimIncricaoCadastral;
 
-    @Override
-    public String toString() {
-        return "Imovel{" +
-                "id=" + id +
-                ", inscricao='" + inscricao + '\'' +
-                ", natureza=" + natureza +
-                ", loteamento=" + loteamento +
-                ", sequencial=" + sequencial +
-                ", quadra='" + quadra + '\'' +
-                ", lote='" + lote + '\'' +
-                ", imovelEndereco=" + imovelEndereco +
-//                ", contribuinte=" + contribuinte +
-                ", infoUnidade=" + infoUnidade +
-                ", infoEdificacao=" + infoEdificacao +
-                ", infoTerreno=" + infoTerreno +
-                ", benfeitorias=" + benfeitorias +
-                '}';
-    }
 
+    @Override
     public Long getId() {
-        return id;
+        return null;
     }
 
+    @Override
     public void setId(Long id) {
-        this.id = id;
-    }
 
-    public String getInscricao() {
-        return inscricao;
-    }
-
-    public void setInscricao(String inscricao) {
-        this.inscricao = inscricao;
-    }
-
-    public TipoNatureza getNatureza() {
-        return natureza;
-    }
-
-    public void setNatureza(TipoNatureza natureza) {
-        this.natureza = natureza;
-    }
-
-    public Loteamento getLoteamento() {
-        return loteamento;
-    }
-
-    public void setLoteamento(Loteamento loteamento) {
-        this.loteamento = loteamento;
-    }
-
-    public int getSequencial() {
-        return sequencial;
-    }
-
-    public void setSequencial(int sequencial) {
-        this.sequencial = sequencial;
-    }
-
-    public String getQuadra() {
-        return quadra;
-    }
-
-    public void setQuadra(String quadra) {
-        this.quadra = quadra;
-    }
-
-    public String getLote() {
-        return lote;
-    }
-
-    public void setLote(String lote) {
-        this.lote = lote;
-    }
-
-    public ImovelEndereco getImovelEndereco() {
-        return imovelEndereco;
-    }
-
-    public void setImovelEndereco(ImovelEndereco imovelEndereco) {
-        this.imovelEndereco = imovelEndereco;
-    }
-
-    public InfoUnidade getInfoUnidade() {
-        return infoUnidade;
-    }
-
-    public void setInfoUnidade(InfoUnidade infoUnidade) {
-        this.infoUnidade = infoUnidade;
-    }
-
-    public InfoEdificacao getInfoEdificacao() {
-        return infoEdificacao;
-    }
-
-    public void setInfoEdificacao(InfoEdificacao infoEdificacao) {
-        this.infoEdificacao = infoEdificacao;
-    }
-
-    public InfoTerreno getInfoTerreno() {
-        return infoTerreno;
-    }
-
-    public void setInfoTerreno(InfoTerreno infoTerreno) {
-        this.infoTerreno = infoTerreno;
-    }
-
-    public Benfeitorias getBenfeitorias() {
-        return benfeitorias;
-    }
-
-    public void setBenfeitorias(Benfeitorias benfeitorias) {
-        this.benfeitorias = benfeitorias;
-    }
-
-    public Contribuinte getContribuinte() {
-        return contribuinte;
-    }
-
-    public void setContribuinte(Contribuinte contribuinte) {
-        this.contribuinte = contribuinte;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Imovel imovel = (Imovel) o;
-        return Objects.equals(id, imovel.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
     }
 }

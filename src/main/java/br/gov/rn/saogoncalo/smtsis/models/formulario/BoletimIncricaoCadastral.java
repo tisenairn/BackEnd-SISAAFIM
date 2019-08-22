@@ -4,13 +4,17 @@ import br.gov.rn.saogoncalo.smtsis.models.AuditedEntity;
 import br.gov.rn.saogoncalo.smtsis.models.imovel.Imovel;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.Collection;
-import java.util.Objects;
 
 @Entity
 @Table(name = "boletim_inscricao_cadastral")
+@Getter @Setter @EqualsAndHashCode @ToString
 public class BoletimIncricaoCadastral extends AuditedEntity  {
 
     @Id
@@ -32,48 +36,11 @@ public class BoletimIncricaoCadastral extends AuditedEntity  {
 
     @Override
     public Long getId() {
-        return id;
+        return null;
     }
 
     @Override
     public void setId(Long id) {
-        this.id = id;
-    }
 
-    public String getInscricaoImovel() {
-        return inscricaoImovel;
-    }
-
-    public void setInscricaoImovel(String inscricaoImovel) {
-        this.inscricaoImovel = inscricaoImovel;
-    }
-
-    public Collection<BICAudited> getAuditoria() {
-        return auditoria;
-    }
-
-    public void setAuditoria(Collection<BICAudited> auditoria) {
-        this.auditoria = auditoria;
-    }
-
-    public Imovel getImovelId() {
-        return imovelId;
-    }
-
-    public void setImovelId(Imovel imovelId) {
-        this.imovelId = imovelId;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        BoletimIncricaoCadastral that = (BoletimIncricaoCadastral) o;
-        return Objects.equals(id, that.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
     }
 }
