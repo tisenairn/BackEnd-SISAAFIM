@@ -2,7 +2,6 @@ package br.gov.rn.saogoncalo.smtsis.models.administrative;
 
 import br.gov.rn.saogoncalo.smtsis.enums.TipoUsuario;
 import br.gov.rn.saogoncalo.smtsis.models.AuditedEntity;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -24,7 +23,6 @@ public class Usuario extends AuditedEntity {
     private int matricula;
 
     //@NotEmpty
-    @JsonIgnore
     private String senha;
 
     //@NotEmpty

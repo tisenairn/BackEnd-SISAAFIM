@@ -35,7 +35,6 @@ public class Imovel extends AuditedEntity {
     @Column(length = 11)
     private String lote;
 
-
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_imovel_endereco", referencedColumnName = "id_endereco", unique = true)
     private ImovelEndereco imovelEndereco;
@@ -43,7 +42,7 @@ public class Imovel extends AuditedEntity {
     @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "id_imovel_contribuinte", referencedColumnName = "id_contribuinte", updatable = false)
-    private Contribuinte contribuinte;
+    private Contribuinte contribuinteId;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_imovel_unidade", referencedColumnName = "id_infoUnidade", unique = true)
