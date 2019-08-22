@@ -2,6 +2,7 @@ package br.gov.rn.saogoncalo.smtsis;
 
 import br.gov.rn.saogoncalo.smtsis.enums.TipoUsuario;
 import br.gov.rn.saogoncalo.smtsis.models.administrative.Usuario;
+import br.gov.rn.saogoncalo.smtsis.models.formulario.BoletimIncricaoCadastral;
 import br.gov.rn.saogoncalo.smtsis.repositories.UsuarioRepository;
 import org.junit.Rule;
 import org.junit.Test;
@@ -27,7 +28,7 @@ public class UsuarioRepositoryTeste {
 
     @Test
     public void salvarDevePersistirOsDados() {
-        Usuario usuario = new Usuario(123L, "12345678", "Lindson",
+        Usuario usuario = new Usuario(123, "12345678", "Lindson",
                 TipoUsuario.FISCAL,"986326467","lindson@gmail.com", "Tecnico");
         this.usuarioRepository.save(usuario);
         usuario = usuarioRepository.getOne(usuario.getId());
@@ -43,7 +44,7 @@ public class UsuarioRepositoryTeste {
 
     @Test
     public void removerDeveModificarOsTipoAtivo(){
-        Usuario usuario = new Usuario(1234567L, "12345678", "Lindson",
+        Usuario usuario = new Usuario(1234567, "12345678", "Lindson",
                 TipoUsuario.FISCAL,"986326467","lindson@gmail.com", "Tecnico");
         this.usuarioRepository.save(usuario);
         this.usuarioRepository.delete(usuario);
@@ -56,7 +57,7 @@ public class UsuarioRepositoryTeste {
 
     @Test
     public void atualizarDeveModificarEPersistirOsDados(){
-        Usuario usuario = new Usuario( 123L, "12345678", "Lindson",
+        Usuario usuario = new Usuario( 123, "12345678", "Lindson",
                 TipoUsuario.FISCAL,"986326467","lindson@gmail.com", "Tecnico");
         this.usuarioRepository.save(usuario);
         usuario.setNome("Outro Lindson");
@@ -69,9 +70,9 @@ public class UsuarioRepositoryTeste {
 
     @Test
     public void findByMatricula(){
-        Usuario usuario = new Usuario( 123L, "12345678", "Lindson",
+        Usuario usuario = new Usuario( 123, "12345678", "Lindson",
                 TipoUsuario.FISCAL,"986326467","lindson@gmail.com", "Tecnico");
-        Usuario usuario2 = new Usuario( 456L, "12345678", "Lindson",
+        Usuario usuario2 = new Usuario( 456, "12345678", "Lindson",
                 TipoUsuario.FISCAL,"986326467","lindson@gmail.com", "Tecnico");
         this.usuarioRepository.save(usuario);
         this.usuarioRepository.save(usuario2);
@@ -83,15 +84,15 @@ public class UsuarioRepositoryTeste {
 
     @Test
     public void findByTipo(){
-        Usuario usuario = new Usuario( 0000123L, "12345678", "Lindson",
+        Usuario usuario = new Usuario( 0000123, "12345678", "Lindson",
                 TipoUsuario.FISCAL,"986326467","lindson@gmail.com", "Tecnico");
-        Usuario usuario2 = new Usuario( 0000456L, "12345678", "Lindson",
+        Usuario usuario2 = new Usuario( 0000456, "12345678", "Lindson",
                 TipoUsuario.ADMINISTRADOR,"986326467","lindson@gmail.com", "Tecnico");
-        Usuario usuario3 = new Usuario( 19687L, "12345678", "Lindson",
+        Usuario usuario3 = new Usuario( 19687, "12345678", "Lindson",
                 TipoUsuario.ADMINISTRADOR,"986326467","lindson@gmail.com", "Tecnico");
-        Usuario usuario4 = new Usuario( 0001011L, "12345678", "Lindson",
+        Usuario usuario4 = new Usuario( 0001011, "12345678", "Lindson",
                 TipoUsuario.FISCAL,"986326467","lindson@gmail.com", "Tecnico");
-        Usuario usuario5 = new Usuario( 0001213L, "12345678", "Lindson",
+        Usuario usuario5 = new Usuario( 0001213, "12345678", "Lindson",
                 TipoUsuario.SUPERVISOR,"986326467","lindson@gmail.com", "Tecnico");
 
         this.usuarioRepository.save(usuario);

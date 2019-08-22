@@ -1,13 +1,20 @@
 package br.gov.rn.saogoncalo.smtsis.models.contribuinte;
 
 import br.gov.rn.saogoncalo.smtsis.models.AuditedEntity;
+import br.gov.rn.saogoncalo.smtsis.models.imovel.Imovel;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.Data;
 
 import javax.persistence.*;
-import java.util.Objects;
+import java.io.Serializable;
+import java.util.Collection;
 
 @Entity
 @Table(name = "contribuintes")
-public class Contribuinte extends AuditedEntity {
+@Data //A shortcut for @ToString, @EqualsAndHashCode, @Getter, @Setter and @RequiredArgsConstructor!
+public class Contribuinte extends AuditedEntity implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,6 +37,12 @@ public class Contribuinte extends AuditedEntity {
     @Column(nullable = true)
     private String celular;
 
+//  mappedBy referencia a instância deste objeto na classe imovel.
+    @JsonIgnore
+    @JsonManagedReference
+    @OneToMany(mappedBy = "contribuinteId", fetch = FetchType.EAGER, orphanRemoval = true, cascade = CascadeType.ALL)
+    private Collection<Imovel> imovel;
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_contribuinte_endereco", referencedColumnName = "id_endereco", unique = true)
     private ContribuinteEndereco contribuinteEndereco;
@@ -37,104 +50,13 @@ public class Contribuinte extends AuditedEntity {
     public Contribuinte(){
     }
 
+    @Override
     public Long getId() {
-        return id;
+        return null;
     }
 
+    @Override
     public void setId(Long id) {
-        this.id = id;
-    }
 
-    public String getCpfCnpj() {
-        return cpfCnpj;
     }
-
-    public void setCpfCnpj(String cpfCnpj) {
-        this.cpfCnpj = cpfCnpj;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getTelefoneResidencial() {
-        return telefoneResidencial;
-    }
-
-    public void setTelefoneResidencial(String telefoneResidencial) {
-        this.telefoneResidencial = telefoneResidencial;
-    }
-
-    public String getTelefoneComercial() {
-        return telefoneComercial;
-    }
-
-    public void setTelefoneComercial(String telefoneComercial) {
-        this.telefoneComercial = telefoneComercial;
-    }
-
-    public String getFax() {
-        return fax;
-    }
-
-    public void setFax(String fax) {
-        this.fax = fax;
-    }
-
-    public String getCelular() {
-        return celular;
-    }
-
-    public void setCelular(String celular) {
-        this.celular = celular;
-    }
-
-    public ContribuinteEndereco getContribuinteEndereco() {
-        return contribuinteEndereco;
-    }
-
-    public void setContribuinteEndereco(ContribuinteEndereco contribuinteEndereco) {
-        this.contribuinteEndereco = contribuinteEndereco;
-    }
-
-    @Override
-    public String toString() {
-        return "Contribuinte{" +
-                "id=" + id +
-                ", cpfCnpj='" + cpfCnpj + '\'' +
-                ", nome='" + nome + '\'' +
-                ", email='" + email + '\'' +
-                ", telefoneResidencial='" + telefoneResidencial + '\'' +
-                ", telefoneComercial='" + telefoneComercial + '\'' +
-                ", fax='" + fax + '\'' +
-                ", celular='" + celular + '\'' +
-                ", contribuinteEndereco=" + contribuinteEndereco +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Contribuinte that = (Contribuinte) o;
-        return Objects.equals(id, that.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
-
 }

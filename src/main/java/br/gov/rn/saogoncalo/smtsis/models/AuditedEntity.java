@@ -10,7 +10,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @MappedSuperclass
-public abstract class AuditedEntity implements Comparable<AuditedEntity>, PersistableEntity<Long> {
+public abstract class AuditedEntity implements Comparable<AuditedEntity>, PersistableEntity<Long>{
 
     @CreatedDate
     @Column(name = "data_criacao", nullable = false, updatable = false)
@@ -18,6 +18,7 @@ public abstract class AuditedEntity implements Comparable<AuditedEntity>, Persis
     @Temporal(TemporalType.TIMESTAMP)
     @JsonIgnore
     private Date dataCriacao = new Date();
+
     @LastModifiedDate
     @Column(name ="data_modificacao", nullable = true)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -31,8 +32,9 @@ public abstract class AuditedEntity implements Comparable<AuditedEntity>, Persis
 
     @Column(name = "ativo", nullable = false)
     @JsonIgnore
-    protected Boolean ativo = true;
+    private Boolean ativo = true;
 
+    @JsonIgnore
     public Date getDataCriacao() {
         return dataCriacao;
     }

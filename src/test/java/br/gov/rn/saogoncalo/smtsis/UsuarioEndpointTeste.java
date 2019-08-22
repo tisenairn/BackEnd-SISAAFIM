@@ -44,16 +44,16 @@ public class UsuarioEndpointTeste {
 //    final String baseUrl = "http://localhost/usuario/";
 
     private final List<Usuario> usuarios = new ArrayList<>();
-    private Optional<Usuario> usuario = Optional.of(new Usuario(3L, 000126L, "12345678",
+    private Optional<Usuario> usuario = Optional.of(new Usuario(3L, 000126, "12345678",
             "Optional<Lindson>", TipoUsuario.FISCAL, "988888888", "lindson@hotmail.com", "Técnico"));
 
     @Before
     public void AlimentarOsTestes(){
         System.out.println("Rodando na porta: "+randomServerPort);
 
-        usuarios.add(new Usuario(0000124L, "12345678", "Lindson",
+        usuarios.add(new Usuario(0000124, "12345678", "Lindson",
                 TipoUsuario.FISCAL,"986326467","lindson@gmail.com", "Tecnico"));
-        usuarios.add(new Usuario(0000125L, "88888888", "Lindson França",
+        usuarios.add(new Usuario(0000125, "88888888", "Lindson França",
                 TipoUsuario.SUPERVISOR,"986326467","lindson@gmail.com", "Caba de peia"));
 //      usuario =  new Optional<Usuario>(3L, 0000126L, "88888888", "Lindson França",
 //                TipoUsuario.SUPERVISOR,"986326467","lindson@gmail.com", "Caba de peia");

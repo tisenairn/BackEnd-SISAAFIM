@@ -2,9 +2,8 @@ package br.gov.rn.saogoncalo.smtsis.repositories;
 
 import java.io.Serializable;
 
-public interface PersistableEntity <PrimaryKey extends Serializable> {
+public interface PersistableEntity <PK extends Serializable> {
 
-    PrimaryKey getId();
-    void setId(PrimaryKey id);
-
+    PK getId();
+    void setId(PK id);
 }
