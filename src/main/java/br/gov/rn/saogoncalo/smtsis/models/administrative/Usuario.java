@@ -3,17 +3,14 @@ package br.gov.rn.saogoncalo.smtsis.models.administrative;
 import br.gov.rn.saogoncalo.smtsis.enums.TipoUsuario;
 import br.gov.rn.saogoncalo.smtsis.models.AuditedEntity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
 @Table(name = "usuarios")
-@Getter @Setter @EqualsAndHashCode @ToString
+@Data
 public class Usuario extends AuditedEntity {
 
     @Id

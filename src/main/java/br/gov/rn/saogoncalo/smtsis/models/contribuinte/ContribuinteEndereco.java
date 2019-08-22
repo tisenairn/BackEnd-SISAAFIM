@@ -3,17 +3,13 @@ package br.gov.rn.saogoncalo.smtsis.models.contribuinte;
 import br.gov.rn.saogoncalo.smtsis.enums.TipoLogradouro;
 import br.gov.rn.saogoncalo.smtsis.enums.TipoSubunidade;
 import br.gov.rn.saogoncalo.smtsis.enums.UnidadeFederativa;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 
 import javax.persistence.*;
-import java.util.Objects;
 
 @Entity
 @Table(name = "contribuintes_endereco")
-@Getter @Setter @EqualsAndHashCode @ToString
+@Data //A shortcut for @ToString, @EqualsAndHashCode, @Getter, @Setter and @RequiredArgsConstructor!
 public class ContribuinteEndereco {
 // Entidade não obrigatória, ou seja, tudo nesta entidade pode ser nulo.
     @Id

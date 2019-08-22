@@ -1,17 +1,16 @@
 package br.gov.rn.saogoncalo.smtsis.models.imovel.InfoGerais;
 
-import br.gov.rn.saogoncalo.smtsis.enums.*;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import br.gov.rn.saogoncalo.smtsis.enums.PadraoQualidade;
+import br.gov.rn.saogoncalo.smtsis.enums.TipoEstrutura;
+import br.gov.rn.saogoncalo.smtsis.enums.TipoImovel;
+import br.gov.rn.saogoncalo.smtsis.enums.UtilizacaoImovel;
+import lombok.Data;
 
 import javax.persistence.*;
-import java.util.Objects;
 
 @Entity
 @Table(name = "informacoes_edificacao")
-@Getter @Setter @EqualsAndHashCode @ToString
+@Data //A shortcut for @ToString, @EqualsAndHashCode, @Getter, @Setter and @RequiredArgsConstructor!
 public class InfoEdificacao {
 
 //    TODO Criar tratamento de exceção para o tamanho máximo do RANGE.

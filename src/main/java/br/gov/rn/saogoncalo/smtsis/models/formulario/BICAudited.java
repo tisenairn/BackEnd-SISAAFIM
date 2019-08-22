@@ -1,17 +1,14 @@
 package br.gov.rn.saogoncalo.smtsis.models.formulario;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "bic_audited")
-@Getter @Setter @EqualsAndHashCode @ToString
+@Data //A shortcut for @ToString, @EqualsAndHashCode, @Getter, @Setter and @RequiredArgsConstructor!
 public class BICAudited {
 
     @Id

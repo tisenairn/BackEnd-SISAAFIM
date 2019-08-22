@@ -2,17 +2,13 @@ package br.gov.rn.saogoncalo.smtsis.models.imovel.InfoGerais;
 
 import br.gov.rn.saogoncalo.smtsis.enums.Limitacao;
 import br.gov.rn.saogoncalo.smtsis.enums.Patrimonio;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 
 import javax.persistence.*;
-import java.util.Objects;
 
 @Entity
 @Table(name = "informacoes_unidade")
-@Getter @Setter @EqualsAndHashCode @ToString
+@Data //A shortcut for @ToString, @EqualsAndHashCode, @Getter, @Setter and @RequiredArgsConstructor!
 public class InfoUnidade {
 
     @Id

@@ -1,17 +1,13 @@
 package br.gov.rn.saogoncalo.smtsis.models.imovel.InfoGerais;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
-import java.util.Objects;
 
 @Entity
 @Table(name = "localizacoes")
-@Getter @Setter @EqualsAndHashCode @ToString
+@Data //A shortcut for @ToString, @EqualsAndHashCode, @Getter, @Setter and @RequiredArgsConstructor!
 public class LocalizacaoEndereco {
 
     @Id

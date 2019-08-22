@@ -8,17 +8,13 @@ import br.gov.rn.saogoncalo.smtsis.models.formulario.BoletimIncricaoCadastral;
 import br.gov.rn.saogoncalo.smtsis.models.imovel.InfoGerais.*;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Collection;
-
+@Data //A shortcut for @ToString, @EqualsAndHashCode, @Getter, @Setter and @RequiredArgsConstructor!
 @Entity
 @Table(name = "imoveis")
-@Getter @Setter @EqualsAndHashCode @ToString
 public class Imovel extends AuditedEntity {
 
     @Id
@@ -77,6 +73,5 @@ public class Imovel extends AuditedEntity {
 
     @Override
     public void setId(Long id) {
-
     }
 }

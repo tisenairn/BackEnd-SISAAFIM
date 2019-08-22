@@ -3,17 +3,13 @@ package br.gov.rn.saogoncalo.smtsis.models.imovel.InfoGerais;
 import br.gov.rn.saogoncalo.smtsis.enums.Bairro;
 import br.gov.rn.saogoncalo.smtsis.enums.Edificio;
 import br.gov.rn.saogoncalo.smtsis.enums.TipoSubunidade;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 
 import javax.persistence.*;
-import java.util.Objects;
 
 @Entity
 @Table(name = "imoveis_endereco")
-@Getter @Setter @EqualsAndHashCode @ToString
+@Data //A shortcut for @ToString, @EqualsAndHashCode, @Getter, @Setter and @RequiredArgsConstructor!
 public class ImovelEndereco {
 
     @Id

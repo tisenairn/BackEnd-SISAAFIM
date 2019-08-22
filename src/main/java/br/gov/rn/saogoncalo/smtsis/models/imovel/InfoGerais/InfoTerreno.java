@@ -4,17 +4,13 @@ import br.gov.rn.saogoncalo.smtsis.enums.EstadoConservacao;
 import br.gov.rn.saogoncalo.smtsis.enums.Pedologia;
 import br.gov.rn.saogoncalo.smtsis.enums.SituacaoTerreno;
 import br.gov.rn.saogoncalo.smtsis.enums.Topografia;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 
 import javax.persistence.*;
-import java.util.Objects;
 
 @Entity
 @Table(name = "informacoes_terreno")
-@Getter @Setter @EqualsAndHashCode @ToString
+@Data //A shortcut for @ToString, @EqualsAndHashCode, @Getter, @Setter and @RequiredArgsConstructor!
 public class InfoTerreno {
 
     //    TODO Criar tratamento de exceção para o tamanho máximo do RANGE.
