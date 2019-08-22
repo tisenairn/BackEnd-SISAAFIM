@@ -40,7 +40,7 @@ public class Contribuinte extends AuditedEntity implements Serializable {
 //  mappedBy referencia a instância deste objeto na classe imovel.
     @JsonIgnore
     @JsonManagedReference
-    @OneToMany(mappedBy = "contribuinte", fetch = FetchType.EAGER, orphanRemoval = true, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "contribuinteId", fetch = FetchType.EAGER, orphanRemoval = true, cascade = CascadeType.ALL)
     private Collection<Imovel> imovel;
 
     @OneToOne(cascade = CascadeType.ALL)
