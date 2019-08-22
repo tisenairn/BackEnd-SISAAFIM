@@ -16,16 +16,17 @@ public class BICAudited {
     @Column(name = "id_bicaudited")
     private Long id;
 
-    @NotNull
-    @ManyToMany
-    private Usuario usuario;
+    //    @Column(unique = true, columnDefinition = "int(7) ZEROFILL", length = 7)
+    private int usuarioMatricula;
+
+    private String numeroProtocolo;
 
     @NotNull
     private String observacoes;
 
     @JsonBackReference
     @ManyToOne
-    @JoinColumn(name = "BICAudited_BIC")
+    @JoinColumn(name = "id_bicaudited_bic", referencedColumnName = "id_BIC", updatable = false)
     private BoletimIncricaoCadastral boletim;
 
     public Long getId() {
@@ -36,12 +37,20 @@ public class BICAudited {
         this.id = id;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public int getUsuarioMatricula() {
+        return usuarioMatricula;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setUsuarioMatricula(int usuarioMatricula) {
+        this.usuarioMatricula = usuarioMatricula;
+    }
+
+    public String getNumeroProtocolo() {
+        return numeroProtocolo;
+    }
+
+    public void setNumeroProtocolo(String numeroProtocolo) {
+        this.numeroProtocolo = numeroProtocolo;
     }
 
     public String getObservacoes() {

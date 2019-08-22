@@ -18,29 +18,34 @@ public class BoletimIncricaoCadastral extends AuditedEntity  {
     @Column(name = "id_BIC")
     private Long id;
 
+    private String inscricaoImovel;
+
     @JsonManagedReference
-    @OneToMany(mappedBy = "boletim", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "boletim", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @Column(nullable = false, name = "id_bic_auditoria")
     private Collection<BICAudited> auditoria;
 
     @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "id_bic_imovel", referencedColumnName = "id_imovel", updatable = false)
-    private Imovel imovel;
+    private Imovel imovelId;
 
+    @Override
     public Long getId() {
         return id;
     }
 
+    @Override
     public void setId(Long id) {
         this.id = id;
     }
 
-    public Imovel getImovel() {
-        return imovel;
+    public String getInscricaoImovel() {
+        return inscricaoImovel;
     }
 
-    public void setImovel(Imovel imovel) {
-        this.imovel = imovel;
+    public void setInscricaoImovel(String inscricaoImovel) {
+        this.inscricaoImovel = inscricaoImovel;
     }
 
     public Collection<BICAudited> getAuditoria() {
@@ -49,6 +54,14 @@ public class BoletimIncricaoCadastral extends AuditedEntity  {
 
     public void setAuditoria(Collection<BICAudited> auditoria) {
         this.auditoria = auditoria;
+    }
+
+    public Imovel getImovelId() {
+        return imovelId;
+    }
+
+    public void setImovelId(Imovel imovelId) {
+        this.imovelId = imovelId;
     }
 
     @Override

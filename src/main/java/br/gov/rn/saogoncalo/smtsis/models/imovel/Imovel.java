@@ -77,7 +77,7 @@ public class Imovel extends AuditedEntity {
     private Benfeitorias benfeitorias;
 
     @JsonManagedReference
-    @OneToMany(mappedBy = "imovel", fetch = FetchType.EAGER, orphanRemoval = true, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "imovelId", fetch = FetchType.EAGER, orphanRemoval = true, cascade = CascadeType.ALL)
     private Collection<BoletimIncricaoCadastral> boletimIncricaoCadastral;
 
     @Override

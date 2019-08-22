@@ -43,6 +43,8 @@ public class Usuario extends AuditedEntity {
     //@NotNull
     //@NotEmpty
 
+
+
     @Override
     public String toString() {
         return "Usuario [id=" + id + ", matricula=" + matricula + ", nome=" + nome + ", senha=" + senha + ", tipo="

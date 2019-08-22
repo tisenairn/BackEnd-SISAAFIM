@@ -2,6 +2,7 @@ package br.gov.rn.saogoncalo.smtsis.models.contribuinte;
 
 import br.gov.rn.saogoncalo.smtsis.models.AuditedEntity;
 import br.gov.rn.saogoncalo.smtsis.models.imovel.Imovel;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
@@ -36,6 +37,7 @@ public class Contribuinte extends AuditedEntity implements Serializable {
     private String celular;
 
 //  mappedBy referencia a instância deste objeto na classe imovel.
+    @JsonIgnore
     @JsonManagedReference
     @OneToMany(mappedBy = "contribuinte", fetch = FetchType.EAGER, orphanRemoval = true, cascade = CascadeType.ALL)
     private Collection<Imovel> imovel;
