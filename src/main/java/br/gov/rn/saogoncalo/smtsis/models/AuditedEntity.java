@@ -1,16 +1,13 @@
 package br.gov.rn.saogoncalo.smtsis.models;
 
-import java.util.Date;
-
-import javax.persistence.*;
-
+import br.gov.rn.saogoncalo.smtsis.repositories.PersistableEntity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import br.gov.rn.saogoncalo.smtsis.repositories.PersistableEntity;
+import javax.persistence.*;
+import java.util.Date;
 
 @MappedSuperclass
 public abstract class AuditedEntity implements Comparable<AuditedEntity>, PersistableEntity<Long>{
@@ -20,7 +17,6 @@ public abstract class AuditedEntity implements Comparable<AuditedEntity>, Persis
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Temporal(TemporalType.TIMESTAMP)
     @JsonIgnore
-    //JsonIgnore usado para ocultar no cabeçalho get do protocolo http
     private Date dataCriacao = new Date();
 
     @LastModifiedDate

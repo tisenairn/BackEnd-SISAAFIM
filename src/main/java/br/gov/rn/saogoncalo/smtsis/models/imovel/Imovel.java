@@ -4,18 +4,22 @@ import br.gov.rn.saogoncalo.smtsis.enums.Loteamento;
 import br.gov.rn.saogoncalo.smtsis.enums.TipoNatureza;
 import br.gov.rn.saogoncalo.smtsis.models.AuditedEntity;
 import br.gov.rn.saogoncalo.smtsis.models.contribuinte.Contribuinte;
+import br.gov.rn.saogoncalo.smtsis.models.formulario.BoletimIncricaoCadastral;
 import br.gov.rn.saogoncalo.smtsis.models.imovel.InfoGerais.*;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.Data;
 
 import javax.persistence.*;
-import java.util.Objects;
-
+import java.util.Collection;
+@Data //A shortcut for @ToString, @EqualsAndHashCode, @Getter, @Setter and @RequiredArgsConstructor!
 @Entity
 @Table(name = "imoveis")
 public class Imovel extends AuditedEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_imovel")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id_imovel", nullable = false, unique = true)
     private Long id;
     private String inscricao;
     @Column(columnDefinition = "TINYINT(1) UNSIGNED")
@@ -31,176 +35,33 @@ public class Imovel extends AuditedEntity {
     @Column(length = 11)
     private String lote;
 
-
-    //@NotNull
-    //@NotEmpty
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_imovel_endereco", referencedColumnName = "id_endereco", unique = true)
     private ImovelEndereco imovelEndereco;
 
-    //@NotNull
-    //@NotEmpty
-    @ManyToOne(cascade = CascadeType.ALL)  // relacionamento peculiar
-    @JoinColumn(name = "id_imovel_contribuinte", referencedColumnName = "id_contribuinte", unique = true)
-    private Contribuinte contribuinte;
+    @JsonBackReference
+    @ManyToOne
+    @JoinColumn(name = "id_imovel_contribuinte", referencedColumnName = "id_contribuinte", updatable = false)
+    private Contribuinte contribuinteId;
 
-    //@NotNull
-    //@NotEmpty
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_imovel_unidade", referencedColumnName = "id_infoUnidade", unique = true)
     private InfoUnidade infoUnidade;
 
-    //@NotNull
-    //@NotEmpty
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_imovel_edificacao", referencedColumnName = "id_infoEdificacao", unique = true)
     private InfoEdificacao infoEdificacao;
 
-    //@NotNull
-    //@NotEmpty
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_imovel_terreno", referencedColumnName = "id_infoTerreno", unique = true)
     private InfoTerreno infoTerreno;
 
-    //@NotNull
-    //@NotEmpty
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_imovel_benfeitorias", referencedColumnName = "id_benfeitorias", unique = true)
     private Benfeitorias benfeitorias;
 
-    @Override
-    public String toString() {
-        return "Imovel{" +
-                "id=" + id +
-                ", inscricao='" + inscricao + '\'' +
-                ", natureza=" + natureza +
-                ", loteamento=" + loteamento +
-                ", sequencial=" + sequencial +
-                ", quadra='" + quadra + '\'' +
-                ", lote='" + lote + '\'' +
-                ", imovelEndereco=" + imovelEndereco +
-                ", contribuinte=" + contribuinte +
-                ", infoUnidade=" + infoUnidade +
-                ", infoEdificacao=" + infoEdificacao +
-                ", infoTerreno=" + infoTerreno +
-                ", benfeitorias=" + benfeitorias +
-                '}';
-    }
+    @JsonManagedReference
+    @OneToMany(mappedBy = "imovelId", fetch = FetchType.EAGER, orphanRemoval = true, cascade = CascadeType.ALL)
+    private Collection<BoletimIncricaoCadastral> boletimIncricaoCadastral;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getInscricao() {
-        return inscricao;
-    }
-
-    public void setInscricao(String inscricao) {
-        this.inscricao = inscricao;
-    }
-
-    public TipoNatureza getNatureza() {
-        return natureza;
-    }
-
-    public void setNatureza(TipoNatureza natureza) {
-        this.natureza = natureza;
-    }
-
-    public Loteamento getLoteamento() {
-        return loteamento;
-    }
-
-    public void setLoteamento(Loteamento loteamento) {
-        this.loteamento = loteamento;
-    }
-
-    public int getSequencial() {
-        return sequencial;
-    }
-
-    public void setSequencial(int sequencial) {
-        this.sequencial = sequencial;
-    }
-
-    public String getQuadra() {
-        return quadra;
-    }
-
-    public void setQuadra(String quadra) {
-        this.quadra = quadra;
-    }
-
-    public String getLote() {
-        return lote;
-    }
-
-    public void setLote(String lote) {
-        this.lote = lote;
-    }
-
-    public ImovelEndereco getImovelEndereco() {
-        return imovelEndereco;
-    }
-
-    public void setImovelEndereco(ImovelEndereco imovelEndereco) {
-        this.imovelEndereco = imovelEndereco;
-    }
-
-    public Contribuinte getContribuinte() {
-        return contribuinte;
-    }
-
-    public void setContribuinte(Contribuinte contribuinte) {
-        this.contribuinte = contribuinte;
-    }
-
-    public InfoUnidade getInfoUnidade() {
-        return infoUnidade;
-    }
-
-    public void setInfoUnidade(InfoUnidade infoUnidade) {
-        this.infoUnidade = infoUnidade;
-    }
-
-    public InfoEdificacao getInfoEdificacao() {
-        return infoEdificacao;
-    }
-
-    public void setInfoEdificacao(InfoEdificacao infoEdificacao) {
-        this.infoEdificacao = infoEdificacao;
-    }
-
-    public InfoTerreno getInfoTerreno() {
-        return infoTerreno;
-    }
-
-    public void setInfoTerreno(InfoTerreno infoTerreno) {
-        this.infoTerreno = infoTerreno;
-    }
-
-    public Benfeitorias getBenfeitorias() {
-        return benfeitorias;
-    }
-
-    public void setBenfeitorias(Benfeitorias benfeitorias) {
-        this.benfeitorias = benfeitorias;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Imovel imovel = (Imovel) o;
-        return Objects.equals(id, imovel.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
 }

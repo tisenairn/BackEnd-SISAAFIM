@@ -1,9 +1,14 @@
 package br.gov.rn.saogoncalo.smtsis.services;
 
 import br.gov.rn.saogoncalo.smtsis.models.AuditedEntity;
+import br.gov.rn.saogoncalo.smtsis.models.administrative.Usuario;
+import br.gov.rn.saogoncalo.smtsis.models.imovel.Imovel;
 import br.gov.rn.saogoncalo.smtsis.repositories.GenericRepository;
+import org.dom4j.tree.AbstractEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.persistence.EntityManager;
+import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Optional;
 
@@ -77,7 +82,7 @@ public abstract class GenericService<T extends AuditedEntity>{
 //  Verifica o se Id é existente, e em seguida se o usuário está ativo.
     private T buscarAtivo(Long id){
         if (repository.existsById(id)){
-            Optional<T> entityEncontrada = repository.findById(id);
+            Optional<T> entityEncontrada = repository.findAtivoById(id);
             if (entityEncontrada.get().getAtivo())
                 return entityEncontrada.get();
         }
@@ -86,10 +91,11 @@ public abstract class GenericService<T extends AuditedEntity>{
 
     private T buscarInativo(Long id){
         if (repository.existsById(id)){
-            Optional<T> entityEncontrada = repository.findById(id);
+            Optional<T> entityEncontrada = repository.findInativoById(id);
             if (!entityEncontrada.get().getAtivo())
                 return entityEncontrada.get();
         }
         return null;
     }
+
 }
